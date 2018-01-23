@@ -310,6 +310,7 @@ _reformRedux: {
 * `npm run lint` - Code linting ([prettier](https://github.com/prettier/prettier) & [eslint](https://github.com/eslint/eslint))
 * `npm run fix` - Format code 
 * `npm test` - Run unit-tests
+* `npm coverage` - Test coverage information
 * `npm run test:dev` - Run unit-tests in watch mode
 * `npm run test:dev:inspect` - Run unit-tests in watch mode with chrome inspector
 * `npm run precommit` - Fix code and add fixed files to git
