@@ -267,9 +267,9 @@ describe('components / Field', () => {
 
     input.simulate('change', event);
 
-    expect(normalize).toBeCalledWith(
+    expect(normalize).lastCalledWith(
       'test',
-      '',
+      'TEST',
       { field: { disabled: false, errors: [], valid: true, value: 'TEST' } },
       'onChange',
     );
@@ -548,6 +548,30 @@ describe('components / Field', () => {
     });
   });
 
+  it('normalize value on onInit', () => {
+    expect.assertions(3);
+
+    const normalize = jest.fn();
+    normalize.mockReturnValue('TEST');
+
+    const component = mount(
+      createElement(
+        global.Provider,
+        {},
+        createElement(Field, {
+          name: 'field',
+          component: 'input',
+          value: 'test',
+          normalize,
+        }),
+      ),
+    );
+
+    expect(normalize).toBeCalledWith('test', '', {}, 'onInit');
+    expect(global.store.getState().form.fields.field.value).toBe('TEST');
+    expect(component.find('input').prop('value')).toBe('TEST');
+  });
+
   it('normalize value on onBlur', () => {
     const normalize = jest.fn();
     normalize.mockReturnValue('TEST');
@@ -570,8 +594,8 @@ describe('components / Field', () => {
     input.simulate('blur', event);
 
     expect(normalize).toBeCalledWith(
-      '',
-      '',
+      'TEST',
+      'TEST',
       { field: { disabled: false, errors: [], valid: true, value: 'TEST' } },
       'onBlur',
     );
@@ -648,9 +672,9 @@ describe('components / Field', () => {
 
     input.simulate('focus', event);
 
-    expect(normalize).toBeCalledWith(
-      '',
-      '',
+    expect(normalize).lastCalledWith(
+      'TEST',
+      'TEST',
       { field: { disabled: false, errors: [], valid: true, value: 'TEST' } },
       'onFocus',
     );

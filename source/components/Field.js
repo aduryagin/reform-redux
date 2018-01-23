@@ -57,8 +57,14 @@ class Field extends Component<ComponentProps, ComponentState> {
       );
     }
 
+    // Normalize value on component onInit
+
+    const value = props.normalize
+      ? props.normalize(props.value, '', {}, 'onInit')
+      : props.value || '';
+
     this.initialFieldData = {
-      value: props.value || '',
+      value,
       errors: [],
       valid: true,
       disabled: props.disabled || false,
