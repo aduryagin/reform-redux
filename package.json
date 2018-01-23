@@ -1,0 +1,62 @@
+{
+  "name": "reform-redux",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Simple realisation of react/redux form",
+  "keywords": [
+    "react",
+    "redux",
+    "form",
+    "asynchronous",
+    "validation",
+    "perfomance"
+  ],
+  "main": "./dist/reform-redux.es.js",
+  "module": "./dist/reform-redux.es.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "prop-types": "*",
+    "react": "*",
+    "redux": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-flow": "^7.0.0-beta.37",
+    "@babel/preset-stage-2": "^7.0.0-beta.36",
+    "babel-core": "^7.0.0-beta.3",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.0.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "flow-bin": "^0.62.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.6",
+    "prettier": "^1.9.2",
+    "react-dom": "*",
+    "rollup": "^0.53.1",
+    "rollup-plugin-babel": "^4.0.0-beta.0",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "uglify-es": "^3.3.4"
+  },
+  "scripts": {
+    "flow": "flow",
+    "flow-typed": "flow-typed install -l ./source/types/flow-typed",
+    "lint": "eslint source --ignore-pattern source/types/flow-typed",
+    "fix": "npm run lint -- --fix",
+    "build": "rollup -c",
+    "coverage": "npm run test -- --coverage",
+    "test": "jest --config ./jest/jest.config.js",
+    "test:dev": "npm run test -- --watch",
+    "test:dev:inspect": "node --inspect-brk node_modules/.bin/jest --runInBand --config ./jest/jest.config.js --watch",
+    "precommit": "npm run fix && git add .",
+    "prepush": "npm run lint && npm run test"
+  }
+}

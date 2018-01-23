@@ -1,0 +1,13 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-stage-2",
+        "@babel/preset-flow"
+      ],
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}
