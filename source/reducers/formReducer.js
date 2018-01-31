@@ -182,7 +182,7 @@ const reducers: {
   },
 };
 
-export default function reducerCreator(formName: string) {
+export default function formReducerCreator(formName: string) {
   return (state: State = initialState, action: Action): State => {
     if (action.formName !== formName) return state;
 

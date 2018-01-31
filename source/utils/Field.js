@@ -1,15 +1,17 @@
 import { asyncForEach } from '../utils/common';
-import type { FieldValidateProp } from '../types/Field';
+import type { FieldValidateProp, FieldValue } from '../types/Field';
 
-export const getValidateFunctionsArray = (validateProp: FieldValidateProp): Array<Function> => {
+export const getValidateFunctionsArray: Function = (
+  validateProp: FieldValidateProp,
+): Array<Function> => {
   if (!validateProp || !validateProp.length) return [];
   const validate: Array<Function> = !Array.isArray(validateProp) ? [validateProp] : validateProp;
 
   return validate;
 };
 
-export const validateField = async (
-  value: any,
+export const validateField: Function = async (
+  value: FieldValue,
   validateFunctions: Array<Function>,
 ): Promise<Array<string>> => {
   const errorsStack: Array<string> = [];

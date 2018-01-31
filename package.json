@@ -17,6 +17,7 @@
     "dist"
   ],
   "dependencies": {
+    "immutable": "*",
     "prop-types": "*",
     "react": "*",
     "redux": "*"
