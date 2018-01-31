@@ -1,5 +1,3 @@
-// @flow
-
 export const CHANGE_FIELD_VALUE: string = 'CHANGE_FIELD_VALUE';
 export const CHANGE_FIELDS_VALUES: string = 'CHANGE_FIELDS_VALUES';
 export const SET_FIELD_ERRORS: string = 'SET_FIELD_ERRORS';

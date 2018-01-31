@@ -1,13 +1,14 @@
 [ignore]
-.*/node_modules
-
-[include]
+.*/node_modules/.*
+.*/__tests__/.*
+.*/coverage/.*
+.*/jest/.*
+.*/dist/.*
+.*/package*
+.*/rollup*
 
 [libs]
 ./source/types/flow-typed
 
-[lints]
-
 [options]
-
-[strict]
+all=true

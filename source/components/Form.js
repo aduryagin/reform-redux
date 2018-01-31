@@ -1,5 +1,3 @@
-// @flow
-
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { formInitialisation, resetForm, setFormSubmitting, updateForm } from '../actions/Form';

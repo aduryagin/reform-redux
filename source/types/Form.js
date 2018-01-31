@@ -1,5 +1,3 @@
-// @flow
-
 import type { Element } from 'react';
 import type { FieldsData, FieldValidateProp, FieldsCount } from './Field';
 

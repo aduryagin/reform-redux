@@ -1,5 +1,3 @@
-// @flow
-
 import {
   CHANGE_FIELD_VALUE,
   SET_FIELD_ERRORS,
@@ -19,22 +17,26 @@ import type {
   ChangeFieldsValues,
   ResetField,
   ResetFields,
+  FieldValue,
 } from '../types/Field';
 import { getReduxConst } from '../utils/common';
 
-export const resetField = (formName: string, fieldName: string): ResetField => ({
+export const resetField: Function = (formName: string, fieldName: string): ResetField => ({
   type: getReduxConst(RESET_FIELD),
   formName,
   fieldName,
 });
 
-export const resetFields = (formName: string, fieldsNames: Array<string>): ResetFields => ({
+export const resetFields: Function = (
+  formName: string,
+  fieldsNames: Array<string>,
+): ResetFields => ({
   type: getReduxConst(RESET_FIELDS),
   formName,
   fieldsNames,
 });
 
-export const setFieldDisabled = (
+export const setFieldDisabled: Function = (
   formName: string,
   fieldName: string,
   disabled: boolean = true,
@@ -45,7 +47,7 @@ export const setFieldDisabled = (
   disabled,
 });
 
-export const setFieldsDisabled = (
+export const setFieldsDisabled: Function = (
   formName: string,
   disabledFields: { [fieldName: string]: boolean },
 ): SetFieldsDisabled => ({
@@ -54,10 +56,10 @@ export const setFieldsDisabled = (
   disabledFields,
 });
 
-export const changeFieldValue = (
+export const changeFieldValue: Function = (
   formName: string,
   fieldName: string,
-  fieldValue: any,
+  fieldValue: FieldValue,
 ): ChangeFieldValue => ({
   type: getReduxConst(CHANGE_FIELD_VALUE),
   formName,
@@ -65,16 +67,16 @@ export const changeFieldValue = (
   fieldValue,
 });
 
-export const changeFieldsValues = (
+export const changeFieldsValues: Function = (
   formName: string,
-  fieldsValues: { [fieldName: string]: any },
+  fieldsValues: { [fieldName: string]: FieldValue },
 ): ChangeFieldsValues => ({
   type: getReduxConst(CHANGE_FIELDS_VALUES),
   formName,
   fieldsValues,
 });
 
-export const setFieldErrors = (
+export const setFieldErrors: Function = (
   formName: string,
   fieldName: string,
   errors: Array<string>,
@@ -85,7 +87,7 @@ export const setFieldErrors = (
   errors,
 });
 
-export const setFieldsErrors = (
+export const setFieldsErrors: Function = (
   formName: string,
   fieldsErrors: { [fieldName: string]: Array<string> },
 ): SetFieldsErrors => ({

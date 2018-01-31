@@ -1,5 +1,3 @@
-// @flow
-
 export type ComponentProps = {
   type: string,
   onClick?: Function,

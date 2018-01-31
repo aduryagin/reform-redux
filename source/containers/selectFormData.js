@@ -1,5 +1,3 @@
-// @flow
-
 import PropTypes from 'prop-types';
 import { createElement, Component } from 'react';
 import { get, isEqual, cloneDeep } from '../utils/common';

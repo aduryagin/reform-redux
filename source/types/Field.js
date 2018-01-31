@@ -1,5 +1,3 @@
-// @flow
-
 import type { ComponentType } from 'react';
 
 // Additional Types
@@ -20,6 +18,8 @@ export type FieldsData = {
 export type FormProp = {
   name: string,
 };
+
+export type FieldValue = any;
 
 export type FieldProp = {
   onChange: Function,
@@ -81,10 +81,14 @@ export type ResetFields = {
   fieldsNames: Array<string>,
 };
 
+export type FieldsValues = {
+  [fieldName: string]: FieldValue,
+};
+
 export type ChangeFieldsValues = {
   type: string,
   formName: string,
-  fieldsValues: { [fieldName: string]: any },
+  fieldsValues: FieldsValues,
 };
 
 export type ChangeFieldValue = {

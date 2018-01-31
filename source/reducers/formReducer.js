@@ -1,5 +1,3 @@
-// @flow
-
 import {
   FORM_INITIALISATION,
   RESET_FORM,
@@ -20,6 +18,7 @@ import { getReduxConst, cloneDeep } from '../utils/common';
 import type { State, Action } from '../types/formReducer';
 import type {
   FieldData,
+  FieldsData,
   ChangeFieldsValues,
   ChangeFieldValue,
   SetFieldsDisabled,
@@ -27,6 +26,7 @@ import type {
   SetFieldErrors,
   SetFieldsErrors,
   ResetField,
+  FieldsValues,
   ResetFields,
 } from '../types/Field';
 import type { FormInitialisation, SetFormSubmitting, UpdateForm } from '../types/Form';
@@ -65,16 +65,16 @@ const reducers: {
   },
   [getReduxConst(CHANGE_FIELDS_VALUES)]: (state: State, action: ChangeFieldsValues): State => {
     const newState: State = { ...state };
-    const fieldsValues: { [fieldName: string]: any } = action.fieldsValues;
+    const fieldsValues: FieldsValues = action.fieldsValues;
 
-    Object.keys(fieldsValues).forEach(fieldKey => {
+    Object.keys(fieldsValues).forEach((fieldKey: string) => {
       newState.fields[fieldKey].value = fieldsValues[fieldKey];
     });
 
     return newState;
   },
   [getReduxConst(SET_FORM_SUBMITTING)]: (state: State, action: SetFormSubmitting): State => {
-    const newState = { ...state };
+    const newState: State = { ...state };
 
     if (!action.submitting) newState.submitted = true;
     newState.submitting = action.submitting;
@@ -138,7 +138,7 @@ const reducers: {
     } else {
       fieldWithErrors.valid = true;
 
-      let formValid = true;
+      let formValid: boolean = true;
       Object.keys(stateWithErrors.fields).forEach(fieldKey => {
         if (!stateWithErrors.fields[fieldKey].valid) {
           formValid = false;
@@ -168,8 +168,8 @@ const reducers: {
 
     // Check that form is valid or not
 
-    const stateFields = stateWithFieldsErrors.fields;
-    let formValid = true;
+    const stateFields: FieldsData = stateWithFieldsErrors.fields;
+    let formValid: boolean = true;
     Object.keys(stateFields).forEach((fieldKey: string) => {
       if (!stateFields[fieldKey].valid) {
         formValid = false;

@@ -1,5 +1,3 @@
-// @flow
-
 import type { FieldsData } from './Field';
 import type {
   ChangeFieldValue,
@@ -30,5 +28,6 @@ export type Action =
 export type State = {
   valid: boolean,
   submitted?: boolean,
+  submitting?: boolean,
   fields: FieldsData,
 };

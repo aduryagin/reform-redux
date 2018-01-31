@@ -1,5 +1,3 @@
-// @flow
-
 import { asyncForEach } from '../utils/common';
 import type { FieldValidateProp } from '../types/Field';
 

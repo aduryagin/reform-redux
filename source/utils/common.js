@@ -1,5 +1,3 @@
-// @flow
-
 import { LIBRARY_NAME } from '../constants/common';
 
 export const debounce = (func: Function, wait: number, immediate?: boolean) => {

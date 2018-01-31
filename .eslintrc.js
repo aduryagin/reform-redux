@@ -19,6 +19,7 @@ module.exports = {
     "sourceType": "module"
   },
   "rules": {
+    "flowtype/no-types-missing-file-annotation": 0,
     "prettier/prettier": ["error"],
     "strict": 0,
     "eol-last": [
