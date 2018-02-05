@@ -1,6 +1,12 @@
+import plain from './utils/plainFunctions';
+import { createFormReducer } from './reducers/formReducer';
+
+const dataFunctions = plain();
+
 // Reducer
 
-export { default as formReducerCreator } from './reducers/formReducer';
+const formReducerCreator = createFormReducer(dataFunctions);
+export { formReducerCreator };
 
 // Actions
 

@@ -75,8 +75,10 @@ The Form component is a simple wrapper for the React `<form>`.
 ### Flow types
 
 ```
+type FieldName = string | number;
+
 type FieldsData = {
-  [fieldName: string]: FieldData,
+  [fieldName: FieldName]: FieldData,
 };
 
 type FieldData = {
@@ -146,7 +148,7 @@ Component wrapper which pass fields data to wrapped component through props.
 import { selectFormData } from 'reform-redux';
 
 selectFormData(
-  fieldNames: Array<string>,
+  fieldNames: Array<FieldName>,
   formPath?: string
 )(ConnectedComponent: ComponentType<*>) => ComponentType<*>
 ```
@@ -164,7 +166,7 @@ import { changeFieldsValues } from 'reform-redux';
 
 store.dispatch(changeFieldsValues(
   formName: string,
-  fieldsValues: { [fieldName: string]: any },
+  fieldsValues: { [fieldName: FieldName]: any },
 ));
 ```
 
@@ -177,7 +179,7 @@ import { changeFieldValue } from 'reform-redux';
 
 store.dispatch(changeFieldValue(
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   fieldValue: any,
 ));
 ```
@@ -191,7 +193,7 @@ import { setFieldErrors } from 'reform-redux';
 
 store.dispatch(setFieldErrors(
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   errors: Array<string>,
 ));
 ```
@@ -205,7 +207,7 @@ import { setFieldsErrors } from 'reform-redux';
 
 store.dispatch(setFieldsErrors(
   formName: string,
-  fieldsErrors: { [fieldName: string]: Array<string> },
+  fieldsErrors: { [fieldName: FieldName]: Array<string> },
 ));
 ```
 
@@ -218,7 +220,7 @@ import { setFieldDisabled } from 'reform-redux';
 
 store.dispatch(setFieldDisabled(
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   disabled: boolean = true,
 ));
 ```
@@ -232,7 +234,7 @@ import { setFieldsDisabled } from 'reform-redux';
 
 store.dispatch(setFieldsDisabled(
   formName: string,
-  disabledFields: { [fieldName: string]: boolean },
+  disabledFields: { [fieldName: FieldName]: boolean },
 ));
 ```
 
@@ -245,7 +247,7 @@ import { resetField } from 'reform-redux';
 
 store.dispatch(resetField(
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
 ));
 ```
 
@@ -258,7 +260,7 @@ import { resetFields } from 'reform-redux';
 
 store.dispatch(resetFields(
   formName: string,
-  fieldsNames: Array<string>,
+  fieldsNames: Array<FieldName>,
 ));
 ```
 
@@ -284,20 +286,20 @@ _reformRedux: {
       name: string,
       path: string,
       registerField: Function,
-      fieldsCount: { [fieldName: string]: number },
+      fieldsCount: { [fieldName: FieldName]: number },
       unregisterField: Function,
       resetForm: Function,
       updateForm: Function,
     },
     field: {
-      changeFieldValue: (fieldName: string, fieldValue: string) => Function,
-      changeFieldsValues: (fieldsValues: { [fieldName: string]: any }) => Function,
-      setFieldErrors: (fieldName: string, errors: Array<string>) => Function,
-      setFieldsErrors: (fieldName: string, fieldsErrors: { [fieldName: string]: Array<string> }) => Function,
-      setFieldDisabled: (fieldName: string, disabled: boolean) => Function,
-      setFieldsDisabled: (fieldName: string, disabledFields: { [fieldName: string]: boolean }) => Function,
-      resetField: (fieldName: string) => Function,
-      resetFields: (fieldsNames: Array<string>) => Function,
+      changeFieldValue: (fieldName: FieldName, fieldValue: string) => Function,
+      changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }) => Function,
+      setFieldErrors: (fieldName: FieldName, errors: Array<string>) => Function,
+      setFieldsErrors: (fieldName: FieldName, fieldsErrors: { [fieldName: FieldName]: Array<string> }) => Function,
+      setFieldDisabled: (fieldName: FieldName, disabled: boolean) => Function,
+      setFieldsDisabled: (fieldName: FieldName, disabledFields: { [fieldName: FieldName]: boolean }) => Function,
+      resetField: (fieldName: FieldName) => Function,
+      resetFields: (fieldsNames: Array<FieldName>) => Function,
     },
   }
 ```
@@ -306,7 +308,7 @@ _reformRedux: {
 
 * `npm run build` - Build the library
 * `npm run flow` - Check static typing
-* `npm run flow-typed library-name@x.x.x` - Intall flow types from [flow-typed](https://github.com/flowtype/flow-typed) library
+* `npm run flow-typed library-name@x.x.x` - Install flow types from [flow-typed](https://github.com/flowtype/flow-typed) library
 * `npm run lint` - Code linting ([prettier](https://github.com/prettier/prettier) & [eslint](https://github.com/eslint/eslint))
 * `npm run fix` - Format code 
 * `npm test` - Run unit-tests

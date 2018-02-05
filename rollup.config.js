@@ -1,15 +1,11 @@
-import flow from 'rollup-plugin-flow';
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
 
 const format = 'es';
-
-export default {
-  input: 'source/index.js',
-  external: ['react', 'prop-types'],
+const common = {
+  external: ['react', 'prop-types', 'immutable', 'redux'],
   plugins: [
-    flow(),
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
@@ -21,13 +17,30 @@ export default {
             useBuiltIns: true,
           },
         ],
+        '@babel/preset-flow',
       ],
     }),
     uglify({}, minify),
   ],
-  output: {
-    name: 'reform-redux',
-    file: `dist/reform-redux.${format}.js`,
-    format,
-  },
 };
+
+export default [
+  {
+    input: 'source/index.js',
+    output: {
+      name: 'reform-redux',
+      file: 'dist/reform-redux.js',
+      format,
+    },
+    ...common,
+  },
+  {
+    input: 'source/immutable.js',
+    output: {
+      name: 'reform-redux',
+      file: 'dist/immutable.js',
+      format,
+    },
+    ...common,
+  },
+];

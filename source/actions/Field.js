@@ -18,10 +18,11 @@ import type {
   ResetField,
   ResetFields,
   FieldValue,
+  FieldName,
 } from '../types/Field';
 import { getReduxConst } from '../utils/common';
 
-export const resetField: Function = (formName: string, fieldName: string): ResetField => ({
+export const resetField: Function = (formName: string, fieldName: FieldName): ResetField => ({
   type: getReduxConst(RESET_FIELD),
   formName,
   fieldName,
@@ -29,7 +30,7 @@ export const resetField: Function = (formName: string, fieldName: string): Reset
 
 export const resetFields: Function = (
   formName: string,
-  fieldsNames: Array<string>,
+  fieldsNames: Array<FieldName>,
 ): ResetFields => ({
   type: getReduxConst(RESET_FIELDS),
   formName,
@@ -38,7 +39,7 @@ export const resetFields: Function = (
 
 export const setFieldDisabled: Function = (
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   disabled: boolean = true,
 ): SetFieldDisabled => ({
   type: getReduxConst(SET_FIELD_DISABLED),
@@ -49,7 +50,7 @@ export const setFieldDisabled: Function = (
 
 export const setFieldsDisabled: Function = (
   formName: string,
-  disabledFields: { [fieldName: string]: boolean },
+  disabledFields: { [fieldName: FieldName]: boolean },
 ): SetFieldsDisabled => ({
   type: getReduxConst(SET_FIELDS_DISABLED),
   formName,
@@ -58,7 +59,7 @@ export const setFieldsDisabled: Function = (
 
 export const changeFieldValue: Function = (
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   fieldValue: FieldValue,
 ): ChangeFieldValue => ({
   type: getReduxConst(CHANGE_FIELD_VALUE),
@@ -69,7 +70,7 @@ export const changeFieldValue: Function = (
 
 export const changeFieldsValues: Function = (
   formName: string,
-  fieldsValues: { [fieldName: string]: FieldValue },
+  fieldsValues: { [fieldName: FieldName]: FieldValue },
 ): ChangeFieldsValues => ({
   type: getReduxConst(CHANGE_FIELDS_VALUES),
   formName,
@@ -78,7 +79,7 @@ export const changeFieldsValues: Function = (
 
 export const setFieldErrors: Function = (
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   errors: Array<string>,
 ): SetFieldErrors => ({
   type: getReduxConst(SET_FIELD_ERRORS),
@@ -89,7 +90,7 @@ export const setFieldErrors: Function = (
 
 export const setFieldsErrors: Function = (
   formName: string,
-  fieldsErrors: { [fieldName: string]: Array<string> },
+  fieldsErrors: { [fieldName: FieldName]: Array<string> },
 ): SetFieldsErrors => ({
   type: getReduxConst(SET_FIELDS_ERRORS),
   formName,

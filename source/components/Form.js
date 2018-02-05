@@ -16,7 +16,13 @@ import { validateField, getValidateFunctionsArray } from '../utils/Field';
 import { debounce } from '../utils/common';
 import type { Element } from 'react';
 import type { MiniReduxForm, ComponentProps, FieldsValidate, ComponentState } from '../types/Form';
-import type { FieldData, FieldsData, FieldValidateProp, FieldsCount } from '../types/Field';
+import type {
+  FieldData,
+  FieldsData,
+  FieldValidateProp,
+  FieldsCount,
+  FieldName,
+} from '../types/Field';
 import type { Store } from 'redux';
 import type { State } from '../types/formReducer';
 
@@ -82,51 +88,51 @@ class Form extends Component<ComponentProps, ComponentState> {
           ),
         },
         field: {
-          changeFieldsValues: (fieldsValues: { [fieldName: string]: any }): Function =>
+          changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }): Function =>
             store.dispatch(changeFieldsValues(this.formName, fieldsValues)),
-          changeFieldValue: (fieldName: string, fieldValue: any): Function =>
+          changeFieldValue: (fieldName: FieldName, fieldValue: any): Function =>
             store.dispatch(changeFieldValue(this.formName, fieldName, fieldValue)),
-          setFieldErrors: (fieldName: string, errors: Array<string>): Function =>
+          setFieldErrors: (fieldName: FieldName, errors: Array<string>): Function =>
             store.dispatch(setFieldErrors(this.formName, fieldName, errors)),
           setFieldsErrors: (
-            fieldName: string,
-            fieldsErrors: { [fieldName: string]: Array<string> },
+            fieldName: FieldName,
+            fieldsErrors: { [fieldName: FieldName]: Array<string> },
           ): Function => store.dispatch(setFieldsErrors(this.formName, fieldsErrors)),
-          setFieldDisabled: (fieldName: string, disabled: boolean = true): Function =>
+          setFieldDisabled: (fieldName: FieldName, disabled: boolean = true): Function =>
             store.dispatch(setFieldDisabled(this.formName, fieldName, disabled)),
           setFieldsDisabled: (
-            fieldName: string,
-            disabledFields: { [fieldName: string]: boolean },
+            fieldName: FieldName,
+            disabledFields: { [fieldName: FieldName]: boolean },
           ): Function => store.dispatch(setFieldsDisabled(this.formName, disabledFields)),
-          resetField: (fieldName: string): Function =>
+          resetField: (fieldName: FieldName): Function =>
             store.dispatch(resetField(this.formName, fieldName)),
-          resetFields: (fieldsNames: Array<string>): Function =>
+          resetFields: (fieldsNames: Array<FieldName>): Function =>
             store.dispatch(resetFields(this.formName, fieldsNames)),
         },
       },
     };
   }
 
-  increaseFieldCount = (fieldName: string) => {
+  increaseFieldCount = (fieldName: FieldName) => {
     if (this.fieldsCount[this.formName][fieldName])
       return (this.fieldsCount[this.formName][fieldName] += 1);
 
     return (this.fieldsCount[this.formName][fieldName] = 1);
   };
 
-  decreaseFieldCount = (fieldName: string) => {
+  decreaseFieldCount = (fieldName: FieldName) => {
     if (this.fieldsCount[this.formName][fieldName])
       return (this.fieldsCount[this.formName][fieldName] -= 1);
 
     return (this.fieldsCount[this.formName][fieldName] = 0);
   };
 
-  unregisterField = (fieldName: string) => {
+  unregisterField = (fieldName: FieldName) => {
     this.decreaseFieldCount(fieldName);
   };
 
   registerField = (
-    fieldName: string,
+    fieldName: FieldName,
     fieldData: FieldData,
     fieldValidate: FieldValidateProp,
     fieldAdditionalData: {
@@ -216,10 +222,9 @@ class Form extends Component<ComponentProps, ComponentState> {
 
     // Validate all fields
 
-    const state: State = store.getState();
-    const fields: FieldsData = get(state, `${this.props.path}.fields`);
-    const fieldsErrors: { [fieldName: string]: Array<string> } = {};
-    const fieldsWithErrors: { [fieldName: string]: FieldData } = {};
+    let state: State = store.getState();
+    let fields: FieldsData = get(state, `${this.props.path}.fields`);
+    const fieldsErrors: { [fieldName: FieldName]: Array<string> } = {};
     let errorsExists: boolean = false;
 
     await asyncForEach(Object.keys(fields), async (fieldKey: string) => {
@@ -235,7 +240,6 @@ class Form extends Component<ComponentProps, ComponentState> {
       fieldsErrors[fieldKey] = errors;
 
       if (errors.length) {
-        fieldsWithErrors[fieldKey] = fields[fieldKey];
         errorsExists = true;
       }
     });
@@ -243,11 +247,25 @@ class Form extends Component<ComponentProps, ComponentState> {
     if (errorsExists) {
       store.dispatch(setFieldsErrors(this.formName, fieldsErrors));
 
+      state = store.getState();
+      fields = get(state, `${this.props.path}.fields`);
+
+      const fieldsWithErrors: { [fieldName: FieldName]: FieldData } = {};
+
+      Object.keys(fields).map((fieldKey: FieldName) => {
+        if (!fields[fieldKey].valid) {
+          fieldsWithErrors[fieldKey] = fields[fieldKey];
+        }
+      });
+
       if (onSubmitFailed) {
         onSubmitFailed(fieldsWithErrors, fields, event);
         store.dispatch(setFormSubmitting(this.formName, false));
       }
     } else if (onSubmit) {
+      state = store.getState();
+      fields = get(state, `${this.props.path}.fields`);
+
       Promise.resolve(onSubmit(fields, event)).then(() => {
         store.dispatch(setFormSubmitting(this.formName, false));
       });

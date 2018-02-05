@@ -11,13 +11,13 @@
     "validation",
     "perfomance"
   ],
-  "main": "./dist/reform-redux.es.js",
-  "module": "./dist/reform-redux.es.js",
+  "main": "./dist/reform-redux.js",
+  "module": "./dist/reform-redux.js",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "immutable": "*",
+    "immutable": "^4.0.0-rc.9",
     "prop-types": "*",
     "react": "*",
     "redux": "*"
@@ -43,7 +43,6 @@
     "react-dom": "*",
     "rollup": "^0.53.1",
     "rollup-plugin-babel": "^4.0.0-beta.0",
-    "rollup-plugin-flow": "^1.1.1",
     "rollup-plugin-uglify": "^2.0.1",
     "uglify-es": "^3.3.4"
   },

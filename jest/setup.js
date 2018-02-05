@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import Form from '../source/components/Form';
-import reducerCreator from '../source/reducers/formReducer';
+import { formReducerCreator } from '../source';
 
 // Enzyme configuring
 
@@ -31,7 +31,7 @@ global.Provider = Provider;
 beforeEach(() => {
   global.store = createStore(
     combineReducers({
-      form: reducerCreator('form'),
+      form: formReducerCreator('form'),
     }),
   );
 

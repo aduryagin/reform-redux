@@ -1,5 +1,5 @@
 import type { Element } from 'react';
-import type { FieldsData, FieldValidateProp, FieldsCount } from './Field';
+import type { FieldsData, FieldValidateProp, FieldsCount, FieldName } from './Field';
 
 export type MiniReduxForm = {
   _reformRedux: {
@@ -13,20 +13,20 @@ export type MiniReduxForm = {
       updateForm: Function,
     },
     field: {
-      changeFieldValue: (fieldName: string, fieldValue: string) => Function,
-      changeFieldsValues: (fieldsValues: { [fieldName: string]: any }) => Function,
-      setFieldErrors: (fieldName: string, errors: Array<string>) => Function,
+      changeFieldValue: (fieldName: FieldName, fieldValue: string) => Function,
+      changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }) => Function,
+      setFieldErrors: (fieldName: FieldName, errors: Array<string>) => Function,
       setFieldsErrors: (
-        fieldName: string,
-        fieldsErrors: { [fieldName: string]: Array<string> },
+        fieldName: FieldName,
+        fieldsErrors: { [fieldName: FieldName]: Array<string> },
       ) => Function,
-      setFieldDisabled: (fieldName: string, disabled: boolean) => Function,
+      setFieldDisabled: (fieldName: FieldName, disabled: boolean) => Function,
       setFieldsDisabled: (
-        fieldName: string,
-        disabledFields: { [fieldName: string]: boolean },
+        fieldName: FieldName,
+        disabledFields: { [fieldName: FieldName]: boolean },
       ) => Function,
-      resetField: (fieldName: string) => Function,
-      resetFields: (fieldsNames: Array<string>) => Function,
+      resetField: (fieldName: FieldName) => Function,
+      resetFields: (fieldsNames: Array<FieldName>) => Function,
     },
   },
 };
@@ -43,7 +43,7 @@ export type ComponentProps = {
 };
 
 export type FieldsValidate = {
-  [fieldName: string]: FieldValidateProp,
+  [fieldName: FieldName]: FieldValidateProp,
 };
 
 // Actions

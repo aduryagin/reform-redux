@@ -3,9 +3,9 @@ import { createElement, Component } from 'react';
 import { get, isEqual, cloneDeep } from '../utils/common';
 import type { ComponentType, Element } from 'react';
 import type { State } from '../types/formReducer';
-import type { FieldsData } from '../types/Field';
+import type { FieldsData, FieldName } from '../types/Field';
 
-const selectFormData = (fieldNames: Array<string>, formPath?: string): Function => {
+const selectFormData = (fieldNames: Array<FieldName>, formPath?: string): Function => {
   return (ConnectedComponent: ComponentType<*>): ComponentType<*> => {
     class SelectFormData extends Component<*, FieldsData> {
       static contextTypes = {

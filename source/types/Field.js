@@ -9,10 +9,12 @@ export type FieldData = {
   disabled: boolean,
 };
 
-export type FieldsCount = { [fieldName: string]: number };
+export type FieldName = string | number;
+
+export type FieldsCount = { [fieldName: FieldName]: number };
 
 export type FieldsData = {
-  [fieldName: string]: FieldData,
+  [fieldName: FieldName]: FieldData,
 };
 
 export type FormProp = {
@@ -59,30 +61,30 @@ export type ComponentState = {
 export type SetFieldDisabled = {
   type: string,
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   disabled: boolean,
 };
 
 export type SetFieldsDisabled = {
   type: string,
   formName: string,
-  disabledFields: { [fieldName: string]: boolean },
+  disabledFields: { [fieldName: FieldName]: boolean },
 };
 
 export type ResetField = {
   type: string,
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
 };
 
 export type ResetFields = {
   type: string,
   formName: string,
-  fieldsNames: Array<string>,
+  fieldsNames: Array<FieldName>,
 };
 
 export type FieldsValues = {
-  [fieldName: string]: FieldValue,
+  [fieldName: FieldName]: FieldValue,
 };
 
 export type ChangeFieldsValues = {
@@ -94,19 +96,19 @@ export type ChangeFieldsValues = {
 export type ChangeFieldValue = {
   type: string,
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   fieldValue: string,
 };
 
 export type SetFieldErrors = {
   type: string,
   formName: string,
-  fieldName: string,
+  fieldName: FieldName,
   errors: Array<string>,
 };
 
 export type SetFieldsErrors = {
   type: string,
   formName: string,
-  fieldsErrors: { [fieldName: string]: Array<string> },
+  fieldsErrors: { [fieldName: FieldName]: Array<string> },
 };
