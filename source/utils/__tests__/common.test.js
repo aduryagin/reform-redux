@@ -1,5 +1,5 @@
 import { LIBRARY_NAME } from '../../constants/common';
-import { debounce, asyncForEach, getReduxConst, get, cloneDeep, isEqual } from '../common';
+import { debounce, asyncForEach, getReduxConst, cloneDeep, isEqual } from '../common';
 
 describe('utils/common', () => {
   it('debounce', () => {
@@ -36,11 +36,6 @@ describe('utils/common', () => {
 
   it('getReduxConst', () => {
     expect(getReduxConst('test')).toBe(`${LIBRARY_NAME}/test`);
-  });
-
-  it('get', () => {
-    const object = { a: { q: [{ z: 1 }] } };
-    expect(get(object, 'a.q[0].z')).toBe(1);
   });
 
   it('cloneDeep', () => {

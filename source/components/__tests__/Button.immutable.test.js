@@ -5,7 +5,7 @@ import { Button } from '../../immutable';
 import { formInitialisation, setFormSubmitting } from '../../actions/Form';
 import { changeFieldValue } from '../../actions/Field';
 
-describe('components / Button', () => {
+describe('components / Button.immutable', () => {
   it('snapshot', () => {
     const snapshot = shallow(
       createElement(global.Provider, { immutable: true }, createElement(Button)),

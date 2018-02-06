@@ -3,6 +3,7 @@ import { createFormReducer } from './reducers/formReducer';
 import { createFormComponent } from './components/Form';
 import { createFieldComponent } from './components/Field';
 import { createButtonComponent } from './components/Button';
+import { createSelectFormData } from './containers/selectFormData';
 import type { DataFunctions } from './types/dataFunctions';
 
 const dataFunctions: DataFunctions = immutable();
@@ -31,5 +32,6 @@ export { resetForm } from './actions/Form';
 const Form = createFormComponent(dataFunctions);
 const Field = createFieldComponent(dataFunctions);
 const Button = createButtonComponent(dataFunctions);
+const selectFormData = createSelectFormData(dataFunctions);
 
-export { Form, Field, Button };
+export { Form, Field, Button, selectFormData };

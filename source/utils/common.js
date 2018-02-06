@@ -3,9 +3,9 @@ import type { SearchKeyPath, Where } from '../types/common';
 
 export const debounce: Function = (func: Function, wait: number, immediate?: boolean) => {
   let timeout;
-  return function() {
+
+  return (...args) => {
     const context = this;
-    const args = arguments;
     const later = function() {
       timeout = null;
       if (!immediate) func.apply(context, args);
@@ -23,22 +23,9 @@ export const asyncForEach: Function = async (array: Array<any>, callback: Functi
   }
 };
 
-export const getReduxConst: Function = (constName: string): string =>
-  `${LIBRARY_NAME}/${constName}`;
-
-export const get: Function = (obj: Object, path: string, def: any) => {
-  const fullPath = path
-    .replace(/\[/g, '.')
-    .replace(/]/g, '')
-    .split('.')
-    .filter(Boolean);
-
-  function everyFunc(step) {
-    return !(step && (obj = obj[step]) === undefined);
-  }
-
-  return fullPath.every(everyFunc) ? obj : def;
-};
+export function getReduxConst(constName: string): string {
+  return `${LIBRARY_NAME}/${constName}`;
+}
 
 export function cloneDeep<Input: any>(o: Input): Input {
   let copy: any = o;

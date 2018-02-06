@@ -1,8 +1,8 @@
 import { createElement, Component } from 'react';
 import { shallow, mount } from 'enzyme';
-import { Field, selectFormData } from '../../index';
+import { Field, selectFormData } from '../../immutable';
 
-describe('containers / selectFormData', () => {
+describe('containers / selectFormData.immutable', () => {
   it('if container is not in Form component then throw error', () => {
     expect(() => shallow(createElement(selectFormData()('')))).toThrow(
       'Container `selectFormData` must be in `Form` component.',
@@ -26,7 +26,7 @@ describe('containers / selectFormData', () => {
     mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field1',
           value: 'test',

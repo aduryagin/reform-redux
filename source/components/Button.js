@@ -6,6 +6,7 @@ import type { State } from '../types/formReducer';
 import type { MiniReduxForm } from '../types/Form';
 import type { ComponentProps, ComponentState } from '../types/Button';
 import type { DataFunctions } from '../types/dataFunctions';
+import type { ComponentCreator } from '../types/common';
 
 export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunctions) => {
   const { getIn }: DataFunctions = dataFunctions;
