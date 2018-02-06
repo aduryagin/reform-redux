@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { formReducerCreator, Form } from '../source';
 import {
   Form as ImmutableForm,
-  formReducerCreator as immutableFormCreator,
+  formReducerCreator as immutableFormReducerCreator,
 } from '../source/immutable';
 
 // Enzyme configuring
@@ -20,13 +20,13 @@ class Provider extends Component {
 
   getChildContext() {
     return {
-      store: this.props === 'immutable' ? global.immutableStore : global.store,
+      store: this.props.immutable ? global.immutableStore : global.store,
     };
   }
 
   render() {
     return createElement(
-      this.props === 'immutable' ? ImmutableForm : Form,
+      this.props.immutable ? ImmutableForm : Form,
       { path: 'form' },
       this.props.children,
     );
@@ -44,12 +44,17 @@ beforeEach(() => {
 
   global.immutableStore = createStore(
     combineReducers({
-      form: immutableFormCreator('form'),
+      form: immutableFormReducerCreator('form'),
     }),
   );
 
   global.context = {
     store: global.store,
     _reformRedux: { form: { path: ['form'], registerField: () => {}, updateForm: () => {} } },
+  };
+
+  global.immutableContext = {
+    store: global.immutableStore,
+    _reformRedux: global.context._reformRedux,
   };
 });

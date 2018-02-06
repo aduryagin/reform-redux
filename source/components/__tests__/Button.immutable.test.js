@@ -1,12 +1,16 @@
 import { createElement } from 'react';
+import { getIn } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { Button } from '../../index';
+import { Button } from '../../immutable';
 import { formInitialisation, setFormSubmitting } from '../../actions/Form';
 import { changeFieldValue } from '../../actions/Field';
 
 describe('components / Button', () => {
   it('snapshot', () => {
-    const snapshot = shallow(createElement(global.Provider, {}, createElement(Button)));
+    const snapshot = shallow(
+      createElement(global.Provider, { immutable: true }, createElement(Button)),
+    );
+
     expect(snapshot).toMatchSnapshot();
   });
 
@@ -18,10 +22,10 @@ describe('components / Button', () => {
 
   it('component with type=reset will reset form on onClick', () => {
     const component = mount(
-      createElement(global.Provider, {}, createElement(Button, { type: 'reset' })),
+      createElement(global.Provider, { immutable: true }, createElement(Button, { type: 'reset' })),
     );
 
-    global.store.dispatch(
+    global.immutableStore.dispatch(
       formInitialisation('form', {
         field: {
           value: '',
@@ -32,10 +36,10 @@ describe('components / Button', () => {
       }),
     );
 
-    global.store.dispatch(changeFieldValue('form', 'field', 'test'));
+    global.immutableStore.dispatch(changeFieldValue('form', 'field', 'test'));
     component.find('button').simulate('click');
 
-    expect(global.store.getState().form.fields.field.value).toBe('');
+    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toBe('');
   });
 
   it('component with type=submit will just trigger onClick', () => {
@@ -43,10 +47,14 @@ describe('components / Button', () => {
 
     const onClick = jest.fn();
     const component = mount(
-      createElement(global.Provider, {}, createElement(Button, { type: 'submit', onClick })),
+      createElement(
+        global.Provider,
+        { immutable: true },
+        createElement(Button, { type: 'submit', onClick }),
+      ),
     );
 
-    global.store.dispatch(
+    global.immutableStore.dispatch(
       formInitialisation('form', {
         field: {
           value: '',
@@ -57,17 +65,23 @@ describe('components / Button', () => {
       }),
     );
 
-    global.store.dispatch(changeFieldValue('form', 'field', 'test'));
+    global.immutableStore.dispatch(changeFieldValue('form', 'field', 'test'));
 
     component.find('button').simulate('click');
 
-    expect(global.store.getState().form.fields.field.value).not.toBe('');
+    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).not.toBe(
+      '',
+    );
     expect(onClick).toBeCalledWith(expect.anything());
   });
 
   it('disabled property', () => {
     const component = mount(
-      createElement(global.Provider, {}, createElement(Button, { disabled: true })),
+      createElement(
+        global.Provider,
+        { immutable: true },
+        createElement(Button, { disabled: true }),
+      ),
     );
     expect(component.find('button').props().disabled).toBeTruthy();
   });
@@ -75,13 +89,15 @@ describe('components / Button', () => {
   it('after change form property "submitting", component property "disabled" and state "submitting" will the same', () => {
     expect.assertions(2);
 
-    const component = mount(createElement(global.Provider, {}, createElement(Button)));
+    const component = mount(
+      createElement(global.Provider, { immutable: true }, createElement(Button)),
+    );
     let buttonComponent = component.find('Button').instance();
     let button = component.find('button');
 
     expect(button.prop('disabled') && buttonComponent.state.submitting).toBeFalsy();
 
-    global.store.dispatch(setFormSubmitting('form', true));
+    global.immutableStore.dispatch(setFormSubmitting('form', true));
     component.update();
     buttonComponent = component.find('Button').instance();
     button = component.find('button');
@@ -91,11 +107,11 @@ describe('components / Button', () => {
 
   it('if component was unmounted then after change form property "submitting", component property "disabled" and state "submitting" will not the same', () => {
     const component = mount(createElement(Button), {
-      context: global.context,
+      context: global.immutableContext,
     });
     component.unmount();
 
-    global.store.dispatch(setFormSubmitting('form', true));
+    global.immutableStore.dispatch(setFormSubmitting('form', true));
 
     component.mount();
 

@@ -1,65 +1,70 @@
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { resetForm } from '../actions/Form';
-import { get } from '../utils/common';
 import type { Element } from 'react';
 import type { State } from '../types/formReducer';
 import type { MiniReduxForm } from '../types/Form';
 import type { ComponentProps, ComponentState } from '../types/Button';
+import type { DataFunctions } from '../types/dataFunctions';
 
-class Button extends Component<ComponentProps, ComponentState> {
-  unsubscribeFromStore: Function = () => {};
+export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunctions) => {
+  const { getIn }: DataFunctions = dataFunctions;
 
-  state = {
-    submitting: false,
-  };
+  class Button extends Component<ComponentProps, ComponentState> {
+    unsubscribeFromStore: Function = () => {};
 
-  static contextTypes = {
-    _reformRedux: PropTypes.object,
-    store: PropTypes.object,
-  };
+    state = {
+      submitting: false,
+    };
 
-  constructor(props: ComponentProps, context: MiniReduxForm) {
-    super(props, context);
+    static contextTypes = {
+      _reformRedux: PropTypes.object,
+      store: PropTypes.object,
+    };
 
-    if (!context._reformRedux) {
-      throw new Error('Component `Button` must be in `Form` component.');
+    constructor(props: ComponentProps, context: MiniReduxForm) {
+      super(props, context);
+
+      if (!context._reformRedux) {
+        throw new Error('Component `Button` must be in `Form` component.');
+      }
+    }
+
+    componentWillMount() {
+      this.unsubscribeFromStore = this.context.store.subscribe(() => {
+        const state: State = this.context.store.getState();
+        const currentFormData: State = getIn(state, this.context._reformRedux.form.path);
+        const formSubmitting: boolean = getIn(currentFormData, ['submitting']);
+
+        if (this.state.submitting !== formSubmitting) {
+          this.setState({
+            submitting: formSubmitting,
+          });
+        }
+      });
+    }
+
+    componentWillUnmount() {
+      this.unsubscribeFromStore();
+    }
+
+    onClickHandler = (event: Event) => {
+      const { type, onClick } = this.props;
+      const { store, _reformRedux } = this.context;
+
+      if (type === 'reset') store.dispatch(resetForm(_reformRedux.form.name));
+
+      if (onClick) onClick(event);
+    };
+
+    render(): Element<'button'> {
+      return createElement('button', {
+        ...this.props,
+        disabled: this.props.disabled || this.state.submitting,
+        onClick: this.onClickHandler,
+      });
     }
   }
 
-  componentWillMount() {
-    this.unsubscribeFromStore = this.context.store.subscribe(() => {
-      const state: State = this.context.store.getState();
-      const currentFormData = get(state, this.context._reformRedux.form.path);
-
-      if (this.state.submitting !== currentFormData.submitting) {
-        this.setState({
-          submitting: currentFormData.submitting,
-        });
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromStore();
-  }
-
-  onClickHandler = (event: Event) => {
-    const { type, onClick } = this.props;
-    const { store, _reformRedux } = this.context;
-
-    if (type === 'reset') store.dispatch(resetForm(_reformRedux.form.name));
-
-    if (onClick) onClick(event);
-  };
-
-  render(): Element<'button'> {
-    return createElement('button', {
-      ...this.props,
-      disabled: this.props.disabled || this.state.submitting,
-      onClick: this.onClickHandler,
-    });
-  }
-}
-
-export default Button;
+  return Button;
+};

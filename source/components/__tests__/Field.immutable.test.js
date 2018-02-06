@@ -1,5 +1,6 @@
 import { Component, createElement } from 'react';
 import { shallow, mount } from 'enzyme';
+import { getIn } from 'immutable';
 import { Field } from '../../immutable';
 import { formInitialisation } from '../../actions/Form';
 import { changeFieldValue } from '../../actions/Field';
@@ -21,7 +22,7 @@ describe('components / Field.immutable', () => {
   it('if component has not "name" prop then throw error', () => {
     expect(() =>
       shallow(createElement(Field), {
-        context: global.context,
+        context: global.immutableContext,
       }),
     ).toThrow('The `name` prop is required.');
   });
@@ -29,7 +30,7 @@ describe('components / Field.immutable', () => {
   it('if component "normalize" prop is not a function then throw error', () => {
     expect(() =>
       shallow(createElement(Field, { name: 'test', normalize: 'test' }), {
-        context: global.context,
+        context: global.immutableContext,
       }),
     ).toThrow('The `normalize` prop must be a function.');
   });
@@ -44,7 +45,7 @@ describe('components / Field.immutable', () => {
           value: 'test',
         }),
         {
-          context: global.context,
+          context: global.immutableContext,
         },
       ),
     ).toThrow(
@@ -63,7 +64,7 @@ describe('components / Field.immutable', () => {
         disabled: true,
       }),
       {
-        context: global.context,
+        context: global.immutableContext,
       },
     );
 
@@ -76,7 +77,7 @@ describe('components / Field.immutable', () => {
         component: 'input',
       }),
       {
-        context: global.context,
+        context: global.immutableContext,
       },
     );
 
@@ -95,7 +96,7 @@ describe('components / Field.immutable', () => {
         type: 'checkbox',
       }),
       {
-        context: global.context,
+        context: global.immutableContext,
       },
     );
 
@@ -109,7 +110,7 @@ describe('components / Field.immutable', () => {
         type: 'radio',
       }),
       {
-        context: global.context,
+        context: global.immutableContext,
       },
     );
 
@@ -117,7 +118,7 @@ describe('components / Field.immutable', () => {
   });
 
   it('if in redux store exists field data then take it from redux store and write to field state.', () => {
-    global.store.dispatch(
+    global.immutableStore.dispatch(
       formInitialisation('form', {
         field: {
           value: '',
@@ -136,7 +137,7 @@ describe('components / Field.immutable', () => {
         type: 'checkbox',
       }),
       {
-        context: global.context,
+        context: global.immutableContext,
       },
     );
 
@@ -162,7 +163,9 @@ describe('components / Field.immutable', () => {
       .simulate('change', { nativeEvent: new Event('change'), target: { value: 'test' } });
 
     expect(component.find('input').prop('value')).toBe('test');
-    expect(global.store.getState().form.fields.field.value).toBe('test');
+    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toBe(
+      'test',
+    );
   });
 
   it('component with custom onChange', () => {
@@ -211,14 +214,16 @@ describe('components / Field.immutable', () => {
     input.simulate('change', getEvent('test'));
 
     setImmediate(() => {
-      expect(global.store.getState().form.fields.field.errors).toEqual([
-        'Must be 3 characters or less.',
-      ]);
+      expect(
+        getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
+      ).toEqual(['Must be 3 characters or less.']);
 
       input.simulate('change', getEvent('tes'));
 
       setImmediate(() => {
-        expect(global.store.getState().form.fields.field.errors.length).toBe(0);
+        expect(
+          getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors', 'length']),
+        ).toBe(0);
         done();
       });
     });
@@ -244,7 +249,9 @@ describe('components / Field.immutable', () => {
     input.simulate('change', event);
 
     setImmediate(() => {
-      expect(global.store.getState().form.fields.field.value).toBe('TEST');
+      expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toBe(
+        'TEST',
+      );
       done();
     });
   });
@@ -449,7 +456,9 @@ describe('components / Field.immutable', () => {
       ]),
     );
 
-    expect(global.store.getState().form.fields.field.value).toEqual([]);
+    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toEqual(
+      [],
+    );
 
     const event = checked => ({
       nativeEvent: new Event('change'),
@@ -513,7 +522,9 @@ describe('components / Field.immutable', () => {
       ),
     );
 
-    expect(global.store.getState().form.fields.field.value).toBe('field');
+    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toBe(
+      'field',
+    );
   });
 
   it('validate on onBlur if field was not touched', done => {
@@ -537,13 +548,17 @@ describe('components / Field.immutable', () => {
     input.simulate('blur', event);
 
     setImmediate(() => {
-      expect(global.store.getState().form.fields.field.errors).toEqual(['Required!']);
+      expect(
+        getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
+      ).toEqual(['Required!']);
 
       setImmediate(() => {
         input.simulate('change', { nativeEvent: new Event('change'), target: { value: 'test' } });
 
         setImmediate(() => {
-          expect(global.store.getState().form.fields.field.errors).toEqual([]);
+          expect(
+            getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
+          ).toEqual([]);
           done();
         });
       });
@@ -570,7 +585,9 @@ describe('components / Field.immutable', () => {
     );
 
     expect(normalize).toBeCalledWith('test', '', {}, 'onInit');
-    expect(global.store.getState().form.fields.field.value).toBe('TEST');
+    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toBe(
+      'TEST',
+    );
     expect(component.find('input').prop('value')).toBe('TEST');
   });
 
@@ -763,7 +780,7 @@ describe('components / Field.immutable', () => {
 
     expect(component.find('Field.field2').instance().state.field.value).toEqual(['field1']);
 
-    global.store.dispatch(changeFieldValue('form', 'field', ['field2']));
+    global.immutableStore.dispatch(changeFieldValue('form', 'field', ['field2']));
 
     expect(component.find('Field.field2').instance().state.field.value).toEqual(['field2']);
   });

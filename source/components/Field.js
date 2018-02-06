@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { cloneDeep, isEqual } from '../utils/common';
 import { getValidateFunctionsArray, validateField } from '../utils/Field';
 import type { MiniReduxForm } from '../types/Form';
-import type { FieldData, ComponentProps, ComponentState } from '../types/Field';
+import type { FieldData, FieldsData, ComponentProps, ComponentState } from '../types/Field';
 import type { State } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
 import type { ComponentCreator } from '../types/common';
@@ -204,9 +204,10 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (normalize) {
         const state: State = this.context.store.getState();
-        const currentFormData = getIn(state, this.context._reformRedux.form.path);
+        const currentFormData: State = getIn(state, this.context._reformRedux.form.path);
+        const fields: FieldsData = getIn(currentFormData, ['fields']);
 
-        value = normalize(value, this.state.field.value, currentFormData.fields, normalizeWhen);
+        value = normalize(value, this.state.field.value, fields, normalizeWhen);
       }
 
       this.changeFieldValue(value);

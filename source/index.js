@@ -2,8 +2,10 @@ import plain from './utils/plainFunctions';
 import { createFormReducer } from './reducers/formReducer';
 import { createFormComponent } from './components/Form';
 import { createFieldComponent } from './components/Field';
+import { createButtonComponent } from './components/Button';
+import type { DataFunctions } from './types/dataFunctions';
 
-const dataFunctions = plain();
+const dataFunctions: DataFunctions = plain();
 
 // Reducer
 
@@ -28,8 +30,9 @@ export { resetForm } from './actions/Form';
 
 const Form = createFormComponent(dataFunctions);
 const Field = createFieldComponent(dataFunctions);
-export { Form, Field };
-export { default as Button } from './components/Button';
+const Button = createButtonComponent(dataFunctions);
+
+export { Form, Field, Button };
 
 // Containers
 

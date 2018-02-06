@@ -2,12 +2,14 @@ import immutable from './utils/immutableFunctions';
 import { createFormReducer } from './reducers/formReducer';
 import { createFormComponent } from './components/Form';
 import { createFieldComponent } from './components/Field';
+import { createButtonComponent } from './components/Button';
+import type { DataFunctions } from './types/dataFunctions';
 
-const dataFunctions = immutable();
+const dataFunctions: DataFunctions = immutable();
 
 // Reducer
 
-const formReducerCreator = createFormReducer(dataFunctions);
+const formReducerCreator: Function = createFormReducer(dataFunctions);
 export { formReducerCreator };
 
 // Actions
@@ -28,4 +30,6 @@ export { resetForm } from './actions/Form';
 
 const Form = createFormComponent(dataFunctions);
 const Field = createFieldComponent(dataFunctions);
-export { Form, Field };
+const Button = createButtonComponent(dataFunctions);
+
+export { Form, Field, Button };
