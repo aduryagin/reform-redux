@@ -1,6 +1,6 @@
 import { createElement, Component } from 'react';
 import { shallow, mount } from 'enzyme';
-import Field from '../../components/Field';
+import { Field } from '../../index';
 import selectFormData from '../selectFormData';
 
 describe('containers/selectFormData', () => {

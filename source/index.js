@@ -1,11 +1,13 @@
 import plain from './utils/plainFunctions';
 import { createFormReducer } from './reducers/formReducer';
+import { createFormComponent } from './components/Form';
+import { createFieldComponent } from './components/Field';
 
 const dataFunctions = plain();
 
 // Reducer
 
-const formReducerCreator = createFormReducer(dataFunctions);
+const formReducerCreator: Function = createFormReducer(dataFunctions);
 export { formReducerCreator };
 
 // Actions
@@ -24,8 +26,9 @@ export { resetForm } from './actions/Form';
 
 // Components
 
-export { default as Form } from './components/Form';
-export { default as Field } from './components/Field';
+const Form = createFormComponent(dataFunctions);
+const Field = createFieldComponent(dataFunctions);
+export { Form, Field };
 export { default as Button } from './components/Button';
 
 // Containers

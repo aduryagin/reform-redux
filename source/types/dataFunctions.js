@@ -1,6 +1,4 @@
-import type { HasIn, SetIn, GetIn, Merge, DeleteIn, Keys } from './common';
-
-export type CloneDeep = <Input>(value: Input) => Input;
+import type { HasIn, SetIn, GetIn, Merge, DeleteIn, Keys, CloneDeep } from './common';
 
 export type DataFunctions = {|
   fromJS: CloneDeep,

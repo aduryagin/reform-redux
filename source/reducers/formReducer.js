@@ -146,7 +146,7 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
     },
     [getReduxConst(SET_FIELD_ERRORS)]: (state: State, action: SetFieldErrors): State => {
       let newState: State = map(state);
-      const fieldPath: Array<string | number> = ['fields', action.fieldName];
+      const fieldPath: Array<string> = ['fields', action.fieldName];
       newState = setIn(newState, [...fieldPath, 'errors'], action.errors);
 
       if (action.errors.length) {
@@ -173,7 +173,7 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
 
       Object.keys(fieldsErrors).forEach((fieldKey: string) => {
         const fieldErrors: Array<string> = fieldsErrors[fieldKey];
-        const fieldPath: Array<string | number> = ['fields', fieldKey];
+        const fieldPath: Array<string> = ['fields', fieldKey];
         newState = setIn(newState, [...fieldPath, 'errors'], fieldErrors);
 
         if (fieldErrors.length) {

@@ -5,7 +5,7 @@ export type MiniReduxForm = {
   _reformRedux: {
     form: {
       name: string,
-      path: string,
+      path: Array<string>,
       registerField: Function,
       fieldsCount: FieldsCount,
       unregisterField: Function,

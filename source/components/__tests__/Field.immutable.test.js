@@ -1,11 +1,14 @@
 import { Component, createElement } from 'react';
 import { shallow, mount } from 'enzyme';
-import { Field, changeFieldValue } from '../../index';
+import { Field } from '../../immutable';
 import { formInitialisation } from '../../actions/Form';
+import { changeFieldValue } from '../../actions/Field';
 
-describe('components / Field', () => {
+describe('components / Field.immutable', () => {
   it('snapshot', () => {
-    const snapshot = shallow(createElement(global.Provider, {}, createElement(Field)));
+    const snapshot = shallow(
+      createElement(global.Provider, { immutable: true }, createElement(Field)),
+    );
     expect(snapshot).toMatchSnapshot();
   });
 
@@ -146,7 +149,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -167,7 +170,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -192,7 +195,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -226,7 +229,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -252,7 +255,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -289,7 +292,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: Input,
@@ -317,7 +320,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: Input,
@@ -335,7 +338,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(
           Field,
           {
@@ -373,7 +376,7 @@ describe('components / Field', () => {
     };
 
     let component = mount(
-      createElement(global.Provider, {}, [
+      createElement(global.Provider, { immutable: true }, [
         createElement(Field, {
           name: 'field',
           className: 'field',
@@ -424,7 +427,7 @@ describe('components / Field', () => {
     };
 
     let component = mount(
-      createElement(global.Provider, {}, [
+      createElement(global.Provider, { immutable: true }, [
         createElement(Field, {
           name: 'field',
           className: 'field',
@@ -476,7 +479,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -499,7 +502,7 @@ describe('components / Field', () => {
     mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -520,7 +523,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -556,7 +559,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -578,7 +581,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -605,7 +608,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -630,7 +633,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -657,7 +660,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -683,7 +686,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -705,7 +708,7 @@ describe('components / Field', () => {
     const component = mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: 'select',
@@ -722,7 +725,7 @@ describe('components / Field', () => {
     mount(
       createElement(
         global.Provider,
-        {},
+        { immutable: true },
         createElement(Field, {
           name: 'field',
           component: props => {
@@ -738,7 +741,7 @@ describe('components / Field', () => {
     expect.assertions(2);
 
     const component = mount(
-      createElement(global.Provider, {}, [
+      createElement(global.Provider, { immutable: true }, [
         createElement(Field, {
           name: 'field',
           component: 'input',
@@ -767,7 +770,7 @@ describe('components / Field', () => {
 
   it('value in few checkboxes with same name', () => {
     const component1 = mount(
-      createElement(global.Provider, {}, [
+      createElement(global.Provider, { immutable: true }, [
         createElement(Field, {
           name: 'field1',
           component: 'input',
@@ -798,7 +801,7 @@ describe('components / Field', () => {
     expect.assertions(2);
 
     const component = mount(
-      createElement(global.Provider, {}, [
+      createElement(global.Provider, { immutable: true }, [
         createElement(Field, {
           name: 'field',
           component: 'input',

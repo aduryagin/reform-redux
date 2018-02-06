@@ -1,13 +1,14 @@
+import { getIn, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import { object } from 'prop-types';
 import { setImmediate } from 'timers';
 import { createElement, Component } from 'react';
-import { Form, Field } from '../../index';
+import { Form, Field } from '../../immutable';
 
-describe('components / Form', () => {
+describe('components / Form.immutable', () => {
   beforeEach(() => {
     global.formContext = {
-      context: { store: global.store },
+      context: { store: global.immutableStore },
     };
   });
 
@@ -86,12 +87,14 @@ describe('components / Form', () => {
       global.formContext,
     );
 
-    expect(global.store.getState().form).toEqual({
-      fields: { test: { disabled: false, errors: [], valid: true, value: '' } },
-      submitted: false,
-      submitting: false,
-      valid: true,
-    });
+    expect(getIn(global.immutableStore.getState(), ['form']).toJS()).toEqual(
+      Map({
+        fields: { test: { disabled: false, errors: [], valid: true, value: '' } },
+        submitted: false,
+        submitting: false,
+        valid: true,
+      }).toJS(),
+    );
   });
 
   it('form component has default prop onSubmit', () => {
@@ -104,7 +107,7 @@ describe('components / Form', () => {
     expect.assertions(4);
 
     const validate = value => {
-      expect(global.store.getState().form.submitting).toBeTruthy();
+      expect(getIn(global.immutableStore.getState(), ['form', 'submitting'])).toBeTruthy();
 
       if (value.length < 2) {
         return 'Value must be at least 2 characters';
@@ -123,7 +126,7 @@ describe('components / Form', () => {
     component.find('form').simulate('submit');
 
     setImmediate(() => {
-      expect(global.store.getState().form.submitting).toBeFalsy();
+      expect(getIn(global.immutableStore.getState(), ['form', 'submitting'])).toBeFalsy();
       expect(onSubmit).toBeCalledWith(
         {
           test1: {

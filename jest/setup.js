@@ -3,8 +3,11 @@ import { configure } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
-import Form from '../source/components/Form';
-import { formReducerCreator } from '../source';
+import { formReducerCreator, Form } from '../source';
+import {
+  Form as ImmutableForm,
+  formReducerCreator as immutableFormCreator,
+} from '../source/immutable';
 
 // Enzyme configuring
 
@@ -17,12 +20,16 @@ class Provider extends Component {
 
   getChildContext() {
     return {
-      store: global.store,
+      store: this.props === 'immutable' ? global.immutableStore : global.store,
     };
   }
 
   render() {
-    return createElement(Form, { path: 'form' }, this.props.children);
+    return createElement(
+      this.props === 'immutable' ? ImmutableForm : Form,
+      { path: 'form' },
+      this.props.children,
+    );
   }
 }
 
@@ -35,8 +42,14 @@ beforeEach(() => {
     }),
   );
 
+  global.immutableStore = createStore(
+    combineReducers({
+      form: immutableFormCreator('form'),
+    }),
+  );
+
   global.context = {
     store: global.store,
-    _reformRedux: { form: { path: 'form', registerField: () => {}, updateForm: () => {} } },
+    _reformRedux: { form: { path: ['form'], registerField: () => {}, updateForm: () => {} } },
   };
 });

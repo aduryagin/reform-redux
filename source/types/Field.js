@@ -9,7 +9,7 @@ export type FieldData = {
   disabled: boolean,
 };
 
-export type FieldName = string | number;
+export type FieldName = string;
 
 export type FieldsCount = { [fieldName: FieldName]: number };
 
