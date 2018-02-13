@@ -2,21 +2,20 @@ import { LIBRARY_NAME } from '../constants/common';
 import type { SearchKeyPath, Where } from '../types/common';
 import type { DataFunctions } from '../types/dataFunctions';
 
-export const debounce: Function = (func: Function, wait: number, immediate?: boolean) => {
+export function debounce(func: Function, wait: number, immediate?: boolean) {
   let timeout;
 
   return (...args) => {
-    const context = this;
     const later = function() {
       timeout = null;
-      if (!immediate) func.apply(context, args);
+      if (!immediate) func.apply(this, args);
     };
     const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) func.apply(this, args);
   };
-};
+}
 
 export const asyncForEach: Function = async (
   array: Array<any>,
