@@ -1,5 +1,6 @@
 import { LIBRARY_NAME } from '../../constants/common';
-import { debounce, asyncForEach, getReduxConst, cloneDeep, isEqual } from '../common';
+import { debounce, asyncForEach, getReduxConst, cloneDeep, is } from '../common';
+import plain from '../plainFunctions';
 
 describe('utils/common', () => {
   it('debounce', () => {
@@ -21,15 +22,19 @@ describe('utils/common', () => {
     jest.useFakeTimers();
 
     const myArray = [];
-    await asyncForEach([1, 2], async item => {
-      await new Promise(resolve => {
-        setTimeout(() => {
-          myArray.push(item);
-          resolve();
-        }, 100);
-        jest.runAllTimers();
-      });
-    });
+    await asyncForEach(
+      [1, 2],
+      async item => {
+        await new Promise(resolve => {
+          setTimeout(() => {
+            myArray.push(item);
+            resolve();
+          }, 100);
+          jest.runAllTimers();
+        });
+      },
+      plain(),
+    );
 
     expect(myArray).toEqual([1, 2]);
   });
@@ -44,12 +49,12 @@ describe('utils/common', () => {
     expect(Object.is(object.a.q, clonedObject.a.q)).toBe(false);
   });
 
-  it('isEqual', () => {
+  it('is', () => {
     expect.assertions(2);
 
     const object = { a: { q: [{ z: 1 }] } };
     const clonedObject = cloneDeep(object);
-    expect(isEqual(object, clonedObject)).toBe(true);
-    expect(isEqual([1], [2])).toBe(false);
+    expect(is(object, clonedObject)).toBe(true);
+    expect(is([1], [2])).toBe(false);
   });
 });

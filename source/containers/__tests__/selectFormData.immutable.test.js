@@ -1,5 +1,6 @@
 import { createElement, Component } from 'react';
 import { shallow, mount } from 'enzyme';
+import { getIn } from 'immutable';
 import { Field, selectFormData } from '../../immutable';
 
 describe('containers / selectFormData.immutable', () => {
@@ -14,8 +15,8 @@ describe('containers / selectFormData.immutable', () => {
 
     class CustomElement extends Component {
       componentDidUpdate() {
-        expect(this.props.field1.value).toBe('test');
-        expect(this.props.field2.value).toBe('test2');
+        expect(getIn(this.props.field1, ['value'])).toBe('test');
+        expect(getIn(this.props.field2, ['value'])).toBe('test2');
       }
 
       render() {

@@ -28,7 +28,7 @@ import type { State } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
 
 export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctions) => {
-  const { getIn, keys }: DataFunctions = dataFunctions;
+  const { getIn, keys, listSize, list, setIn, map, isList }: DataFunctions = dataFunctions;
 
   class Form extends Component<ComponentProps, ComponentState> {
     formName: string;
@@ -120,17 +120,13 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     }
 
     increaseFieldCount = (fieldName: FieldName) => {
-      if (this.fieldsCount[this.formName][fieldName])
-        return (this.fieldsCount[this.formName][fieldName] += 1);
-
-      return (this.fieldsCount[this.formName][fieldName] = 1);
+      const fieldsCount: number = this.fieldsCount[this.formName][fieldName] || 0;
+      return (this.fieldsCount[this.formName][fieldName] = fieldsCount + 1);
     };
 
     decreaseFieldCount = (fieldName: FieldName) => {
-      if (this.fieldsCount[this.formName][fieldName])
-        return (this.fieldsCount[this.formName][fieldName] -= 1);
-
-      return (this.fieldsCount[this.formName][fieldName] = 0);
+      const fieldsCount: number = this.fieldsCount[this.formName][fieldName];
+      return (this.fieldsCount[this.formName][fieldName] = fieldsCount ? fieldsCount - 1 : 0);
     };
 
     unregisterField = (fieldName: FieldName) => {
@@ -156,37 +152,54 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
         }
 
         if (fieldAdditionalData.type === 'checkbox' || fieldAdditionalData.type === 'radio') {
-          // TODO: throw error if value isn't simple data like number or string
-
           if (fieldAdditionalData.checked) {
             if (fieldAdditionalData.type === 'checkbox') {
-              if (!Array.isArray(this.fieldsStack[this.formName][fieldName].value)) {
-                let fieldValue: any = [fieldData.value];
+              if (!isList(getIn(this.fieldsStack[this.formName][fieldName], ['value']))) {
+                let fieldValue: any = list([getIn(fieldData, ['value'])]);
 
-                if (this.fieldsStack[this.formName][fieldName].value) {
-                  fieldValue = [this.fieldsStack[this.formName][fieldName].value, fieldData.value];
+                if (getIn(this.fieldsStack[this.formName][fieldName], ['value'])) {
+                  fieldValue = list([
+                    getIn(this.fieldsStack[this.formName][fieldName], ['value']),
+                    getIn(fieldData, ['value']),
+                  ]);
                 }
 
-                return (this.fieldsStack[this.formName][fieldName].value = fieldValue);
+                return (this.fieldsStack[this.formName][fieldName] = setIn(
+                  this.fieldsStack[this.formName][fieldName],
+                  ['value'],
+                  fieldValue,
+                ));
               }
 
-              return this.fieldsStack[this.formName][fieldName].value.push(fieldData.value);
+              return (this.fieldsStack[this.formName][fieldName] = setIn(
+                this.fieldsStack[this.formName][fieldName],
+                ['value', listSize(getIn(this.fieldsStack[this.formName][fieldName], ['value']))],
+                getIn(fieldData, ['value']),
+              ));
             }
 
-            return (this.fieldsStack[this.formName][fieldName].value = fieldData.value);
+            return (this.fieldsStack[this.formName][fieldName] = setIn(
+              this.fieldsStack[this.formName][fieldName],
+              ['value'],
+              getIn(fieldData, ['value']),
+            ));
           }
 
           if (
-            !Array.isArray(this.fieldsStack[this.formName][fieldName].value) &&
+            !isList(getIn(this.fieldsStack[this.formName][fieldName], ['value'])) &&
             fieldAdditionalData.type === 'checkbox'
           ) {
-            let fieldValue: any = [];
+            let fieldValue: any = list([]);
 
-            if (this.fieldsStack[this.formName][fieldName].value) {
-              fieldValue = [this.fieldsStack[this.formName][fieldName].value];
+            if (getIn(this.fieldsStack[this.formName][fieldName], ['value'])) {
+              fieldValue = list([getIn(this.fieldsStack[this.formName][fieldName], ['value'])]);
             }
 
-            return (this.fieldsStack[this.formName][fieldName].value = fieldValue);
+            return (this.fieldsStack[this.formName][fieldName] = setIn(
+              this.fieldsStack[this.formName][fieldName],
+              ['value'],
+              fieldValue,
+            ));
           }
 
           return;
@@ -198,9 +211,9 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       if (
         fieldAdditionalData.component === 'select' &&
         fieldAdditionalData.multiple &&
-        !fieldData.value
+        !getIn(fieldData, ['value'])
       ) {
-        fieldData.value = [];
+        fieldData = setIn(fieldData, ['value'], list([]));
       }
 
       this.fieldsStack[this.formName][fieldName] = fieldData;
@@ -212,7 +225,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       const currentFormData = getIn(state, this.path);
       const fields: FieldsData = getIn(currentFormData, ['fields']);
 
-      if (!keys(fields).length) {
+      if (!listSize(keys(fields))) {
         this.context.store.dispatch(
           formInitialisation(this.formName, this.fieldsStack[this.formName]),
         );
@@ -231,25 +244,33 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
       let state: State = store.getState();
       let fields: FieldsData = getIn(state, [...this.path, 'fields']);
-      const fieldsErrors: { [fieldName: FieldName]: Array<string> } = {};
+      let fieldsErrors: { [fieldName: FieldName]: Array<string> } = map({});
       let errorsExists: boolean = false;
 
-      await asyncForEach(Object.keys(fields), async (fieldKey: string) => {
-        const validateFunctions = getValidateFunctionsArray(
-          this.fieldsValidateStack[this.formName][fieldKey],
-        );
-        let errors: Array<string> = fields[fieldKey].errors;
+      await asyncForEach(
+        keys(fields),
+        async (fieldKey: string) => {
+          const validateFunctions = getValidateFunctionsArray(dataFunctions)(
+            this.fieldsValidateStack[this.formName][fieldKey],
+          );
+          let errors: Array<string> = getIn(fields, [fieldKey, 'errors']);
 
-        if (!errors.length) {
-          errors = await validateField(fields[fieldKey].value, validateFunctions);
-        }
+          if (!listSize(errors)) {
+            errors = await validateField(
+              getIn(fields, [fieldKey, 'value']),
+              validateFunctions,
+              dataFunctions,
+            );
+          }
 
-        fieldsErrors[fieldKey] = errors;
+          fieldsErrors = setIn(fieldsErrors, [fieldKey], errors);
 
-        if (errors.length) {
-          errorsExists = true;
-        }
-      });
+          if (listSize(errors)) {
+            errorsExists = true;
+          }
+        },
+        dataFunctions,
+      );
 
       if (errorsExists) {
         store.dispatch(setFieldsErrors(this.formName, fieldsErrors));
@@ -257,11 +278,11 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
         state = store.getState();
         fields = getIn(state, [...this.path, 'fields']);
 
-        const fieldsWithErrors: { [fieldName: FieldName]: FieldData } = {};
+        let fieldsWithErrors: { [fieldName: FieldName]: FieldData } = map({});
 
-        Object.keys(fields).map((fieldKey: FieldName) => {
-          if (!fields[fieldKey].valid) {
-            fieldsWithErrors[fieldKey] = fields[fieldKey];
+        keys(fields).forEach((fieldKey: FieldName) => {
+          if (!getIn(fields, [fieldKey, 'valid'])) {
+            fieldsWithErrors = setIn(fieldsWithErrors, [fieldKey], getIn(fields, [fieldKey]));
           }
         });
 

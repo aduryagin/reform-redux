@@ -3,6 +3,7 @@ import { configure } from 'enzyme';
 import { createStore, combineReducers } from 'redux';
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
+import { is } from 'immutable';
 import { formReducerCreator, Form } from '../source';
 import {
   Form as ImmutableForm,
@@ -34,6 +35,28 @@ class Provider extends Component {
 }
 
 global.Provider = Provider;
+
+// Extend jest expect
+
+expect.extend({
+  lastCalledWithImmutable(fn, ...expected) {
+    const actual = fn.mock.calls[fn.mock.calls.length - 1];
+    const pass = actual.every(
+      (actualParam, index) =>
+        expected[index].$$typeof === Symbol.for('jest.asymmetricMatcher') ||
+        is(actualParam, expected[index]),
+    );
+
+    const message = () =>
+      pass
+        ? `expected ${actual} to be not equal to ${expected}`
+        : `expected ${actual} to be equal to ${expected}`;
+
+    return { message, pass };
+  },
+});
+
+// Jest methods
 
 beforeEach(() => {
   global.store = createStore(

@@ -32,13 +32,23 @@ import type {
 import type { FormInitialisation, SetFormSubmitting, UpdateForm } from '../types/Form';
 import type { DataFunctions } from '../types/dataFunctions';
 
-export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
-  const { fromJS, map, hasIn, setIn, getIn, merge, deleteIn }: DataFunctions = dataFunctions;
+export const createFormReducer: Function = ({
+  fromJS,
+  map,
+  hasIn,
+  setIn,
+  getIn,
+  merge,
+  deleteIn,
+  listSize,
+  keys,
+  list,
+}: DataFunctions) => {
   const initialState: State = fromJS({
     valid: true,
     submitted: false,
     submitting: false,
-    fields: {},
+    fields: map({}),
   });
   let initialFormState: State = map(initialState);
 
@@ -78,8 +88,8 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
       let newState: State = map(state);
       const fieldsValues: FieldsValues = action.fieldsValues;
 
-      Object.keys(fieldsValues).forEach((fieldKey: string) => {
-        newState = setIn(newState, ['fields', fieldKey, 'value'], fieldsValues[fieldKey]);
+      keys(fieldsValues).forEach((fieldKey: string) => {
+        newState = setIn(newState, ['fields', fieldKey, 'value'], getIn(fieldsValues, [fieldKey]));
       });
 
       return newState;
@@ -88,13 +98,12 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
       let newState: State = map(state);
 
       if (!action.submitting) newState = setIn(newState, ['submitted'], true);
-      newState = setIn(newState, ['submitting'], action.submitting);
 
-      return newState;
+      return setIn(newState, ['submitting'], action.submitting);
     },
     [getReduxConst(FORM_INITIALISATION)]: (state: State, action: FormInitialisation): State => {
       initialFormState = merge(state, {
-        fields: action.fields,
+        fields: map(action.fields),
         valid: true,
       });
 
@@ -103,14 +112,14 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
     [getReduxConst(UPDATE_FORM)]: (state: State, action: UpdateForm): State => {
       let newState: State = map(state);
 
-      Object.keys(action.fields).forEach((fieldKey: string) => {
+      keys(action.fields).forEach((fieldKey: string) => {
         if (!hasIn(newState, ['fields', fieldKey])) {
           newState = setIn(newState, ['fields', fieldKey], action.fields[fieldKey]);
         }
       });
 
-      Object.keys(getIn(newState, ['fields'])).forEach((fieldKey: string) => {
-        if (!action.fields[fieldKey]) {
+      keys(getIn(newState, ['fields'])).forEach((fieldKey: string) => {
+        if (!getIn(action.fields, [fieldKey])) {
           newState = deleteIn(newState, ['fields', fieldKey]);
         }
       });
@@ -127,11 +136,11 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
     [getReduxConst(SET_FIELDS_DISABLED)]: (state: State, action: SetFieldsDisabled): State => {
       let newState: State = map(state);
 
-      Object.keys(action.disabledFields).forEach((disabledField: string) => {
+      keys(action.disabledFields).forEach((disabledField: string) => {
         newState = setIn(
           newState,
           ['fields', disabledField, 'disabled'],
-          action.disabledFields[disabledField],
+          getIn(action.disabledFields, [disabledField]),
         );
       });
 
@@ -147,16 +156,16 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
     [getReduxConst(SET_FIELD_ERRORS)]: (state: State, action: SetFieldErrors): State => {
       let newState: State = map(state);
       const fieldPath: Array<string> = ['fields', action.fieldName];
-      newState = setIn(newState, [...fieldPath, 'errors'], action.errors);
+      newState = setIn(newState, [...fieldPath, 'errors'], list(action.errors));
 
-      if (action.errors.length) {
+      if (listSize(action.errors)) {
         newState = setIn(newState, [...fieldPath, 'valid'], false);
         newState = setIn(newState, ['valid'], false);
       } else {
         newState = setIn(newState, [...fieldPath, 'valid'], true);
 
         let formValid: boolean = true;
-        Object.keys(getIn(newState, ['fields'])).forEach(fieldKey => {
+        keys(getIn(newState, ['fields'])).forEach((fieldKey: string) => {
           if (!getIn(newState, ['fields', fieldKey, 'valid'])) {
             formValid = false;
           }
@@ -171,12 +180,12 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
       let newState: State = map(state);
       const fieldsErrors: { [fieldName: FieldName]: Array<string> } = action.fieldsErrors;
 
-      Object.keys(fieldsErrors).forEach((fieldKey: string) => {
-        const fieldErrors: Array<string> = fieldsErrors[fieldKey];
+      keys(fieldsErrors).forEach((fieldKey: string) => {
+        const fieldErrors: Array<string> = getIn(fieldsErrors, [fieldKey]);
         const fieldPath: Array<string> = ['fields', fieldKey];
         newState = setIn(newState, [...fieldPath, 'errors'], fieldErrors);
 
-        if (fieldErrors.length) {
+        if (listSize(fieldErrors)) {
           newState = setIn(newState, [...fieldPath, 'valid'], false);
         } else {
           newState = setIn(newState, [...fieldPath, 'valid'], true);
@@ -187,7 +196,7 @@ export const createFormReducer: Function = (dataFunctions: DataFunctions) => {
 
       const stateFields: FieldsData = getIn(newState, ['fields']);
       let formValid: boolean = true;
-      Object.keys(stateFields).forEach((fieldKey: string) => {
+      keys(stateFields).forEach((fieldKey: string) => {
         if (!getIn(stateFields, [fieldKey, 'valid'])) {
           formValid = false;
         }

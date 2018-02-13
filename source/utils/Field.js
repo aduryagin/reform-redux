@@ -1,11 +1,14 @@
 import { asyncForEach } from '../utils/common';
 import type { FieldValidateProp, FieldValue } from '../types/Field';
+import type { DataFunctions } from '../types/dataFunctions';
 
-export const getValidateFunctionsArray: Function = (
+export const getValidateFunctionsArray: Function = (dataFunctions: DataFunctions) => (
   validateProp: FieldValidateProp,
 ): Array<Function> => {
-  if (!validateProp || !validateProp.length) return [];
-  const validate: Array<Function> = !Array.isArray(validateProp) ? [validateProp] : validateProp;
+  const { listSize, list, isList }: DataFunctions = dataFunctions;
+
+  if (!validateProp || (isList(validateProp) && !listSize(validateProp))) return list([]);
+  const validate: Array<Function> = !isList(validateProp) ? list([validateProp]) : validateProp;
 
   return validate;
 };
@@ -13,20 +16,27 @@ export const getValidateFunctionsArray: Function = (
 export const validateField: Function = async (
   value: FieldValue,
   validateFunctions: Array<Function>,
+  dataFunctions: DataFunctions,
 ): Promise<Array<string>> => {
-  const errorsStack: Array<string> = [];
-  if (!validateFunctions.length) return errorsStack;
+  const { list, listSize, setIn }: DataFunctions = dataFunctions;
+  let errorsStack: Array<string> = list([]);
 
-  await asyncForEach(validateFunctions, async (errorChecker: Function) => {
-    if (typeof errorChecker !== 'function')
-      throw new Error('"validate" prop must be Array<Function> or Function');
+  if (!listSize(validateFunctions)) return errorsStack;
 
-    const checkerResult: string = await errorChecker(value);
+  await asyncForEach(
+    validateFunctions,
+    async (errorChecker: Function) => {
+      if (typeof errorChecker !== 'function')
+        throw new Error('"validate" prop must be Array<Function> or Function');
 
-    if (checkerResult && typeof checkerResult === 'string') {
-      errorsStack.push(checkerResult);
-    }
-  });
+      const checkerResult: string = await errorChecker(value);
+
+      if (checkerResult && typeof checkerResult === 'string') {
+        errorsStack = setIn(errorsStack, [listSize(errorsStack)], checkerResult);
+      }
+    },
+    dataFunctions,
+  );
 
   return errorsStack;
 };

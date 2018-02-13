@@ -215,7 +215,7 @@ describe('components / Field', () => {
       input.simulate('change', getEvent('tes'));
 
       setImmediate(() => {
-        expect(global.store.getState().form.fields.field.errors.length).toBe(0);
+        expect(global.store.getState().form.fields.field.errors).toEqual([]);
         done();
       });
     });

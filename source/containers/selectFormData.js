@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createElement, Component } from 'react';
-import { isEqual, cloneDeep } from '../utils/common';
+import { is, cloneDeep } from '../utils/common';
 import type { ComponentType, Element } from 'react';
 import type { State } from '../types/formReducer';
 import type { FieldsData, FieldName } from '../types/Field';
@@ -57,7 +57,7 @@ export const createSelectFormData: Function = (dataFunctions: DataFunctions) => 
               fieldsData[fieldName] = getIn(state, [...contextFormPath, 'fields', fieldName]);
             });
 
-            if (!isEqual(this.state, fieldsData)) {
+            if (!is(this.state, fieldsData)) {
               this.setState(cloneDeep(fieldsData));
             }
           });

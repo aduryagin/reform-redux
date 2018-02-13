@@ -1,4 +1,4 @@
-import { getIn, Map } from 'immutable';
+import { getIn, Map, List, is } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import { object } from 'prop-types';
 import { setImmediate } from 'timers';
@@ -87,14 +87,17 @@ describe('components / Form.immutable', () => {
       global.formContext,
     );
 
-    expect(getIn(global.immutableStore.getState(), ['form']).toJS()).toEqual(
-      Map({
-        fields: { test: { disabled: false, errors: [], valid: true, value: '' } },
-        submitted: false,
-        submitting: false,
-        valid: true,
-      }).toJS(),
-    );
+    expect(
+      is(
+        getIn(global.immutableStore.getState(), ['form']),
+        Map({
+          fields: Map({ test: Map({ disabled: false, errors: List(), valid: true, value: '' }) }),
+          submitted: false,
+          submitting: false,
+          valid: true,
+        }),
+      ),
+    ).toBeTruthy();
   });
 
   it('form component has default prop onSubmit', () => {
@@ -127,21 +130,21 @@ describe('components / Form.immutable', () => {
 
     setImmediate(() => {
       expect(getIn(global.immutableStore.getState(), ['form', 'submitting'])).toBeFalsy();
-      expect(onSubmit).toBeCalledWith(
-        {
-          test1: {
+      expect(onSubmit).lastCalledWithImmutable(
+        Map({
+          test1: Map({
             disabled: false,
-            errors: [],
+            errors: List(),
             valid: true,
             value: '12',
-          },
-          test2: {
+          }),
+          test2: Map({
             disabled: false,
-            errors: [],
+            errors: List(),
             valid: true,
             value: '12',
-          },
-        },
+          }),
+        }),
         expect.anything(),
       );
       done();
@@ -167,35 +170,35 @@ describe('components / Form.immutable', () => {
     component.find('form').simulate('submit');
 
     setImmediate(() => {
-      expect(onSubmitFailed).toBeCalledWith(
-        {
-          test1: {
+      expect(onSubmitFailed).lastCalledWithImmutable(
+        Map({
+          test1: Map({
             disabled: false,
-            errors: ['Value must be at least 2 characters'],
+            errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
-          },
-          test2: {
+          }),
+          test2: Map({
             disabled: false,
-            errors: ['Value must be at least 2 characters'],
+            errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
-          },
-        },
-        {
-          test1: {
+          }),
+        }),
+        Map({
+          test1: Map({
             disabled: false,
-            errors: ['Value must be at least 2 characters'],
+            errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
-          },
-          test2: {
+          }),
+          test2: Map({
             disabled: false,
-            errors: ['Value must be at least 2 characters'],
+            errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
-          },
-        },
+          }),
+        }),
         expect.anything(),
       );
       done();

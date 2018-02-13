@@ -1,4 +1,18 @@
-import type { HasIn, SetIn, GetIn, Merge, DeleteIn, Keys, CloneDeep } from './common';
+import type {
+  HasIn,
+  SetIn,
+  GetIn,
+  Merge,
+  DeleteIn,
+  Keys,
+  CloneDeep,
+  Is,
+  IsList,
+  ListIncludes,
+  ListSize,
+  IsImmutable,
+  ToJS,
+} from './common';
 
 export type DataFunctions = {|
   fromJS: CloneDeep,
@@ -9,4 +23,11 @@ export type DataFunctions = {|
   merge: Merge,
   deleteIn: DeleteIn,
   keys: Keys,
+  list: CloneDeep,
+  is: Is,
+  isList: IsList,
+  listIncludes: ListIncludes,
+  listSize: ListSize,
+  isImmutable: IsImmutable,
+  toJS: ToJS,
 |};

@@ -1,6 +1,6 @@
 import { Component, createElement } from 'react';
 import { shallow, mount } from 'enzyme';
-import { getIn } from 'immutable';
+import { getIn, List, Map, is } from 'immutable';
 import { Field } from '../../immutable';
 import { formInitialisation } from '../../actions/Form';
 import { changeFieldValue } from '../../actions/Field';
@@ -68,8 +68,8 @@ describe('components / Field.immutable', () => {
       },
     );
 
-    expect(component.state('field').value).toBe('test');
-    expect(component.state('field').disabled).toBeTruthy();
+    expect(getIn(component.state('field'), ['value'])).toBe('test');
+    expect(getIn(component.state('field'), ['disabled'])).toBeTruthy();
 
     component = shallow(
       createElement(Field, {
@@ -81,8 +81,8 @@ describe('components / Field.immutable', () => {
       },
     );
 
-    expect(component.state('field').value).toBe('');
-    expect(component.state('field').disabled).toBeFalsy();
+    expect(getIn(component.state('field'), ['value'])).toBe('');
+    expect(getIn(component.state('field'), ['disabled'])).toBeFalsy();
   });
 
   it('if component type is checkbox or radio value must be an empty string.', () => {
@@ -100,7 +100,7 @@ describe('components / Field.immutable', () => {
       },
     );
 
-    expect(component.state('field').value).toBe('');
+    expect(getIn(component.state('field'), ['value'])).toBe('');
 
     component = shallow(
       createElement(Field, {
@@ -114,19 +114,22 @@ describe('components / Field.immutable', () => {
       },
     );
 
-    expect(component.state('field').value).toBe('');
+    expect(getIn(component.state('field'), ['value'])).toBe('');
   });
 
   it('if in redux store exists field data then take it from redux store and write to field state.', () => {
     global.immutableStore.dispatch(
-      formInitialisation('form', {
-        field: {
-          value: '',
-          errors: [],
-          valid: true,
-          disabled: false,
-        },
-      }),
+      formInitialisation(
+        'form',
+        Map({
+          field: {
+            value: '',
+            errors: List(),
+            valid: true,
+            disabled: false,
+          },
+        }),
+      ),
     );
 
     const component = shallow(
@@ -141,7 +144,7 @@ describe('components / Field.immutable', () => {
       },
     );
 
-    expect(component.state('field').value).toBe('');
+    expect(getIn(component.state('field'), ['value'])).toBe('');
   });
 
   it('component onChange', () => {
@@ -215,15 +218,19 @@ describe('components / Field.immutable', () => {
 
     setImmediate(() => {
       expect(
-        getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
-      ).toEqual(['Must be 3 characters or less.']);
+        is(
+          getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
+          List(['Must be 3 characters or less.']),
+        ),
+      ).toBeTruthy();
 
       input.simulate('change', getEvent('tes'));
 
       setImmediate(() => {
         expect(
-          getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors', 'length']),
+          getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']).size,
         ).toBe(0);
+
         done();
       });
     });
@@ -259,6 +266,7 @@ describe('components / Field.immutable', () => {
   it('normalize function was called with right arguments', () => {
     const normalize = jest.fn();
     normalize.mockReturnValue('TEST');
+
     const component = mount(
       createElement(
         global.Provider,
@@ -276,10 +284,10 @@ describe('components / Field.immutable', () => {
 
     input.simulate('change', event);
 
-    expect(normalize).lastCalledWith(
+    expect(normalize).lastCalledWithImmutable(
       'test',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, value: 'TEST' } },
+      Map({ field: Map({ disabled: false, errors: List(), valid: true, value: 'TEST' }) }),
       'onChange',
     );
   });
@@ -341,7 +349,7 @@ describe('components / Field.immutable', () => {
   });
 
   it('get field value in select component with prop=multiple', () => {
-    const onChange = (data, value) => expect(value).toEqual(['test2', 'test1']);
+    const onChange = (data, value) => expect(is(value, List(['test2', 'test1']))).toBeTruthy();
     const component = mount(
       createElement(
         global.Provider,
@@ -423,13 +431,13 @@ describe('components / Field.immutable', () => {
       checked++;
 
       if (checked === 1) {
-        expect(value).toEqual(['field']);
+        expect(is(value, List(['field']))).toBeTruthy();
       } else if (checked === 2) {
-        expect(value).toEqual(['field', 'field1']);
+        expect(is(value, List(['field', 'field1']))).toBeTruthy();
       } else if (checked === 3) {
-        expect(value).toEqual(['field1']);
+        expect(is(value, List(['field1']))).toBeTruthy();
       } else {
-        expect(value).toEqual([]);
+        expect(is(value, List())).toBeTruthy();
       }
     };
 
@@ -456,9 +464,9 @@ describe('components / Field.immutable', () => {
       ]),
     );
 
-    expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toEqual(
-      [],
-    );
+    expect(
+      is(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value']), List()),
+    ).toBeTruthy();
 
     const event = checked => ({
       nativeEvent: new Event('change'),
@@ -549,16 +557,22 @@ describe('components / Field.immutable', () => {
 
     setImmediate(() => {
       expect(
-        getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
-      ).toEqual(['Required!']);
+        is(
+          getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
+          List(['Required!']),
+        ),
+      ).toBeTruthy();
 
       setImmediate(() => {
         input.simulate('change', { nativeEvent: new Event('change'), target: { value: 'test' } });
 
         setImmediate(() => {
           expect(
-            getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
-          ).toEqual([]);
+            is(
+              getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'errors']),
+              List(),
+            ),
+          ).toBeTruthy();
           done();
         });
       });
@@ -584,7 +598,7 @@ describe('components / Field.immutable', () => {
       ),
     );
 
-    expect(normalize).toBeCalledWith('test', '', {}, 'onInit');
+    expect(normalize).lastCalledWithImmutable('test', '', Map(), 'onInit');
     expect(getIn(global.immutableStore.getState(), ['form', 'fields', 'field', 'value'])).toBe(
       'TEST',
     );
@@ -612,10 +626,10 @@ describe('components / Field.immutable', () => {
 
     input.simulate('blur', event);
 
-    expect(normalize).toBeCalledWith(
+    expect(normalize).lastCalledWithImmutable(
       'TEST',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, value: 'TEST' } },
+      Map({ field: Map({ disabled: false, errors: List(), valid: true, value: 'TEST' }) }),
       'onBlur',
     );
   });
@@ -637,12 +651,15 @@ describe('components / Field.immutable', () => {
 
     component.find('input').simulate('blur', event);
 
-    expect(onBlur).toBeCalledWith(expect.anything(), {
-      disabled: false,
-      errors: [],
-      valid: true,
-      value: '',
-    });
+    expect(onBlur).lastCalledWithImmutable(
+      expect.anything(),
+      Map({
+        disabled: false,
+        errors: List(),
+        valid: true,
+        value: '',
+      }),
+    );
   });
 
   it('component with custom onFocus', () => {
@@ -662,12 +679,15 @@ describe('components / Field.immutable', () => {
 
     component.find('input').simulate('focus', event);
 
-    expect(onFocus).toBeCalledWith(expect.anything(), {
-      disabled: false,
-      errors: [],
-      valid: true,
-      value: '',
-    });
+    expect(onFocus).lastCalledWithImmutable(
+      expect.anything(),
+      Map({
+        disabled: false,
+        errors: List(),
+        valid: true,
+        value: '',
+      }),
+    );
   });
 
   it('normalize value on onFocus', () => {
@@ -691,10 +711,10 @@ describe('components / Field.immutable', () => {
 
     input.simulate('focus', event);
 
-    expect(normalize).lastCalledWith(
+    expect(normalize).lastCalledWithImmutable(
       'TEST',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, value: 'TEST' } },
+      Map({ field: Map({ disabled: false, errors: List(), valid: true, value: 'TEST' }) }),
       'onFocus',
     );
   });
@@ -778,11 +798,15 @@ describe('components / Field.immutable', () => {
       ]),
     );
 
-    expect(component.find('Field.field2').instance().state.field.value).toEqual(['field1']);
+    expect(
+      is(getIn(component.find('Field.field2').instance().state.field, ['value']), List(['field1'])),
+    ).toBeTruthy();
 
-    global.immutableStore.dispatch(changeFieldValue('form', 'field', ['field2']));
+    global.immutableStore.dispatch(changeFieldValue('form', 'field', List(['field2'])));
 
-    expect(component.find('Field.field2').instance().state.field.value).toEqual(['field2']);
+    expect(
+      is(getIn(component.find('Field.field2').instance().state.field, ['value']), List(['field2'])),
+    ).toBeTruthy();
   });
 
   it('value in few checkboxes with same name', () => {
@@ -808,10 +832,12 @@ describe('components / Field.immutable', () => {
       ]),
     );
 
-    expect(component1.find('Field.field3').instance().state.field.value).toEqual([
-      'field1',
-      'field2',
-    ]);
+    expect(
+      is(
+        getIn(component1.find('Field.field3').instance().state.field, ['value']),
+        List(['field1', 'field2']),
+      ),
+    ).toBeTruthy();
   });
 
   it('in radio or checkbox components exists checked and value props', () => {

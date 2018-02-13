@@ -1,4 +1,4 @@
-import { Map, getIn } from 'immutable';
+import { Map, getIn, List, is, Seq } from 'immutable';
 import { formReducerCreator as immutableReducer } from '../../immutable';
 import { getReduxConst } from '../../utils/common';
 import {
@@ -23,14 +23,14 @@ describe('reducers/formReducer.immutable', () => {
     valid: true,
     submitted: false,
     submitting: false,
-    fields: {
-      field: {
+    fields: Map({
+      field: Map({
         disabled: false,
         value: '',
         valid: true,
-        errors: [],
-      },
-    },
+        errors: List(),
+      }),
+    }),
   });
 
   it('if pass undefined formName then reducer just return not modified state', () => {
@@ -59,23 +59,23 @@ describe('reducers/formReducer.immutable', () => {
     const newState = action(state, {
       type: getReduxConst(SET_FIELDS_ERRORS),
       formName: 'form',
-      fieldsErrors: {
-        field: ['first error'],
-      },
+      fieldsErrors: Map({
+        field: List(['first error']),
+      }),
     });
 
-    expect(getIn(newState, ['fields', 'field', 'errors'])).toEqual(['first error']);
+    expect(is(getIn(newState, ['fields', 'field', 'errors']), List(['first error']))).toBeTruthy();
     expect(getIn(newState, ['valid'])).toBeFalsy();
 
     const newState2 = action(newState, {
       type: getReduxConst(SET_FIELDS_ERRORS),
       formName: 'form',
-      fieldsErrors: {
-        field: [],
-      },
+      fieldsErrors: Map({
+        field: List(),
+      }),
     });
 
-    expect(getIn(newState2, ['fields', 'field', 'errors'])).toEqual([]);
+    expect(is(getIn(newState2, ['fields', 'field', 'errors']), List())).toBeTruthy();
     expect(getIn(newState2, ['valid'])).toBeTruthy();
   });
 
@@ -87,20 +87,20 @@ describe('reducers/formReducer.immutable', () => {
       type: getReduxConst(SET_FIELD_ERRORS),
       formName: 'form',
       fieldName: 'field',
-      errors: ['first error'],
+      errors: List(['first error']),
     });
 
-    expect(getIn(newState, ['fields', 'field', 'errors'])).toEqual(['first error']);
+    expect(is(getIn(newState, ['fields', 'field', 'errors']), List(['first error']))).toBeTruthy();
     expect(getIn(newState, ['valid'])).toBeFalsy();
 
     const newState2 = action(newState, {
       type: getReduxConst(SET_FIELD_ERRORS),
       formName: 'form',
       fieldName: 'field',
-      errors: [],
+      errors: List(),
     });
 
-    expect(getIn(newState2, ['fields', 'field', 'errors'])).toEqual([]);
+    expect(is(getIn(newState2, ['fields', 'field', 'errors']), List())).toBeTruthy();
     expect(getIn(newState2, ['valid'])).toBeTruthy();
   });
 
@@ -121,9 +121,9 @@ describe('reducers/formReducer.immutable', () => {
     const newState = action(state, {
       type: getReduxConst(SET_FIELDS_DISABLED),
       formName: 'form',
-      disabledFields: {
+      disabledFields: Map({
         field: true,
-      },
+      }),
     });
 
     expect(getIn(newState, ['fields', 'field', 'disabled'])).toBeTruthy();
@@ -148,13 +148,13 @@ describe('reducers/formReducer.immutable', () => {
     const newState = action(state, {
       type: getReduxConst(UPDATE_FORM),
       formName: 'form',
-      fields: {
+      fields: Map({
         field: 'new field',
         field1: 'test',
-      },
+      }),
     });
 
-    expect(Object.keys(getIn(newState, ['fields']))).toEqual(['field', 'field1']);
+    expect(is(getIn(newState, ['fields']).keySeq(), Seq(['field', 'field1']))).toBeTruthy();
     expect(getIn(newState, ['fields', 'field'])).not.toBe('new field');
   });
 
@@ -163,12 +163,12 @@ describe('reducers/formReducer.immutable', () => {
     const newState = action(state, {
       type: getReduxConst(FORM_INITIALISATION),
       formName: 'form',
-      fields: {
+      fields: Map({
         field1: 'test',
-      },
+      }),
     });
 
-    expect(Object.keys(getIn(newState, ['fields']))).toEqual(['field1']);
+    expect(is(getIn(newState, ['fields']).keySeq(), Seq(['field1']))).toBeTruthy();
   });
 
   it('SET_FORM_SUBMITTING', () => {
@@ -187,9 +187,9 @@ describe('reducers/formReducer.immutable', () => {
     const newState = action(state, {
       type: getReduxConst(CHANGE_FIELDS_VALUES),
       formName: 'form',
-      fieldsValues: {
+      fieldsValues: Map({
         field: 'test',
-      },
+      }),
     });
 
     expect(getIn(newState, ['fields', 'field', 'value'])).toBe('test');
@@ -200,14 +200,14 @@ describe('reducers/formReducer.immutable', () => {
     let newState = action(state, {
       type: getReduxConst(FORM_INITIALISATION),
       formName: 'form',
-      fields: {
-        field: {
+      fields: Map({
+        field: Map({
           disabled: false,
           value: 'initial',
           valid: true,
-          errors: [],
-        },
-      },
+          errors: List(),
+        }),
+      }),
     });
 
     newState = action(newState, {
@@ -231,14 +231,14 @@ describe('reducers/formReducer.immutable', () => {
     let newState = action(state, {
       type: getReduxConst(FORM_INITIALISATION),
       formName: 'form',
-      fields: {
-        field: {
+      fields: Map({
+        field: Map({
           disabled: false,
           value: 'initial',
           valid: true,
-          errors: [],
-        },
-      },
+          errors: List(),
+        }),
+      }),
     });
 
     newState = action(newState, {
@@ -262,14 +262,14 @@ describe('reducers/formReducer.immutable', () => {
     let newState = action(state, {
       type: getReduxConst(FORM_INITIALISATION),
       formName: 'form',
-      fields: {
-        field: {
+      fields: Map({
+        field: Map({
           disabled: false,
           value: 'initial',
           valid: true,
-          errors: [],
-        },
-      },
+          errors: List(),
+        }),
+      }),
     });
 
     newState = action(newState, {

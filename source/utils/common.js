@@ -1,5 +1,6 @@
 import { LIBRARY_NAME } from '../constants/common';
 import type { SearchKeyPath, Where } from '../types/common';
+import type { DataFunctions } from '../types/dataFunctions';
 
 export const debounce: Function = (func: Function, wait: number, immediate?: boolean) => {
   let timeout;
@@ -17,9 +18,15 @@ export const debounce: Function = (func: Function, wait: number, immediate?: boo
   };
 };
 
-export const asyncForEach: Function = async (array: Array<any>, callback: Function) => {
-  for (let index: number = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
+export const asyncForEach: Function = async (
+  array: Array<any>,
+  callback: Function,
+  dataFunctions: DataFunctions,
+) => {
+  const { listSize, getIn }: DataFunctions = dataFunctions;
+
+  for (let index: number = 0; index < listSize(array); index++) {
+    await callback(getIn(array, [index]), index, array);
   }
 };
 
@@ -42,7 +49,7 @@ export function cloneDeep<Input: any>(o: Input): Input {
   return copy;
 }
 
-export function isEqual(x: any, y: any) {
+export function is(x: any, y: any): boolean {
   if (x === null || x === undefined || y === null || y === undefined) {
     return x === y;
   }
@@ -72,7 +79,7 @@ export function isEqual(x: any, y: any) {
   }
 
   const p = Object.keys(x);
-  return Object.keys(y).every(i => p.indexOf(i) !== -1) && p.every(i => isEqual(x[i], y[i]));
+  return Object.keys(y).every(i => p.indexOf(i) !== -1) && p.every(i => is(x[i], y[i]));
 }
 
 export function hasIn(where: Where, searchKeyPath: SearchKeyPath): boolean {
@@ -112,11 +119,11 @@ export function deleteIn<Input: Where>(where: Input, searchKeyPath: SearchKeyPat
   return where;
 }
 
-export function getIn(where: Where, searchKeyPath: SearchKeyPath): any {
+export function getIn(where: Where, searchKeyPath: SearchKeyPath, defaultValue: any): any {
   let current: Where = where;
 
   for (let i: number = 0; i < searchKeyPath.length; i++) {
-    if (current[searchKeyPath[i]] === undefined) return false;
+    if (current[searchKeyPath[i]] === undefined) return defaultValue || false;
     current = current[searchKeyPath[i]];
   }
 
@@ -129,4 +136,24 @@ export function merge<Input: Where>(target: Input, source: Input): Input {
 
 export function keys(input: Object): Array<string> {
   return Object.keys(input);
+}
+
+export function isList(input: Array<any>): boolean {
+  return Array.isArray(input);
+}
+
+export function listIncludes(list: Array<any>, item: any): boolean {
+  return list.indexOf(item) > -1;
+}
+
+export function listSize(list: Array<any>): number {
+  return list.length;
+}
+
+export function isImmutable(): boolean {
+  return false;
+}
+
+export function toJS<Input: any>(input: Input): Input {
+  return input;
 }
