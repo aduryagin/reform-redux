@@ -40,6 +40,10 @@ How to create two forms on same page.
 
 How to use normalize or masking your form values.
 
+### [ImmutableJS support](https://codesandbox.io/s/pkvo883w47)
+
+How to use the library with ImmutableJS.
+
 ## Create form reducer
 
 How to create form reducer.

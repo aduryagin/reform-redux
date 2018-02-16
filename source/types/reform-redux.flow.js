@@ -2,6 +2,33 @@
 
 import type { ComponentType } from 'react';
 
+declare module 'reform-redux/immutable' {
+  // Reducer
+  declare export var formReducerCreator: Function;
+
+  // Actions
+  declare export var changeFieldsValues: Function;
+  declare export var changeFieldValue: Function;
+  declare export var setFieldErrors: Function;
+  declare export var setFieldsErrors: Function;
+  declare export var setFieldDisabled: Function;
+  declare export var setFieldsDisabled: Function;
+  declare export var resetField: Function;
+  declare export var resetFields: Function;
+  declare export var resetForm: Function;
+
+  // Components
+  declare export var Form: ComponentType<*>;
+  declare export var Field: ComponentType<*>;
+  declare export var Button: ComponentType<*>;
+
+  // Containers
+  declare export var selectFormData: (
+    fieldNames: any,
+    formPath?: string,
+  ) => (ConnectedComponent: ComponentType<*>) => ComponentType<*>;
+}
+
 declare module 'reform-redux' {
   // Reducer
   declare export var formReducerCreator: (
