@@ -50,6 +50,7 @@ export type ComponentProps = {
   onChange?: Function,
   onBlur?: (event: Event, fieldData: FieldData) => any,
   onFocus?: (event: Event, fieldData: FieldData) => any,
+  innerRef?: (element: any) => void,
 };
 
 export type ComponentState = {

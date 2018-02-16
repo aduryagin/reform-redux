@@ -293,7 +293,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
     render() {
       // eslint-disable-next-line no-unused-vars
-      const { normalize, component, name, validate, disabled, ...restProps } = this.props;
+      const { normalize, component, name, validate, disabled, innerRef, ...restProps } = this.props;
       let fieldProps: {
         onChange: Function,
         onBlur: Function,
@@ -329,12 +329,14 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       if (typeof component !== 'string') {
         fieldProps = {
           ...fieldProps,
+          innerRef,
           formName: this.context._reformRedux.form.name,
           errors: getIn(this.state.field, ['errors']),
         };
       } else {
         fieldProps = {
           ...fieldProps,
+          ref: innerRef,
           value: isImmutable(fieldValue) ? toJS(fieldValue) : fieldValue,
         };
       }

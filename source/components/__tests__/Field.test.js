@@ -680,12 +680,16 @@ describe('components / Field', () => {
   });
 
   it('simple input component props', () => {
+    expect.assertions(2);
+
+    const refFunciton = jest.fn();
     const component = mount(
       createElement(
         global.Provider,
         {},
         createElement(Field, {
           name: 'field',
+          innerRef: refFunciton,
           component: 'input',
         }),
       ),
@@ -699,6 +703,7 @@ describe('components / Field', () => {
       'onFocus',
       'disabled',
     ]);
+    expect(refFunciton).toBeCalledWith(expect.anything());
   });
 
   it('component select with prop multiple must have value with type array', () => {
@@ -725,8 +730,11 @@ describe('components / Field', () => {
         {},
         createElement(Field, {
           name: 'field',
+          innerRef: () => {},
           component: props => {
-            expect(Object.keys(props)).toEqual(expect.arrayContaining(['formName', 'errors']));
+            expect(Object.keys(props)).toEqual(
+              expect.arrayContaining(['formName', 'innerRef', 'errors']),
+            );
             return 'test';
           },
         }),

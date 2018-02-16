@@ -111,6 +111,7 @@ The Field component creates new field in store and provide all data of this fiel
 | onBlur    | (event: Event, fieldData: FieldData) => any                                                                   | no       | onBlur handler.                                                                                  |
 | onChange  | (data: any, value: any) => any                                                                                | no       | onChange handler.                                                                                |
 | checked   | boolean                                                                                                       | no       | Checked or not your radio button or checkbox.                                                    |
+| innerRef  | (element: any) => void                                                                                        | no       | Ref for Field component.                                                                         |
 
 ### Props which avaible in the `component`
 
