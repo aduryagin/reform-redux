@@ -1,6 +1,7 @@
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { getValidateFunctionsArray, validateField } from '../utils/Field';
+import { filterReactDomProps } from '../utils/common';
 import type { MiniReduxForm } from '../types/Form';
 import type { FieldData, FieldsData, ComponentProps, ComponentState } from '../types/Field';
 import type { State } from '../types/formReducer';
@@ -301,7 +302,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         value: any,
         disabled: boolean,
       } = {
-        ...restProps,
+        ...filterReactDomProps(restProps),
         onChange: this.changeFieldValueHandler,
         onBlur: this.onBlurFieldHandler,
         onFocus: this.onFocusFieldHandler,

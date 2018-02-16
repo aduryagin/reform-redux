@@ -1,6 +1,7 @@
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { resetForm } from '../actions/Form';
+import { filterReactDomProps } from '../utils/common';
 import type { Element } from 'react';
 import type { State } from '../types/formReducer';
 import type { MiniReduxForm } from '../types/Form';
@@ -60,7 +61,7 @@ export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunct
 
     render(): Element<'button'> {
       return createElement('button', {
-        ...this.props,
+        ...filterReactDomProps(this.props),
         disabled: this.props.disabled || this.state.submitting,
         onClick: this.onClickHandler,
       });

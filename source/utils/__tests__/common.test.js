@@ -1,5 +1,12 @@
 import { LIBRARY_NAME } from '../../constants/common';
-import { debounce, asyncForEach, getReduxConst, cloneDeep, is } from '../common';
+import {
+  debounce,
+  asyncForEach,
+  getReduxConst,
+  cloneDeep,
+  is,
+  filterReactDomProps,
+} from '../common';
 import plain from '../plainFunctions';
 
 describe('utils/common', () => {
@@ -56,5 +63,13 @@ describe('utils/common', () => {
     const clonedObject = cloneDeep(object);
     expect(is(object, clonedObject)).toBe(true);
     expect(is([1], [2])).toBe(false);
+  });
+
+  it('filter ReactDOM props', () => {
+    const someProps = filterReactDomProps({ a: true, onClick: false });
+
+    expect(someProps).toEqual({
+      onClick: false,
+    });
   });
 });
