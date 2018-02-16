@@ -16,6 +16,7 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/reform-redux.flow.js",
   "dependencies": {
     "immutable": "^4.0.0-rc.9",
     "prop-types": "*",
@@ -51,7 +52,7 @@
     "flow-typed": "flow-typed install -l ./source/types/flow-typed",
     "lint": "eslint source --ignore-pattern source/types/flow-typed",
     "fix": "npm run lint -- --fix",
-    "build": "rollup -c",
+    "build": "rollup -c && cp ./source/types/reform-redux.flow.js ./dist/reform-redux.flow.js",
     "coverage": "npm run test -- --coverage",
     "test": "jest --config ./jest/jest.config.js",
     "test:dev": "npm run test -- --watch",
