@@ -1,7 +1,7 @@
 import { fromJS, Map as map, getIn, deleteIn, List as list, is, isImmutable } from 'immutable';
-import type { DataFunctions } from '../types/dataFunctions';
+import type { SearchKeyPath } from '../types/common';
 
-export default function immutable(): DataFunctions {
+export default function immutable() {
   return {
     fromJS,
     map,
@@ -9,8 +9,9 @@ export default function immutable(): DataFunctions {
     deleteIn,
     list,
     is,
-    hasIn: (collection: any, path: Array<string>): any => collection.hasIn(path),
-    setIn: (collection: any, path: Array<string>, value: any): any => collection.setIn(path, value),
+    hasIn: (collection: any, path: SearchKeyPath): any => collection.hasIn(path),
+    setIn: <Input: any>(collection: Input, path: SearchKeyPath, value: any): Input =>
+      collection.setIn(path, value),
     merge: (firstCollection: any, secondCollection: any): any =>
       firstCollection.merge(secondCollection),
     keys: (collection: any): any => collection.keySeq(),

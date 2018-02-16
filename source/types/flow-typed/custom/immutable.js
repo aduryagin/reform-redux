@@ -1,5 +1,5 @@
 import type { CloneDeep } from '../../dataFunctions';
-import type { HasIn, SetIn, GetIn, MergeDeep, DeleteIn, List, Is } from '../../common';
+import type { HasIn, SetIn, GetIn, MergeDeep, DeleteIn, List, Is, IsImmutable } from '../../common';
 
 declare module 'immutable' {
   declare export var fromJS: CloneDeep;
@@ -11,4 +11,5 @@ declare module 'immutable' {
   declare export var deleteIn: DeleteIn;
   declare export var List: List;
   declare export var is: Is;
+  declare export var isImmutable: IsImmutable;
 }

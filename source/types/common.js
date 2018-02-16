@@ -1,16 +1,21 @@
 import type { ComponentType } from 'react';
 import type { DataFunctions } from './dataFunctions';
+import type { FieldsData } from './Field';
 
 export type CloneDeep = <Input>(value: Input) => Input;
-export type SearchKeyPath = Array<string>;
-export type Where = {
-  [key: string]: any,
-};
+export type SearchKeyPath = Array<any>;
+export type WhereKey = string | number;
+export type Where =
+  | {
+      [key: WhereKey]: any,
+    }
+  | Array<any>
+  | FieldsData;
 export type Keys = (input: Object) => Array<string>;
 export type IsList = (input: any) => boolean;
 export type HasIn = (where: Where, searchKeyPath: SearchKeyPath) => boolean;
-export type SetIn = <Input: Where>(where: Input, searchKeyPath: SearchKeyPath, value: any) => Input;
-export type GetIn = <Input>(where: Where, searchKeyPath: SearchKeyPath, def?: Input) => Input;
+export type SetIn = <Input: Where>(where: any, searchKeyPath: SearchKeyPath, value: any) => Input;
+export type GetIn = <Input>(where: any, searchKeyPath: SearchKeyPath, def?: Input) => Input;
 export type Merge = <Input: Where>(target: Input, source: Input) => Input;
 export type DeleteIn = <Input: Where>(where: Input, searchKeyPath: SearchKeyPath) => Input;
 export type ComponentCreator = (dataFunctions: DataFunctions) => ComponentType<*>;

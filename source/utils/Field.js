@@ -1,14 +1,14 @@
 import { asyncForEach } from '../utils/common';
-import type { FieldValidateProp, FieldValue } from '../types/Field';
+import type { FieldValue } from '../types/Field';
 import type { DataFunctions } from '../types/dataFunctions';
 
 export const getValidateFunctionsArray: Function = (dataFunctions: DataFunctions) => (
-  validateProp: FieldValidateProp,
+  validateProp: any,
 ): Array<Function> => {
   const { listSize, list, isList }: DataFunctions = dataFunctions;
 
   if (!validateProp || (isList(validateProp) && !listSize(validateProp))) return list([]);
-  const validate: Array<Function> = !isList(validateProp) ? list([validateProp]) : validateProp;
+  const validate: any = !isList(validateProp) ? list([validateProp]) : validateProp;
 
   return validate;
 };

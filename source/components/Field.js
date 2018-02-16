@@ -68,9 +68,12 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       // Normalize value on component onInit
 
-      const value = props.normalize
-        ? props.normalize(props.value, '', map({}), 'onInit')
-        : props.value || '';
+      let value = props.value || '';
+
+      if (props.normalize) {
+        const { normalize } = props;
+        value = normalize(props.value, '', map({}), 'onInit');
+      }
 
       this.initialFieldData = map({
         value,

@@ -5,7 +5,7 @@ import type { DataFunctions } from '../types/dataFunctions';
 export function debounce(func: Function, wait: number, immediate?: boolean) {
   let timeout;
 
-  return (...args) => {
+  return (...args: Array<any>) => {
     const later = function() {
       timeout = null;
       if (!immediate) func.apply(this, args);
@@ -81,8 +81,8 @@ export function is(x: any, y: any): boolean {
   return Object.keys(y).every(i => p.indexOf(i) !== -1) && p.every(i => is(x[i], y[i]));
 }
 
-export function hasIn(where: Where, searchKeyPath: SearchKeyPath): boolean {
-  let current: Where = where;
+export function hasIn(where: any, searchKeyPath: SearchKeyPath): boolean {
+  let current: any = where;
 
   for (let i: number = 0; i < searchKeyPath.length; i++) {
     if (current[searchKeyPath[i]] === undefined) return false;
@@ -92,7 +92,7 @@ export function hasIn(where: Where, searchKeyPath: SearchKeyPath): boolean {
   return true;
 }
 
-export function setIn<Input: Where>(where: Input, searchKeyPath: SearchKeyPath, value: any): Input {
+export function setIn<Input: any>(where: Input, searchKeyPath: SearchKeyPath, value: any): Input {
   let current: Input = where;
   let i: number;
 
@@ -105,7 +105,7 @@ export function setIn<Input: Where>(where: Input, searchKeyPath: SearchKeyPath, 
   return cloneDeep(where);
 }
 
-export function deleteIn<Input: Where>(where: Input, searchKeyPath: SearchKeyPath): Input {
+export function deleteIn<Input: any>(where: Input, searchKeyPath: SearchKeyPath): Input {
   let current: Input = where;
   let i: number;
 
@@ -119,7 +119,7 @@ export function deleteIn<Input: Where>(where: Input, searchKeyPath: SearchKeyPat
 }
 
 export function getIn(where: Where, searchKeyPath: SearchKeyPath, defaultValue: any): any {
-  let current: Where = where;
+  let current: any = where;
 
   for (let i: number = 0; i < searchKeyPath.length; i++) {
     if (current[searchKeyPath[i]] === undefined) return defaultValue || false;
@@ -129,7 +129,7 @@ export function getIn(where: Where, searchKeyPath: SearchKeyPath, defaultValue: 
   return cloneDeep(current);
 }
 
-export function merge<Input: Where>(target: Input, source: Input): Input {
+export function merge<Input: any>(target: Input, source: Input): Input {
   return { ...target, ...source };
 }
 
@@ -137,7 +137,7 @@ export function keys(input: Object): Array<string> {
   return Object.keys(input);
 }
 
-export function isList(input: Array<any>): boolean {
+export function isList(input: Where): boolean {
   return Array.isArray(input);
 }
 
