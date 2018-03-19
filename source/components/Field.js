@@ -164,6 +164,13 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       if (nextProps.value !== undefined && !is(map(this.props.value), map(nextProps.value))) {
         this.changeFieldValue(nextProps.value);
       }
+
+      if (
+        ['radio', 'checkbox'].indexOf(this.props.type) !== -1 &&
+        this.props.checked !== nextProps.checked
+      ) {
+        this.changeFieldValue(nextProps.checked ? nextProps.value : '');
+      }
     }
 
     setFieldErrors = (errors: Array<string>) => {

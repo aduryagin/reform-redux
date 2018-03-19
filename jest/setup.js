@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { is } from 'immutable';
-import { formReducerCreator, Form } from '../source';
+import { formReducerCreator, Form, changeFieldValue } from '../source';
 import {
   Form as ImmutableForm,
   formReducerCreator as immutableFormReducerCreator,
@@ -73,7 +73,17 @@ beforeEach(() => {
 
   global.context = {
     store: global.store,
-    _reformRedux: { form: { path: ['form'], registerField: () => {}, updateForm: () => {} } },
+    _reformRedux: {
+      form: {
+        path: ['form'],
+        registerField: () => {},
+        updateForm: () => {},
+      },
+      field: {
+        changeFieldValue: (fieldName, fieldValue) =>
+          global.store.dispatch(changeFieldValue('form', fieldName, fieldValue)),
+      },
+    },
   };
 
   global.immutableContext = {

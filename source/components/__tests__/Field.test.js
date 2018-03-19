@@ -9,6 +9,44 @@ describe('components / Field', () => {
     expect(snapshot).toMatchSnapshot();
   });
 
+  it('componentWillReceiveProps checked for radio and checkbox types', done => {
+    expect.assertions(2);
+
+    global.store.dispatch(
+      formInitialisation('form', {
+        field: {
+          value: '',
+          errors: [],
+          valid: true,
+          disabled: false,
+        },
+      }),
+    );
+
+    let component = shallow(
+      createElement(Field, {
+        name: 'field',
+        component: 'input',
+        value: 'test',
+        type: 'checkbox',
+      }),
+      {
+        context: global.context,
+      },
+    );
+
+    component.setProps({
+      checked: true,
+    });
+
+    setImmediate(() => {
+      expect(global.store.getState().form.fields.field.value).toBe('test');
+      expect(component.state('field').value).toBe('test');
+
+      done();
+    });
+  });
+
   it('if component is not in Form component then throw error', () => {
     expect(() => shallow(createElement(Field))).toThrow(
       'Component `Field` must be in `Form` component.',
