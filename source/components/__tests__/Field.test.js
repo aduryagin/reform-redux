@@ -47,6 +47,43 @@ describe('components / Field', () => {
     });
   });
 
+  it('remove field on unmount', () => {
+    expect.assertions(2);
+
+    class Test extends Component {
+      render() {
+        return createElement(global.Provider, {}, [
+          !this.props.hidden
+            ? createElement(Field, {
+                name: 'field',
+                component: 'input',
+                removeOnUnmount: true,
+                key: 0,
+              })
+            : null,
+          createElement(Field, {
+            name: 'field1',
+            component: 'input',
+            key: 1,
+          }),
+        ]);
+      }
+    }
+
+    const component = mount(createElement(Test));
+
+    expect(global.store.getState().form.fields).toEqual({
+      field: { value: '', errors: [], valid: true, disabled: false },
+      field1: { value: '', errors: [], valid: true, disabled: false },
+    });
+
+    component.setProps({ hidden: true });
+
+    expect(global.store.getState().form.fields).toEqual({
+      field1: { value: '', errors: [], valid: true, disabled: false },
+    });
+  });
+
   it('if component is not in Form component then throw error', () => {
     expect(() => shallow(createElement(Field))).toThrow(
       'Component `Field` must be in `Form` component.',

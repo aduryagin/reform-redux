@@ -40,6 +40,7 @@ export type FieldValidateProp = Array<Function> | Function;
 export type ComponentProps = {
   name: string,
   component: ComponentType<*>,
+  removeOnUnmount?: boolean,
   normalize?: (value: any, previousValue: any, allFields: FieldsData, when: string) => any,
   type?: string,
   multiple?: boolean,
@@ -76,6 +77,12 @@ export type ResetField = {
   type: string,
   formName: string,
   fieldName: FieldName,
+};
+
+export type RemoveField = {
+  type: string,
+  formName: string,
+  fieldName: string,
 };
 
 export type ResetFields = {

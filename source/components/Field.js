@@ -53,6 +53,10 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         throw new Error('The `name` prop is required.');
       }
 
+      if (props.removeOnUnmount && typeof props.removeOnUnmount !== 'boolean') {
+        throw new Error('The `removeOnUnmount` prop must be a boolean.');
+      }
+
       if (props.normalize && typeof props.normalize !== 'function') {
         throw new Error('The `normalize` prop must be a function.');
       }
@@ -157,7 +161,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
     componentWillUnmount() {
       this.unsubscribeFromStore();
-      this.context._reformRedux.form.unregisterField(this.props.name);
+      this.context._reformRedux.form.unregisterField(this.props.name, this.props.removeOnUnmount);
     }
 
     componentWillReceiveProps(nextProps: ComponentProps) {

@@ -103,19 +103,20 @@ The Field component creates new field in store and provide all data of this fiel
 
 ### Props
 
-| Prop name | Flow type                                                                                                     | Required | Description                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
-| name      | string                                                                                                        | yes      | Name of your field. This name will appear in fields object in redux store.                       |
-| component | ComponentType<*>                                                                                              | yes      | Function or Class or String which be passed to React.createElement.                              |
-| validate  | Array\<(value: any) => any\> \| (value: any) => any                                                           | no       | Validate functions.                                                                              |
-| disabled  | boolean                                                                                                       | no       | Field disabled or not.                                                                           |
-| value     | any                                                                                                           | no       | Value of your field.                                                                             |
-| normalize | (value: any, previousValue: any, allFields: FieldsData, when: onChange \| onBlur \| onFocus \| onInit) => any | no       | Normalize value function. If you normalize your data on onInit then allFields will empty object. |
-| onFocus   | (event: Event, fieldData: FieldData) => any                                                                   | no       | onFocus handler.                                                                                 |
-| onBlur    | (event: Event, fieldData: FieldData) => any                                                                   | no       | onBlur handler.                                                                                  |
-| onChange  | (data: any, value: any) => any                                                                                | no       | onChange handler.                                                                                |
-| checked   | boolean                                                                                                       | no       | Checked or not your radio button or checkbox.                                                    |
-| innerRef  | (element: any) => void                                                                                        | no       | Ref for Field component.                                                                         |
+| Prop name       | Flow type                                                                                                     | Required | Description                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| name            | string                                                                                                        | yes      | Name of your field. This name will appear in fields object in redux store.                       |
+| component       | ComponentType<*>                                                                                              | yes      | Function or Class or String which be passed to React.createElement.                              |
+| validate        | Array\<(value: any) => any\> \| (value: any) => any                                                           | no       | Validate functions.                                                                              |
+| disabled        | boolean                                                                                                       | no       | Field disabled or not.                                                                           |
+| value           | any                                                                                                           | no       | Value of your field.                                                                             |
+| normalize       | (value: any, previousValue: any, allFields: FieldsData, when: onChange \| onBlur \| onFocus \| onInit) => any | no       | Normalize value function. If you normalize your data on onInit then allFields will empty object. |
+| onFocus         | (event: Event, fieldData: FieldData) => any                                                                   | no       | onFocus handler.                                                                                 |
+| onBlur          | (event: Event, fieldData: FieldData) => any                                                                   | no       | onBlur handler.                                                                                  |
+| onChange        | (data: any, value: any) => any                                                                                | no       | onChange handler.                                                                                |
+| checked         | boolean                                                                                                       | no       | Checked or not your radio button or checkbox.                                                    |
+| innerRef        | (element: any) => void                                                                                        | no       | Ref for Field component.                                                                         |
+| removeOnUnmount | boolean                                                                                                       | no       | Remove field data from store on unmount                                                          |
 
 ### Props which avaible in the `component`
 

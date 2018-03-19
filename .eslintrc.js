@@ -26,10 +26,7 @@ module.exports = {
       "error",
       "always"
     ],
-    "indent": [
-      "error",
-      2
-    ],
+    "indent": 0,
     "linebreak-style": [
       "error",
       "unix"

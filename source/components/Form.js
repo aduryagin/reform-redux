@@ -10,6 +10,7 @@ import {
   setFieldsDisabled,
   resetField,
   resetFields,
+  removeField,
 } from '../actions/Field';
 import { validateField, getValidateFunctionsArray } from '../utils/Field';
 import { debounce, asyncForEach } from '../utils/common';
@@ -28,7 +29,16 @@ import type { State } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
 
 export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctions) => {
-  const { getIn, keys, listSize, list, setIn, map, isList }: DataFunctions = dataFunctions;
+  const {
+    getIn,
+    keys,
+    listSize,
+    list,
+    setIn,
+    map,
+    isList,
+    deleteIn,
+  }: DataFunctions = dataFunctions;
 
   class Form extends Component<ComponentProps, ComponentState> {
     formName: string;
@@ -94,6 +104,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
             ),
           },
           field: {
+            removeField: (fieldName: FieldName): Function =>
+              store.dispatch(removeField(this.formName, fieldName)),
             changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }): Function =>
               store.dispatch(changeFieldsValues(this.formName, fieldsValues)),
             changeFieldValue: (fieldName: FieldName, fieldValue: any): Function =>
@@ -129,8 +141,14 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       return (this.fieldsCount[this.formName][fieldName] = fieldsCount ? fieldsCount - 1 : 0);
     };
 
-    unregisterField = (fieldName: FieldName) => {
+    unregisterField = (fieldName: FieldName, removeOnUnmount: boolean) => {
       this.decreaseFieldCount(fieldName);
+
+      if (removeOnUnmount) {
+        this.context.store.dispatch(removeField(this.formName, fieldName));
+        this.fieldsStack = deleteIn(this.fieldsStack, [this.formName, fieldName]);
+        this.fieldsValidateStack = deleteIn(this.fieldsValidateStack, [this.formName, fieldName]);
+      }
     };
 
     registerField = (

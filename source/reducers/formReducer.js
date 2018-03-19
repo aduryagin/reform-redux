@@ -5,6 +5,7 @@ import {
   UPDATE_FORM,
 } from '../constants/Form';
 import {
+  REMOVE_FIELD,
   CHANGE_FIELD_VALUE,
   CHANGE_FIELDS_VALUES,
   SET_FIELD_ERRORS,
@@ -28,6 +29,7 @@ import type {
   FieldsValues,
   ResetFields,
   FieldName,
+  RemoveField,
 } from '../types/Field';
 import type { FormInitialisation, SetFormSubmitting, UpdateForm } from '../types/Form';
 import type { DataFunctions } from '../types/dataFunctions';
@@ -65,6 +67,15 @@ export const createFormReducer: Function = ({
           ['fields', action.fieldName],
           getIn(initialFormState, ['fields', action.fieldName]),
         );
+      }
+
+      return newState;
+    },
+    [getReduxConst(REMOVE_FIELD)]: (state: State, action: RemoveField): State => {
+      const newState: State = map(state);
+
+      if (hasIn(newState, ['fields', action.fieldName])) {
+        return deleteIn(newState, ['fields', action.fieldName]);
       }
 
       return newState;

@@ -13,6 +13,7 @@ export type MiniReduxForm = {
       updateForm: Function,
     },
     field: {
+      removeField: Function,
       changeFieldValue: (fieldName: FieldName, fieldValue: string) => Function,
       changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }) => Function,
       setFieldErrors: (fieldName: FieldName, errors: Array<string>) => Function,

@@ -9,6 +9,7 @@ import {
   CHANGE_FIELDS_VALUES,
   RESET_FIELDS,
   RESET_FIELD,
+  REMOVE_FIELD,
 } from '../../constants/Field';
 import {
   UPDATE_FORM,
@@ -155,6 +156,17 @@ describe('reducers/formReducer', () => {
 
     expect(Object.keys(newState.fields)).toEqual(['field', 'field1']);
     expect(newState.fields.field).not.toBe('new field');
+  });
+
+  it('REMOVE_FIELD', () => {
+    const action = formReducerCreator('form');
+    const newState = action(state, {
+      type: getReduxConst(REMOVE_FIELD),
+      formName: 'form',
+      fieldName: 'field',
+    });
+
+    expect(Object.keys(newState.fields)).toEqual([]);
   });
 
   it('FORM_INITIALISATION', () => {

@@ -7,6 +7,7 @@ import {
   CHANGE_FIELDS_VALUES,
   RESET_FIELD,
   RESET_FIELDS,
+  REMOVE_FIELD,
 } from '../constants/Field';
 import type {
   ChangeFieldValue,
@@ -19,8 +20,15 @@ import type {
   ResetFields,
   FieldValue,
   FieldName,
+  RemoveField,
 } from '../types/Field';
 import { getReduxConst } from '../utils/common';
+
+export const removeField: Function = (formName: string, fieldName: FieldName): RemoveField => ({
+  type: getReduxConst(REMOVE_FIELD),
+  formName,
+  fieldName,
+});
 
 export const resetField: Function = (formName: string, fieldName: FieldName): ResetField => ({
   type: getReduxConst(RESET_FIELD),
