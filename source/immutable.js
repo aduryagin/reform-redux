@@ -24,6 +24,7 @@ export {
   setFieldsDisabled,
   resetField,
   resetFields,
+  removeField,
 } from './actions/Field';
 export { resetForm } from './actions/Form';
 
