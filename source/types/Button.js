@@ -1,6 +1,6 @@
 export type ComponentProps = {
   type: string,
-  children: Element<*>,
+  children: any,
   onClick?: Function,
 };
 
