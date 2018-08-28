@@ -3,6 +3,15 @@
   "version": "1.0.3",
   "license": "MIT",
   "description": "Simple realisation of react/redux form",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/aduryagin/reform-redux"
+  },
+  "author": {
+    "name": "Alexey Duryagin",
+    "email": "aiduryagih@gmail.com",
+    "url" : "https://github.com/aduryagin"
+  },
   "keywords": [
     "react",
     "redux",
