@@ -313,7 +313,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         value: any,
         disabled: boolean,
       } = {
-        ...filterReactDomProps(restProps),
+        ...restProps,
         onChange: this.changeFieldValueHandler,
         onBlur: this.onBlurFieldHandler,
         onFocus: this.onFocusFieldHandler,
@@ -347,7 +347,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         };
       } else {
         fieldProps = {
-          ...fieldProps,
+          ...filterReactDomProps(fieldProps),
           ref: innerRef,
           value: isImmutable(fieldValue) ? toJS(fieldValue) : fieldValue,
         };
