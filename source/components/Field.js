@@ -198,37 +198,37 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     };
 
     getFieldValue = (data: any): any => {
-      if (data.nativeEvent && data.nativeEvent instanceof Event) {
-        if (this.isRadio()) {
-          return data.target.checked ? this.props.value : '';
-        }
+      const isEvent = data.nativeEvent && data.nativeEvent instanceof Event;
+      if (this.isRadio()) {
+        const checked = isEvent ? data.target.checked : data;
+        return checked ? this.props.value : '';
+      }
 
-        if (this.isCheckbox()) {
-          if (this.context._reformRedux.form.fieldsCount[this.props.name] > 1) {
-            return list(
-              data.target.checked
-                ? [...toJS(getIn(this.state.field, ['value'])), toJS(this.props.value)]
-                : toJS(getIn(this.state.field, ['value'])).filter(
+      if (this.isCheckbox()) {
+        const checked = isEvent ? data.target.checked : data;
+        if (this.context._reformRedux.form.fieldsCount[this.props.name] > 1) {
+          return list(
+            checked
+              ? [...toJS(getIn(this.state.field, ['value'])), toJS(this.props.value)]
+              : toJS(getIn(this.state.field, ['value'])).filter(
                   value => value !== this.props.value, // eslint-disable-line
                 ), // eslint-disable-line
-            );
-          }
-
-          return data.target.checked ? this.props.value : '';
-        }
-
-        if (this.props.component === 'select' && this.props.multiple) {
-          return list(
-            [].slice.call(data.target.selectedOptions).map(option => {
-              return option.value;
-            }),
           );
         }
 
-        return data.target.value;
+        return checked ? this.props.value : '';
       }
 
-      return data;
+      if (this.props.component === 'select' && this.props.multiple) {
+        const selectedOptions = isEvent ? data.target.selectedOptions : data;
+        return list(
+          [].slice.call(selectedOptions).map(option => {
+            return option.value;
+          }),
+        );
+      }
+
+      return isEvent ? data.target.value : data;
     };
 
     changeFieldValueHandler = (data: any, normalizeWhen: string = 'onChange') => {

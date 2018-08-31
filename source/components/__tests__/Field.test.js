@@ -377,6 +377,48 @@ describe('components / Field', () => {
     component.find('input').simulate('change', event);
   });
 
+  it('set field value in list of custom checkbox components', done => {
+    class Checkbox extends Component {
+      onChange = event => {
+        this.props.onChange(event.target.checked);
+      };
+
+      render() {
+        return createElement('input', { type: 'checkbox', onChange: this.onChange });
+      }
+    }
+
+    const component = mount(
+      createElement(global.Provider, {}, [
+        createElement(Field, {
+          key: 0,
+          name: 'field',
+          component: Checkbox,
+          value: '1',
+          type: 'checkbox',
+        }),
+        createElement(Field, {
+          key: 1,
+          name: 'field',
+          value: '2',
+          component: Checkbox,
+          type: 'checkbox',
+        }),
+      ]),
+    );
+
+    const event = { nativeEvent: new Event('change'), target: { checked: true } };
+    component
+      .find('input')
+      .first()
+      .simulate('change', event);
+
+    setImmediate(() => {
+      expect(global.store.getState().form.fields.field.value).toEqual(['1']);
+      done();
+    });
+  });
+
   it('get field value from event in custom component', () => {
     class Input extends Component {
       onChange = event => {
