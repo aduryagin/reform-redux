@@ -4,6 +4,7 @@ import type { ComponentType } from 'react';
 
 export type FieldData = {
   value: any,
+  touched: boolean,
   errors: Array<string>,
   valid: boolean,
   disabled: boolean,
@@ -48,6 +49,7 @@ export type ComponentProps = {
   value?: string,
   validate?: FieldValidateProp,
   disabled?: boolean,
+  touched?: boolean,
   onChange?: Function,
   onBlur?: (event: Event, fieldData: FieldData) => any,
   onFocus?: (event: Event, fieldData: FieldData) => any,

@@ -2,7 +2,7 @@ import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { getValidateFunctionsArray, validateField } from '../utils/Field';
 import { filterReactDomProps } from '../utils/common';
-import type { MiniReduxForm } from '../types/Form';
+import type { ReFormRedux } from '../types/Form';
 import type { FieldData, FieldsData, ComponentProps, ComponentState } from '../types/Field';
 import type { State } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
@@ -42,7 +42,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       store: PropTypes.object,
     };
 
-    constructor(props: ComponentProps, context: MiniReduxForm) {
+    constructor(props: ComponentProps, context: ReFormRedux) {
       super(props, context);
 
       if (!context._reformRedux) {
@@ -84,6 +84,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         value,
         errors: list([]),
         valid: true,
+        touched: props.touched || false,
         disabled: props.disabled || false,
       });
 
@@ -106,13 +107,15 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       this.state = {
         field: map(this.initialFieldData),
       };
+
+      this.registerField();
     }
 
     shouldComponentUpdate() {
       return Boolean(this.reduxRenderCount > 1);
     }
 
-    componentWillMount() {
+    registerField = () => {
       this.unsubscribeFromStore = this.context.store.subscribe(() => {
         const state: State = this.context.store.getState();
         const currentFormData: State = getIn(state, this.context._reformRedux.form.path);
@@ -138,6 +141,8 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         }
       });
 
+      // Register
+
       const initialFieldData = map(this.initialFieldData);
       const { type, checked, multiple, component } = this.props;
 
@@ -157,7 +162,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       if (listSize(keys(getIn(currentFormData, ['fields'])))) {
         this.context._reformRedux.form.updateForm();
       }
-    }
+    };
 
     componentWillUnmount() {
       this.unsubscribeFromStore();

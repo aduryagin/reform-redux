@@ -1,7 +1,7 @@
 import type { Element } from 'react';
 import type { FieldsData, FieldValidateProp, FieldsCount, FieldName } from './Field';
 
-export type MiniReduxForm = {
+export type ReFormRedux = {
   _reformRedux: {
     form: {
       name: string,
@@ -30,10 +30,6 @@ export type MiniReduxForm = {
       resetFields: (fieldsNames: Array<FieldName>) => Function,
     },
   },
-};
-
-export type ComponentState = {
-  submitted: boolean,
 };
 
 export type ComponentProps = {
