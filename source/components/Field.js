@@ -349,6 +349,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
           innerRef,
           formName: this.context._reformRedux.form.name,
           errors: getIn(this.state.field, ['errors']),
+          touched: getIn(this.state.field, ['touched']),
         };
       } else {
         fieldProps = {

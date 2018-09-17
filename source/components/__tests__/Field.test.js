@@ -804,6 +804,37 @@ describe('components / Field', () => {
     );
   });
 
+  it('custom component props', () => {
+    const customComponent = () => {
+      return 'test';
+    };
+    const refFunciton = jest.fn();
+    const component = mount(
+      createElement(
+        global.Provider,
+        {},
+        createElement(Field, {
+          name: 'field',
+          innerRef: refFunciton,
+          component: customComponent,
+        }),
+      ),
+    );
+    const input = component.find(customComponent);
+
+    expect(Object.keys(input.props())).toEqual([
+      'value',
+      'onChange',
+      'onBlur',
+      'onFocus',
+      'disabled',
+      'innerRef',
+      'formName',
+      'errors',
+      'touched',
+    ]);
+  });
+
   it('simple input component props', () => {
     expect.assertions(2);
 
