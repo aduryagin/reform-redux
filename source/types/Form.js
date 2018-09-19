@@ -14,6 +14,11 @@ export type ReFormRedux = {
     },
     field: {
       removeField: Function,
+      setFieldTouched: (fieldName: FieldName, fieldTouched: boolean) => Function,
+      setFieldsTouched: (
+        fieldName: FieldName,
+        fieldsTouched: { [fieldName: FieldName]: boolean },
+      ) => Function,
       changeFieldValue: (fieldName: FieldName, fieldValue: string) => Function,
       changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }) => Function,
       setFieldErrors: (fieldName: FieldName, errors: Array<string>) => Function,

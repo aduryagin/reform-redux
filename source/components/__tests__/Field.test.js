@@ -74,14 +74,35 @@ describe('components / Field', () => {
     const component = mount(createElement(Test));
 
     expect(global.store.getState().form.fields).toEqual({
-      field: { value: '', errors: [], changed: false, valid: true, disabled: false },
-      field1: { value: '', errors: [], changed: false, valid: true, disabled: false },
+      field: {
+        value: '',
+        errors: [],
+        changed: false,
+        touched: false,
+        valid: true,
+        disabled: false,
+      },
+      field1: {
+        value: '',
+        errors: [],
+        changed: false,
+        touched: false,
+        valid: true,
+        disabled: false,
+      },
     });
 
     component.setProps({ hidden: true });
 
     expect(global.store.getState().form.fields).toEqual({
-      field1: { value: '', errors: [], changed: false, valid: true, disabled: false },
+      field1: {
+        value: '',
+        errors: [],
+        changed: false,
+        touched: false,
+        valid: true,
+        disabled: false,
+      },
     });
   });
 
@@ -126,7 +147,7 @@ describe('components / Field', () => {
   });
 
   it('if you pass disabled and value props then this props will in state.field.value and state.field.disabled.', () => {
-    expect.assertions(6);
+    expect.assertions(8);
 
     let component = shallow(
       createElement(Field, {
@@ -134,6 +155,7 @@ describe('components / Field', () => {
         component: 'input',
         value: 'test',
         disabled: true,
+        touched: true,
         changed: true,
       }),
       {
@@ -143,6 +165,7 @@ describe('components / Field', () => {
 
     expect(component.state('field').value).toBe('test');
     expect(component.state('field').disabled).toBeTruthy();
+    expect(component.state('field').touched).toBeTruthy();
     expect(component.state('field').changed).toBeTruthy();
 
     component = shallow(
@@ -157,6 +180,7 @@ describe('components / Field', () => {
 
     expect(component.state('field').value).toBe('');
     expect(component.state('field').disabled).toBeFalsy();
+    expect(component.state('field').touched).toBeFalsy();
     expect(component.state('field').changed).toBeFalsy();
   });
 
@@ -265,7 +289,7 @@ describe('components / Field', () => {
   });
 
   it('validate on onChange after onBlur', done => {
-    expect.assertions(2);
+    expect.assertions(6);
 
     const validate = value => {
       if (value.length > 3) return 'Must be 3 characters or less.';
@@ -282,11 +306,17 @@ describe('components / Field', () => {
       ),
     );
 
+    expect(global.store.getState().form.touched).toBeFalsy();
+    expect(global.store.getState().form.fields.field.touched).toBeFalsy();
+
     const input = component.find('input');
     input.simulate('blur');
 
     const getEvent = value => ({ nativeEvent: new Event('change'), target: { value } });
     input.simulate('change', getEvent('test'));
+
+    expect(global.store.getState().form.touched).toBeTruthy();
+    expect(global.store.getState().form.fields.field.touched).toBeTruthy();
 
     setImmediate(() => {
       expect(global.store.getState().form.fields.field.errors).toEqual([
@@ -350,7 +380,16 @@ describe('components / Field', () => {
     expect(normalize).lastCalledWith(
       'test',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, changed: false, value: 'TEST' } },
+      {
+        field: {
+          disabled: false,
+          errors: [],
+          touched: false,
+          valid: true,
+          changed: false,
+          value: 'TEST',
+        },
+      },
       'onChange',
     );
   });
@@ -718,7 +757,16 @@ describe('components / Field', () => {
     expect(normalize).toBeCalledWith(
       'TEST',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, changed: false, value: 'TEST' } },
+      {
+        field: {
+          disabled: false,
+          errors: [],
+          touched: false,
+          valid: true,
+          changed: false,
+          value: 'TEST',
+        },
+      },
       'onBlur',
     );
   });
@@ -744,6 +792,7 @@ describe('components / Field', () => {
       disabled: false,
       errors: [],
       changed: false,
+      touched: false,
       valid: true,
       value: '',
     });
@@ -770,6 +819,7 @@ describe('components / Field', () => {
       disabled: false,
       errors: [],
       changed: false,
+      touched: false,
       valid: true,
       value: '',
     });
@@ -799,7 +849,16 @@ describe('components / Field', () => {
     expect(normalize).lastCalledWith(
       'TEST',
       'TEST',
-      { field: { disabled: false, changed: false, errors: [], valid: true, value: 'TEST' } },
+      {
+        field: {
+          disabled: false,
+          changed: false,
+          touched: false,
+          errors: [],
+          valid: true,
+          value: 'TEST',
+        },
+      },
       'onFocus',
     );
   });

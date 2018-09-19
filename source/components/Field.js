@@ -84,6 +84,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         value,
         errors: list([]),
         valid: true,
+        touched: props.touched || false,
         changed: props.changed || false,
         disabled: props.disabled || false,
       });
@@ -271,6 +272,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (this.fieldWasTouched) return;
       this.fieldWasTouched = true;
+      this.context._reformRedux.field.setFieldTouched(this.props.name, true);
 
       if (this.props.validate) {
         const validate: Array<Function> = getValidateFunctionsArray(dataFunctions)(

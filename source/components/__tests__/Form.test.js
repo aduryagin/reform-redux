@@ -87,9 +87,19 @@ describe('components / Form', () => {
     );
 
     expect(global.store.getState().form).toEqual({
-      fields: { test: { changed: false, disabled: false, errors: [], valid: true, value: '' } },
+      fields: {
+        test: {
+          changed: false,
+          disabled: false,
+          touched: false,
+          errors: [],
+          valid: true,
+          value: '',
+        },
+      },
       submitted: false,
       submitting: false,
+      touched: false,
       changed: false,
       valid: true,
     });
@@ -131,12 +141,14 @@ describe('components / Form', () => {
             disabled: false,
             errors: [],
             valid: true,
+            touched: false,
             changed: false,
             value: '12',
           },
           test2: {
             disabled: false,
             errors: [],
+            touched: false,
             valid: true,
             changed: false,
             value: '12',
@@ -174,12 +186,14 @@ describe('components / Form', () => {
             errors: ['Value must be at least 2 characters'],
             valid: false,
             changed: false,
+            touched: false,
             value: '1',
           },
           test2: {
             disabled: false,
             errors: ['Value must be at least 2 characters'],
             valid: false,
+            touched: false,
             changed: false,
             value: '1',
           },
@@ -189,6 +203,7 @@ describe('components / Form', () => {
             disabled: false,
             errors: ['Value must be at least 2 characters'],
             valid: false,
+            touched: false,
             changed: false,
             value: '1',
           },
@@ -196,6 +211,7 @@ describe('components / Form', () => {
             disabled: false,
             errors: ['Value must be at least 2 characters'],
             valid: false,
+            touched: false,
             changed: false,
             value: '1',
           },

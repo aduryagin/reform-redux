@@ -11,6 +11,8 @@ import {
   resetField,
   resetFields,
   removeField,
+  setFieldsTouched,
+  setFieldTouched,
 } from '../actions/Field';
 import { validateField, getValidateFunctionsArray } from '../utils/Field';
 import { debounce, asyncForEach, filterReactDomProps } from '../utils/common';
@@ -104,6 +106,12 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
             ),
           },
           field: {
+            setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
+              store.dispatch(setFieldTouched(this.formName, fieldName, fieldTouched)),
+            setFieldsTouched: (
+              fieldName: FieldName,
+              fieldsTouched: { [fieldName: FieldName]: boolean },
+            ): Function => store.dispatch(setFieldsTouched(this.formName, fieldsTouched)),
             removeField: (fieldName: FieldName): Function =>
               store.dispatch(removeField(this.formName, fieldName)),
             changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }): Function =>
