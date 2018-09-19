@@ -92,11 +92,11 @@ describe('components / Form.immutable', () => {
         getIn(global.immutableStore.getState(), ['form']),
         Map({
           fields: Map({
-            test: Map({ disabled: false, touched: false, errors: List(), valid: true, value: '' }),
+            test: Map({ disabled: false, changed: false, errors: List(), valid: true, value: '' }),
           }),
           submitted: false,
           submitting: false,
-          touched: false,
+          changed: false,
           valid: true,
         }),
       ),
@@ -138,13 +138,13 @@ describe('components / Form.immutable', () => {
           test1: Map({
             disabled: false,
             errors: List(),
-            touched: false,
+            changed: false,
             valid: true,
             value: '12',
           }),
           test2: Map({
             disabled: false,
-            touched: false,
+            changed: false,
             errors: List(),
             valid: true,
             value: '12',
@@ -179,14 +179,14 @@ describe('components / Form.immutable', () => {
         Map({
           test1: Map({
             disabled: false,
-            touched: false,
+            changed: false,
             errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
           }),
           test2: Map({
             disabled: false,
-            touched: false,
+            changed: false,
             errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
@@ -195,14 +195,14 @@ describe('components / Form.immutable', () => {
         Map({
           test1: Map({
             disabled: false,
-            touched: false,
+            changed: false,
             errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',
           }),
           test2: Map({
             disabled: false,
-            touched: false,
+            changed: false,
             errors: List(['Value must be at least 2 characters']),
             valid: false,
             value: '1',

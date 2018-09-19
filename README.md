@@ -90,7 +90,7 @@ type FieldData = {
   errors: Array<string>,
   valid: boolean,
   disabled: boolean,
-  touched: boolean,
+  changed: boolean,
 };
 ```
 
@@ -110,7 +110,7 @@ The Field component creates new field in store and provide all data of this fiel
 | component       | ComponentType<*>                                                                                              | yes      | Function or Class or String which be passed to React.createElement.                              |
 | validate        | Array\<(value: any) => any\> \| (value: any) => any                                                           | no       | Validate functions.                                                                              |
 | disabled        | boolean                                                                                                       | no       | Field disabled or not.                                                                           |
-| touched         | boolean                                                                                                       | no       | Field touched or not.                                                                            |
+| changed         | boolean                                                                                                       | no       | Field changed or not.                                                                            |
 | value           | any                                                                                                           | no       | Value of your field.                                                                             |
 | normalize       | (value: any, previousValue: any, allFields: FieldsData, when: onChange \| onBlur \| onFocus \| onInit) => any | no       | Normalize value function. If you normalize your data on onInit then allFields will empty object. |
 | onFocus         | (event: Event, fieldData: FieldData) => any                                                                   | no       | onFocus handler.                                                                                 |
@@ -129,7 +129,7 @@ The Field component creates new field in store and provide all data of this fiel
 | onFocus   | (event: Event, fieldData: FieldData) => any            | This function will trigger normalize function.                                         |
 | value     | any                                                    | Field value.                                                                           |
 | disabled  | boolean                                                | Field disabled or not.                                                                 |
-| touched   | boolean                                                | Field touched or not.                                                                  |
+| changed   | boolean                                                | Field changed or not.                                                                  |
 | checked   | boolean                                                | This prop will avaible in the component if your component is checkbox or radio button. |
 | formName  | string                                                 | Form name.                                                                             |
 | errors    | Array\<string\>                                        | Array of errors.                                                                       |

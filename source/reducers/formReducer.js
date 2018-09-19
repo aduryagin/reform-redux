@@ -50,7 +50,7 @@ export const createFormReducer: Function = ({
     valid: true,
     submitted: false,
     submitting: false,
-    touched: false,
+    changed: false,
     fields: map({}),
   });
   let initialFormState: State = map(initialState);
@@ -103,7 +103,7 @@ export const createFormReducer: Function = ({
       keys(fieldsValues).forEach((fieldKey: string) => {
         if (hasIn(state, ['fields', fieldKey])) {
           // Change form
-          newState = setIn(newState, ['touched'], true);
+          newState = setIn(newState, ['changed'], true);
 
           // Change field
           newState = setIn(
@@ -111,7 +111,7 @@ export const createFormReducer: Function = ({
             ['fields', fieldKey, 'value'],
             getIn(fieldsValues, [fieldKey]),
           );
-          newState = setIn(newState, ['fields', fieldKey, 'touched'], true);
+          newState = setIn(newState, ['fields', fieldKey, 'changed'], true);
         }
       });
 
@@ -154,11 +154,11 @@ export const createFormReducer: Function = ({
 
       if (hasIn(state, ['fields', action.fieldName])) {
         // Change form
-        newState = setIn(newState, ['touched'], true);
+        newState = setIn(newState, ['changed'], true);
 
         // Change field
         newState = setIn(newState, ['fields', action.fieldName, 'value'], action.fieldValue);
-        newState = setIn(newState, ['fields', action.fieldName, 'touched'], true);
+        newState = setIn(newState, ['fields', action.fieldName, 'changed'], true);
       }
 
       return newState;

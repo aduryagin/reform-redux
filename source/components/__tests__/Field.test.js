@@ -17,7 +17,7 @@ describe('components / Field', () => {
         field: {
           value: '',
           errors: [],
-          touched: false,
+          changed: false,
           valid: true,
           disabled: false,
         },
@@ -74,14 +74,14 @@ describe('components / Field', () => {
     const component = mount(createElement(Test));
 
     expect(global.store.getState().form.fields).toEqual({
-      field: { value: '', errors: [], touched: false, valid: true, disabled: false },
-      field1: { value: '', errors: [], touched: false, valid: true, disabled: false },
+      field: { value: '', errors: [], changed: false, valid: true, disabled: false },
+      field1: { value: '', errors: [], changed: false, valid: true, disabled: false },
     });
 
     component.setProps({ hidden: true });
 
     expect(global.store.getState().form.fields).toEqual({
-      field1: { value: '', errors: [], touched: false, valid: true, disabled: false },
+      field1: { value: '', errors: [], changed: false, valid: true, disabled: false },
     });
   });
 
@@ -134,7 +134,7 @@ describe('components / Field', () => {
         component: 'input',
         value: 'test',
         disabled: true,
-        touched: true,
+        changed: true,
       }),
       {
         context: global.context,
@@ -143,7 +143,7 @@ describe('components / Field', () => {
 
     expect(component.state('field').value).toBe('test');
     expect(component.state('field').disabled).toBeTruthy();
-    expect(component.state('field').touched).toBeTruthy();
+    expect(component.state('field').changed).toBeTruthy();
 
     component = shallow(
       createElement(Field, {
@@ -157,7 +157,7 @@ describe('components / Field', () => {
 
     expect(component.state('field').value).toBe('');
     expect(component.state('field').disabled).toBeFalsy();
-    expect(component.state('field').touched).toBeFalsy();
+    expect(component.state('field').changed).toBeFalsy();
   });
 
   it('if component type is checkbox or radio value must be an empty string.', () => {
@@ -239,8 +239,8 @@ describe('components / Field', () => {
 
     expect(component.find('input').prop('value')).toBe('test');
     expect(global.store.getState().form.fields.field.value).toBe('test');
-    expect(global.store.getState().form.fields.field.touched).toBe(true);
-    expect(global.store.getState().form.touched).toBe(true);
+    expect(global.store.getState().form.fields.field.changed).toBe(true);
+    expect(global.store.getState().form.changed).toBe(true);
   });
 
   it('component with custom onChange', () => {
@@ -350,7 +350,7 @@ describe('components / Field', () => {
     expect(normalize).lastCalledWith(
       'test',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, touched: false, value: 'TEST' } },
+      { field: { disabled: false, errors: [], valid: true, changed: false, value: 'TEST' } },
       'onChange',
     );
   });
@@ -718,7 +718,7 @@ describe('components / Field', () => {
     expect(normalize).toBeCalledWith(
       'TEST',
       'TEST',
-      { field: { disabled: false, errors: [], valid: true, touched: false, value: 'TEST' } },
+      { field: { disabled: false, errors: [], valid: true, changed: false, value: 'TEST' } },
       'onBlur',
     );
   });
@@ -743,7 +743,7 @@ describe('components / Field', () => {
     expect(onBlur).toBeCalledWith(expect.anything(), {
       disabled: false,
       errors: [],
-      touched: false,
+      changed: false,
       valid: true,
       value: '',
     });
@@ -769,7 +769,7 @@ describe('components / Field', () => {
     expect(onFocus).toBeCalledWith(expect.anything(), {
       disabled: false,
       errors: [],
-      touched: false,
+      changed: false,
       valid: true,
       value: '',
     });
@@ -799,7 +799,7 @@ describe('components / Field', () => {
     expect(normalize).lastCalledWith(
       'TEST',
       'TEST',
-      { field: { disabled: false, touched: false, errors: [], valid: true, value: 'TEST' } },
+      { field: { disabled: false, changed: false, errors: [], valid: true, value: 'TEST' } },
       'onFocus',
     );
   });
@@ -831,7 +831,7 @@ describe('components / Field', () => {
       'innerRef',
       'formName',
       'errors',
-      'touched',
+      'changed',
     ]);
   });
 
