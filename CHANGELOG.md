@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.3] - 2018-09-21
+
+- Now exists commonJS bundle.
+
 ## [1.2.2] - 2018-09-20
 
 - Code improvements.
