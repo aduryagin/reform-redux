@@ -22,7 +22,7 @@
     "immutable"
   ],
   "main": "./dist/reform-redux.js",
-  "module": "./dist/reform-redux.js",
+  "module": "./dist/reform-redux.es.js",
   "files": [
     "dist"
   ],
@@ -52,8 +52,10 @@
     "jest": "^22.4.4",
     "prettier": "^1.13.7",
     "react-dom": "^16.4.1",
-    "rollup": "^0.53.1",
+    "rollup": "^0.66.2",
     "rollup-plugin-babel": "^4.0.0-beta.7",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-uglify": "^2.0.1",
     "uglify-es": "^3.3.9"
   },
