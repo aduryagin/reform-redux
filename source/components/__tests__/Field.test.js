@@ -10,31 +10,19 @@ describe('components / Field', () => {
   });
 
   it('componentWillReceiveProps checked for radio and checkbox types', done => {
-    expect.assertions(2);
-
-    global.store.dispatch(
-      formInitialisation('form', {
-        field: {
-          value: '',
-          errors: [],
-          changed: false,
-          valid: true,
-          disabled: false,
-        },
-      }),
-    );
-
-    let component = shallow(
-      createElement(Field, {
-        name: 'field',
-        component: 'input',
-        value: 'test',
-        type: 'checkbox',
-      }),
-      {
-        context: global.context,
-      },
-    );
+    const wrapper = ({ checked = false }) =>
+      createElement(
+        global.Provider,
+        {},
+        createElement(Field, {
+          name: 'field',
+          component: 'input',
+          value: 'test',
+          type: 'checkbox',
+          checked,
+        }),
+      );
+    const component = mount(createElement(wrapper));
 
     component.setProps({
       checked: true,
@@ -42,7 +30,6 @@ describe('components / Field', () => {
 
     setImmediate(() => {
       expect(global.store.getState().form.fields.field.value).toBe('test');
-      expect(component.state('field').value).toBe('test');
 
       done();
     });
