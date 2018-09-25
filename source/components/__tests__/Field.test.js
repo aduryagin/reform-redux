@@ -958,6 +958,38 @@ describe('components / Field', () => {
     );
   });
 
+  it("check that passed value doesn't change value of field if you have few components with same name", () => {
+    expect.assertions(2);
+
+    const component = ({ value1, value2 }) =>
+      createElement(global.Provider, {}, [
+        createElement(Field, {
+          name: 'field',
+          component: 'input',
+          type: 'checkbox',
+          checked: true,
+          value: value1,
+          key: 0,
+        }),
+        createElement(Field, {
+          name: 'field',
+          component: 'input',
+          type: 'checkbox',
+          checked: true,
+          value: value2,
+          key: 1,
+        }),
+      ]);
+
+    const mountedComponent = mount(createElement(component, { value1: 1, value2: 2 }));
+
+    expect(global.store.getState().form.fields.field.value).toEqual([1, 2]);
+
+    mountedComponent.setProps({ value1: 'test' });
+
+    expect(global.store.getState().form.fields.field.value).toEqual([1, 2]);
+  });
+
   it('checked prop in two checkboxes with same name', () => {
     expect.assertions(2);
 

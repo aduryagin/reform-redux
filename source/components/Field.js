@@ -168,6 +168,11 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     }
 
     componentWillReceiveProps(nextProps: ComponentProps) {
+      // Update value only for single fields
+      if (this.context._reformRedux.form.fieldsCount[this.props.name] > 1) {
+        return;
+      }
+
       if (nextProps.value !== undefined && !is(map(this.props.value), map(nextProps.value))) {
         this.changeFieldValue(nextProps.value);
       }
@@ -214,8 +219,8 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
             checked
               ? [...toJS(getIn(this.state.field, ['value'])), toJS(this.props.value)]
               : toJS(getIn(this.state.field, ['value'])).filter(
-                  value => value !== this.props.value, // eslint-disable-line
-                ), // eslint-disable-line
+                  value => value !== this.props.value,
+                ),
           );
         }
 
