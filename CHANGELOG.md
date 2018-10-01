@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.5] - 2018-10-1
+
+- Add Fields to redux state after initialize.
+
 ## [1.2.4] - 2018-09-25
 
 - Don't change value on receive props in list of Fields with same name.
