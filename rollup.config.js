@@ -12,15 +12,14 @@ const common = {
       babelrc: false,
       presets: [
         [
-          '@babel/preset-stage-2',
+          '@babel/preset-env',
           {
-            loose: true,
-            useBuiltIns: true,
-            decoratorsLegacy: true,
+            targets: 'last 2 version',
           },
         ],
         '@babel/preset-flow',
       ],
+      plugins: ['@babel/plugin-proposal-class-properties'],
     }),
     uglify({}, minify),
   ],

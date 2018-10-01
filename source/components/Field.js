@@ -157,7 +157,10 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         component,
       });
 
-      if (listSize(keys(getIn(currentFormData, ['fields'])))) {
+      if (
+        listSize(keys(getIn(currentFormData, ['fields']))) ||
+        this.context._reformRedux.form.initialized
+      ) {
         this.context._reformRedux.form.updateForm();
       }
     };

@@ -283,7 +283,7 @@ Reset form.
 ```javascript
 import { resetForm } from 'reform-redux';
 
-store.dispatch(resetFields(
+store.dispatch(resetForm(
   formName: string,
 ));
 ```
@@ -324,6 +324,7 @@ _reformRedux: {
     form: {
       name: string,
       path: string,
+      initialized: boolean,
       registerField: Function,
       fieldsCount: { [fieldName: FieldName]: number },
       unregisterField: Function,

@@ -35,6 +35,60 @@ describe('components / Field', () => {
     });
   });
 
+  it('dynamically create new fields in form', done => {
+    expect.assertions(2);
+    jest.useFakeTimers();
+    class Test extends Component {
+      state = {
+        showFields: false,
+      };
+
+      static getDerivedStateFromProps({ showFields }) {
+        return { showFields };
+      }
+
+      render() {
+        return createElement(
+          global.Provider,
+          {},
+          this.state.showFields
+            ? [
+                createElement(Field, {
+                  name: 'field',
+                  component: 'input',
+                  key: 0,
+                }),
+              ]
+            : null,
+        );
+      }
+    }
+
+    const component = mount(createElement(Test));
+
+    expect(global.store.getState().form.fields).toEqual({});
+
+    component.setProps({
+      showFields: true,
+    });
+
+    jest.runAllTimers();
+
+    setImmediate(() => {
+      expect(global.store.getState().form.fields).toEqual({
+        field: {
+          value: '',
+          errors: [],
+          changed: false,
+          touched: false,
+          valid: true,
+          disabled: false,
+        },
+      });
+      done();
+    });
+  });
+
   it('remove field on unmount', () => {
     expect.assertions(2);
 
