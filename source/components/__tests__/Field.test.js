@@ -35,7 +35,7 @@ describe('components / Field', () => {
     });
   });
 
-  it('dynamically create new fields in form', done => {
+  it('dynamically create new fields in form', () => {
     expect.assertions(2);
     jest.useFakeTimers();
     class Test extends Component {
@@ -74,18 +74,19 @@ describe('components / Field', () => {
 
     jest.runAllTimers();
 
-    setImmediate(() => {
-      expect(global.store.getState().form.fields).toEqual({
-        field: {
-          value: '',
-          errors: [],
-          changed: false,
-          touched: false,
-          valid: true,
-          disabled: false,
-        },
-      });
-      done();
+    component
+      .find('input')
+      .simulate('change', { nativeEvent: new Event('change'), target: { value: 'test' } });
+
+    expect(global.store.getState().form.fields).toEqual({
+      field: {
+        value: 'test',
+        errors: [],
+        changed: true,
+        touched: false,
+        valid: true,
+        disabled: false,
+      },
     });
   });
 

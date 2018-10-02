@@ -19,8 +19,6 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     listIncludes,
     isImmutable,
     toJS,
-    keys,
-    listSize,
   }: DataFunctions = dataFunctions;
 
   class Field extends Component<ComponentProps, ComponentState> {
@@ -147,8 +145,6 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       const validate: Array<Function> = getValidateFunctionsArray(dataFunctions)(
         this.props.validate,
       );
-      const state: State = this.context.store.getState();
-      const currentFormData: State = getIn(state, this.context._reformRedux.form.path);
 
       this.context._reformRedux.form.registerField(this.props.name, initialFieldData, validate, {
         type,
@@ -157,10 +153,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         component,
       });
 
-      if (
-        listSize(keys(getIn(currentFormData, ['fields']))) ||
-        this.context._reformRedux.form.initialized
-      ) {
+      if (this.context._reformRedux.form.initialized) {
         this.context._reformRedux.form.updateForm();
       }
     };
