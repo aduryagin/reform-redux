@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2018-10-7
+
+- Build fix.
+
 ## [1.3.0] - 2018-10-7
 
 - Code improvements.
