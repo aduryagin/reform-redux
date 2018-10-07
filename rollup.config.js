@@ -33,7 +33,7 @@ export default [
     input: 'source/index.js',
     output: {
       name: 'reform-redux',
-      file: 'dist/reform-redux.es.js',
+      file: 'reform-redux.es.js',
       format: 'es',
     },
   },
@@ -42,7 +42,7 @@ export default [
     input: 'source/immutable.js',
     output: {
       name: 'reform-redux',
-      file: 'dist/immutable.es.js',
+      file: 'immutable.es.js',
       format: 'es',
     },
   },
@@ -54,7 +54,7 @@ export default [
     input: 'source/index.js',
     output: {
       name: 'reform-redux',
-      file: 'dist/reform-redux.js',
+      file: 'reform-redux.js',
       format: 'cjs',
     },
     plugins: [...common.plugins, nodeResolve(), commonjs()],
@@ -64,7 +64,7 @@ export default [
     input: 'source/immutable.js',
     output: {
       name: 'reform-redux',
-      file: 'dist/immutable.js',
+      file: 'immutable.js',
       format: 'cjs',
     },
     plugins: [...common.plugins, nodeResolve(), commonjs()],

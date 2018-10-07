@@ -21,12 +21,16 @@
     "perfomance",
     "immutable"
   ],
-  "main": "./dist/reform-redux.js",
-  "module": "./dist/reform-redux.es.js",
+  "main": "./reform-redux.js",
+  "module": "./reform-redux.es.js",
   "files": [
-    "dist"
+    "reform-redux.flow.js",
+    "reform-redux.js",
+    "reform-redux.es.js",
+    "immutable.es.js",
+    "immutable.js"
   ],
-  "types": "./dist/reform-redux.flow.js",
+  "types": "./reform-redux.flow.js",
   "dependencies": {
     "immutable": "^4.0.0-rc.9",
     "prop-types": "^15.6.2",
@@ -66,7 +70,7 @@
     "flow-typed": "flow-typed install -l ./source/types/flow-typed",
     "lint": "eslint source --ignore-pattern source/types/flow-typed",
     "fix": "npm run lint -- --fix",
-    "build": "rollup -c && cp ./source/types/reform-redux.flow.js ./dist/reform-redux.flow.js",
+    "build": "rollup -c && cp ./source/types/reform-redux.flow.js ./reform-redux.flow.js",
     "coverage": "npm run test -- --coverage",
     "test": "jest --config ./jest/jest.config.js",
     "test:dev": "npm run test -- --watch",
