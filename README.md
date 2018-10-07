@@ -1,10 +1,11 @@
 # ReForm-Redux
+[![npm version](https://badge.fury.io/js/reform-redux.svg)](https://badge.fury.io/js/reform-redux)
 
 Simple realisation of react/redux form component.
 
 ## Attention
 
-For use this plugin with old browsers you need to add polyfills to your bundle. Like [babel-polyfill](https://github.com/babel/babel/tree/master/packages/babel-polyfill) & [babel-preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env).
+For use this plugin with old browsers you need to add polyfills to your bundle. Like [@babel/polyfill](https://github.com/babel/babel/tree/master/packages/babel-polyfill) & [@babel/preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env).
 
 ## Examples
 
