@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2018-10-7
+
+- Code improvements.
+- Support React.forwardRef.
+
 ## [1.2.5] - 2018-10-1
 
 - Add Fields to redux state after initialize.
