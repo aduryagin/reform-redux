@@ -1,4 +1,4 @@
-import { Component, createElement } from 'react';
+import { Component, createElement, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { getValidateFunctionsArray, validateField } from '../utils/Field';
 import { filterReactDomProps } from '../utils/common';
@@ -26,6 +26,13 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     unsubscribeFromStore: Function = () => {};
     reduxRenderCount: number = 0;
 
+    static propTypes = {
+      name: PropTypes.string.isRequired,
+      component: PropTypes.node.isRequired,
+      removeOnUnmount: PropTypes.bool,
+      normalize: PropTypes.func,
+    };
+
     static defaultProps: {
       disabled: $PropertyType<ComponentProps, 'disabled'>,
       value: $PropertyType<ComponentProps, 'value'>,
@@ -44,22 +51,6 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (!context._reformRedux) {
         throw new Error('Component `Field` must be in `Form` component.');
-      }
-
-      if (!props.name) {
-        throw new Error('The `name` prop is required.');
-      }
-
-      if (props.removeOnUnmount && typeof props.removeOnUnmount !== 'boolean') {
-        throw new Error('The `removeOnUnmount` prop must be a boolean.');
-      }
-
-      if (props.normalize && typeof props.normalize !== 'function') {
-        throw new Error('The `normalize` prop must be a function.');
-      }
-
-      if (!props.component) {
-        throw new Error('The `component` prop is required.');
       }
 
       if (props.multiple && props.component === 'select' && props.value && !isList(props.value)) {
@@ -370,5 +361,5 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     }
   }
 
-  return Field;
+  return forwardRef((props, ref) => createElement(Field, { ...props, innerRef: ref }));
 };

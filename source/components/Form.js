@@ -55,6 +55,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       _reformRedux: PropTypes.object,
     };
 
+    static propTypes = {
+      path: PropTypes.string.isRequired,
+    };
+
     static defaultProps: {
       onSubmit: $PropertyType<ComponentProps, 'onSubmit'>,
       onSubmitFailed: $PropertyType<ComponentProps, 'onSubmitFailed'>,

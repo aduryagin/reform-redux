@@ -60,7 +60,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
     "context": Object {
       "store": Object {
         "dispatch": [Function],
@@ -70,7 +69,6 @@ ShallowWrapper {
         Symbol(observable): [Function],
       },
     },
-    "hydrateIn": undefined,
   },
 }
 `;
