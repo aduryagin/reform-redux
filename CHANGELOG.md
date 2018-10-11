@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.2] - 2018-10-11
+
+- Get form name from props 'name' in Form component.
+
 ## [1.3.1] - 2018-10-7
 
 - Build fix.
