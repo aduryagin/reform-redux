@@ -28,7 +28,8 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
     static propTypes = {
       name: PropTypes.string.isRequired,
-      component: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
+      component: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func])
+        .isRequired,
       removeOnUnmount: PropTypes.bool,
       normalize: PropTypes.func,
     };
