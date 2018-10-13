@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.5] - 2018-10-13
+
+- Update components to new react api.
+
 ## [1.3.4] - 2018-10-11
 
 - Pass stateless components as component to Field.
