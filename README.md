@@ -325,12 +325,10 @@ _reformRedux: {
     form: {
       name: string,
       path: string,
-      initialized: boolean,
       registerField: Function,
       fieldsCount: { [fieldName: FieldName]: number },
       unregisterField: Function,
       resetForm: Function,
-      updateForm: Function,
     },
     field: {
       setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function,

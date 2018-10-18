@@ -44,7 +44,6 @@ describe('components / Form', () => {
             'registerField',
             'unregisterField',
             'resetForm',
-            'updateForm',
           ]),
         );
 

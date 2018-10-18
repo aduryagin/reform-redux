@@ -78,7 +78,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       [formName: string]: FieldsValidate,
     } = {};
 
-    constructor(props: ComponentProps) {
+    constructor(props: ComponentProps, context) {
       super(props);
 
       if (!props.path) {
@@ -91,6 +91,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       if (!this.fieldsStack[this.formName]) this.fieldsStack[this.formName] = {};
       if (!this.fieldsCount[this.formName]) this.fieldsCount[this.formName] = {};
       if (!this.fieldsValidateStack[this.formName]) this.fieldsValidateStack[this.formName] = {};
+
+      this.updateForm = this.createFormUpdater(context.store);
     }
 
     getChildContext(): ReFormRedux {
@@ -102,15 +104,9 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
             name: this.formName,
             path: this.path,
             fieldsCount: this.fieldsCount[this.formName],
-            initialized: this.initialized,
             registerField: this.registerField,
             unregisterField: this.unregisterField,
             resetForm: (): Function => store.dispatch(resetForm(this.formName)),
-            updateForm: debounce(
-              (): Function =>
-                store.dispatch(updateForm(this.formName, this.fieldsStack[this.formName])),
-              250,
-            ),
           },
           field: {
             setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
@@ -145,6 +141,12 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
         },
       };
     }
+
+    createFormUpdater = (store: Store<State, *, *>) =>
+      debounce(
+        (): Function => store.dispatch(updateForm(this.formName, this.fieldsStack[this.formName])),
+        250,
+      );
 
     increaseFieldCount = (fieldName: FieldName) => {
       const fieldsCount: number = this.fieldsCount[this.formName][fieldName] || 0;
@@ -251,6 +253,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
       this.fieldsStack[this.formName][fieldName] = fieldData;
       this.fieldsValidateStack[this.formName][fieldName] = fieldValidate;
+
+      if (this.initialized) {
+        this.updateForm();
+      }
     };
 
     componentDidMount() {
