@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.6] - 2018-10-18
+
+- Add fields in the store after Form mount. (bugfix)
+
 ## [1.3.5] - 2018-10-13
 
 - Update components to new react api.
