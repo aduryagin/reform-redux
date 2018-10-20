@@ -130,9 +130,19 @@ export const createFormReducer: Function = ({
       return setIn(newState, ['submitting'], action.submitting);
     },
     [getReduxConst(FORM_INITIALISATION)]: (state: State, action: FormInitialisation): State => {
+      const fields = map(action.fields);
+      const touched: boolean = keys(fields).some((fieldKey: string) =>
+        getIn(fields, [fieldKey, 'touched']),
+      );
+      const changed: boolean = keys(fields).some((fieldKey: string) =>
+        getIn(fields, [fieldKey, 'changed']),
+      );
+
       initialFormState = (merge(state, {
-        fields: map(action.fields),
+        fields: map(fields),
         valid: true,
+        touched,
+        changed,
       }): any);
 
       return map(initialFormState);

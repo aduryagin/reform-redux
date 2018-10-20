@@ -81,7 +81,7 @@ describe('components / Form', () => {
       createElement(
         Form,
         { path: 'form' },
-        createElement(Field, { name: 'test', component: 'input' }),
+        createElement(Field, { name: 'test', component: 'input', changed: true, touched: true }),
       ),
       global.formContext,
     );
@@ -89,9 +89,9 @@ describe('components / Form', () => {
     expect(global.store.getState().form).toEqual({
       fields: {
         test: {
-          changed: false,
+          changed: true,
           disabled: false,
-          touched: false,
+          touched: true,
           errors: [],
           valid: true,
           value: '',
@@ -99,8 +99,8 @@ describe('components / Form', () => {
       },
       submitted: false,
       submitting: false,
-      touched: false,
-      changed: false,
+      touched: true,
+      changed: true,
       valid: true,
     });
   });

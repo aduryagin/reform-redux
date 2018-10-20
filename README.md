@@ -153,7 +153,7 @@ If you need to disable your submit button when form is submitting or reset form 
 
 ## Containers
 
-## selectFormData
+### selectFormData
 
 Component wrapper which pass fields data to wrapped component through props.
 
