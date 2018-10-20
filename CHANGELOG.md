@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2018-10-20
+
+- Support to reset form to empty or initial state.
+
 ## [1.3.7] - 2018-10-20
 
 - If some field was touched or changed then form was touched or changed too.
