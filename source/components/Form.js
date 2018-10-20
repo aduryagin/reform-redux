@@ -27,7 +27,7 @@ import type {
 } from '../types/Field';
 import type { ComponentCreator } from '../types/common';
 import type { Store } from 'redux';
-import type { State } from '../types/formReducer';
+import type { State, ResetState } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
 
 export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctions) => {
@@ -106,7 +106,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
             fieldsCount: this.fieldsCount[this.formName],
             registerField: this.registerField,
             unregisterField: this.unregisterField,
-            resetForm: (): Function => store.dispatch(resetForm(this.formName)),
+            resetForm: (state?: ResetState): Function =>
+              store.dispatch(resetForm(this.formName, state)),
           },
           field: {
             setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
@@ -133,10 +134,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
               fieldName: FieldName,
               disabledFields: { [fieldName: FieldName]: boolean },
             ): Function => store.dispatch(setFieldsDisabled(this.formName, disabledFields)),
-            resetField: (fieldName: FieldName): Function =>
-              store.dispatch(resetField(this.formName, fieldName)),
-            resetFields: (fieldsNames: Array<FieldName>): Function =>
-              store.dispatch(resetFields(this.formName, fieldsNames)),
+            resetField: (fieldName: FieldName, state?: ResetState): Function =>
+              store.dispatch(resetField(this.formName, fieldName, state)),
+            resetFields: (fieldsNames: Array<FieldName>, state?: ResetState): Function =>
+              store.dispatch(resetFields(this.formName, fieldsNames, state)),
           },
         },
       };
