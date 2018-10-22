@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.1] - 2018-10-22
+
+- Usage of polyfills.
+
 ## [1.4.0] - 2018-10-20
 
 - Support to reset form to empty or initial state.
