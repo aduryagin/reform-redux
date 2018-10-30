@@ -13,6 +13,8 @@ import {
   removeField,
   setFieldsTouched,
   setFieldTouched,
+  setFieldChanged,
+  setFieldsChanged,
 } from '../actions/Field';
 import { validateField, getValidateFunctionsArray } from '../utils/Field';
 import { debounce, asyncForEach, filterReactDomProps } from '../utils/common';
@@ -112,10 +114,12 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
           field: {
             setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
               store.dispatch(setFieldTouched(this.formName, fieldName, fieldTouched)),
-            setFieldsTouched: (
-              fieldName: FieldName,
-              fieldsTouched: { [fieldName: FieldName]: boolean },
-            ): Function => store.dispatch(setFieldsTouched(this.formName, fieldsTouched)),
+            setFieldsTouched: (fieldsTouched: { [fieldName: FieldName]: boolean }): Function =>
+              store.dispatch(setFieldsTouched(this.formName, fieldsTouched)),
+            setFieldChanged: (fieldName: FieldName, fieldChanged: boolean): Function =>
+              store.dispatch(setFieldChanged(this.formName, fieldName, fieldChanged)),
+            setFieldsChanged: (fieldsChanged: { [fieldName: FieldName]: boolean }): Function =>
+              store.dispatch(setFieldsChanged(this.formName, fieldsChanged)),
             removeField: (fieldName: FieldName): Function =>
               store.dispatch(removeField(this.formName, fieldName)),
             changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }): Function =>
@@ -130,10 +134,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
             ): Function => store.dispatch(setFieldsErrors(this.formName, fieldsErrors)),
             setFieldDisabled: (fieldName: FieldName, disabled: boolean = true): Function =>
               store.dispatch(setFieldDisabled(this.formName, fieldName, disabled)),
-            setFieldsDisabled: (
-              fieldName: FieldName,
-              disabledFields: { [fieldName: FieldName]: boolean },
-            ): Function => store.dispatch(setFieldsDisabled(this.formName, disabledFields)),
+            setFieldsDisabled: (disabledFields: { [fieldName: FieldName]: boolean }): Function =>
+              store.dispatch(setFieldsDisabled(this.formName, disabledFields)),
             resetField: (fieldName: FieldName, state?: ResetState): Function =>
               store.dispatch(resetField(this.formName, fieldName, state)),
             resetFields: (fieldsNames: Array<FieldName>, state?: ResetState): Function =>

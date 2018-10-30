@@ -32,6 +32,10 @@ export {
   resetField,
   resetFields,
   removeField,
+  setFieldTouched,
+  setFieldsTouched,
+  setFieldChanged,
+  setFieldsChanged,
 } from './actions/Field';
 export { resetForm } from './actions/Form';
 

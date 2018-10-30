@@ -321,6 +321,33 @@ store.dispatch(setFieldsTouched(
 ));
 ```
 
+### setFieldChanged
+
+Set field changed.
+
+```javascript
+import { setFieldChanged } from 'reform-redux';
+
+store.dispatch(setFieldChanged(
+  formName: string,
+  fieldName: FieldName,
+  fieldChanged: boolean,
+));
+```
+
+### setFieldsChanged
+
+Set fields changed.
+
+```javascript
+import { setFieldsChanged } from 'reform-redux';
+
+store.dispatch(setFieldsChanged(
+  formName: string,
+  changedFields: { [fieldName: FieldName]: boolean },
+));
+```
+
 ### Context
 
 Form component creates context which avaible in components children. 

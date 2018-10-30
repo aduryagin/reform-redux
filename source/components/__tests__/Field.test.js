@@ -41,6 +41,45 @@ describe('components / Field', () => {
     });
   });
 
+  it('receive new prop changed and touched', () => {
+    expect.assertions(8);
+
+    const wrapper = ({ changed = false, touched = false }) =>
+      createElement(
+        global.Provider,
+        {},
+        createElement(Field, {
+          name: 'field',
+          component: 'input',
+          value: 'test',
+          type: 'checkbox',
+          changed,
+          touched,
+        }),
+      );
+    const component = mount(createElement(wrapper));
+
+    component.setProps({
+      changed: true,
+      touched: true,
+    });
+
+    expect(global.store.getState().form.fields.field.touched).toBeTruthy();
+    expect(global.store.getState().form.fields.field.changed).toBeTruthy();
+    expect(global.store.getState().form.touched).toBeTruthy();
+    expect(global.store.getState().form.changed).toBeTruthy();
+
+    component.setProps({
+      changed: false,
+      touched: false,
+    });
+
+    expect(global.store.getState().form.fields.field.touched).toBeFalsy();
+    expect(global.store.getState().form.fields.field.changed).toBeFalsy();
+    expect(global.store.getState().form.touched).toBeFalsy();
+    expect(global.store.getState().form.changed).toBeFalsy();
+  });
+
   it('dynamically create new fields in form', () => {
     expect.assertions(2);
     jest.useFakeTimers();

@@ -144,6 +144,16 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     }
 
     componentDidUpdate(prevProps: ComponentProps) {
+      // Update touched property
+      if (this.props.touched !== prevProps.touched) {
+        this.context._reformRedux.field.setFieldTouched(this.props.name, this.props.touched);
+      }
+
+      // Update changed property
+      if (this.props.changed !== prevProps.changed) {
+        this.context._reformRedux.field.setFieldChanged(this.props.name, this.props.changed);
+      }
+
       // Update value only for single fields
       if (this.context._reformRedux.form.fieldsCount[this.props.name] > 1) {
         return;
