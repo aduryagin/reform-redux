@@ -97,6 +97,12 @@ export type SetFieldDisabled = {
   disabled: boolean,
 };
 
+export type SetFormSubmitted = {
+  type: string,
+  formName: string,
+  submitted: boolean,
+};
+
 export type SetFieldsDisabled = {
   type: string,
   formName: string,

@@ -37,7 +37,7 @@ export {
   setFieldChanged,
   setFieldsChanged,
 } from './actions/Field';
-export { resetForm } from './actions/Form';
+export { resetForm, setFormSubmitted } from './actions/Form';
 
 // Components
 

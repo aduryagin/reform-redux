@@ -1,6 +1,12 @@
 import { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
-import { formInitialisation, resetForm, setFormSubmitting, updateForm } from '../actions/Form';
+import {
+  formInitialisation,
+  resetForm,
+  setFormSubmitting,
+  updateForm,
+  setFormSubmitted,
+} from '../actions/Form';
 import {
   changeFieldValue,
   setFieldErrors,
@@ -110,6 +116,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
             unregisterField: this.unregisterField,
             resetForm: (state?: ResetState): Function =>
               store.dispatch(resetForm(this.formName, state)),
+            setFormSubmitted: (submitted: boolean): Function =>
+              store.dispatch(setFormSubmitted(this.formName, submitted)),
           },
           field: {
             setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
@@ -339,6 +347,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
         Promise.resolve(onSubmit(fields, event)).then(() => {
           store.dispatch(setFormSubmitting(this.formName, false));
+          store.dispatch(setFormSubmitted(this.formName, true));
         });
       }
     };

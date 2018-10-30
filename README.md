@@ -281,6 +281,19 @@ store.dispatch(resetFields(
 ));
 ```
 
+### setFormSubmitted
+
+Set form submitted.
+
+```javascript
+import { setFormSubmitted } from 'reform-redux';
+
+store.dispatch(setFormSubmitted(
+  formName: string,
+  submitted?: boolean
+));
+```
+
 ### resetForm
 
 Reset form.
@@ -361,6 +374,7 @@ _reformRedux: {
       fieldsCount: { [fieldName: FieldName]: number },
       unregisterField: Function,
       resetForm: Function,
+      setFormSubmitted: Function,
     },
     field: {
       setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function,

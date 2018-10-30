@@ -1,6 +1,7 @@
 import {
   FORM_INITIALISATION,
   RESET_FORM,
+  SET_FORM_SUBMITTED,
   SET_FORM_SUBMITTING,
   UPDATE_FORM,
 } from '../constants/Form';
@@ -38,6 +39,7 @@ import type {
   RemoveField,
   SetFieldsChanged,
   SetFieldChanged,
+  SetFormSubmitted,
 } from '../types/Field';
 import type { FormInitialisation, SetFormSubmitting, UpdateForm, ResetForm } from '../types/Form';
 import type { DataFunctions } from '../types/dataFunctions';
@@ -134,8 +136,6 @@ export const createFormReducer: Function = ({
     },
     [getReduxConst(SET_FORM_SUBMITTING)]: (state: State, action: SetFormSubmitting): State => {
       let newState: State = map(state);
-
-      if (!action.submitting) newState = setIn(newState, ['submitted'], true);
 
       return setIn(newState, ['submitting'], action.submitting);
     },
@@ -356,6 +356,11 @@ export const createFormReducer: Function = ({
 
       newState = setIn(newState, ['valid'], formValid);
 
+      return newState;
+    },
+    [getReduxConst(SET_FORM_SUBMITTED)]: (state: State, action: SetFormSubmitted): State => {
+      let newState: State = map(state);
+      newState = setIn(newState, ['submitted'], action.submitted);
       return newState;
     },
   };
