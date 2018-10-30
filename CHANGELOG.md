@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2018-10-30
+
+- New action `setFormSubmitted`.
+- Change touched and changed properties through props.
+
 ## [1.4.1] - 2018-10-22
 
 - Usage of polyfills.
