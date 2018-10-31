@@ -524,6 +524,33 @@ describe('components / Field', () => {
     component.find('input').simulate('change', event);
   });
 
+  it('through props change value of list of checkbox components', () => {
+    const wrapper = ({ checked = false }) => {
+      return createElement(global.Provider, {}, [
+        createElement(Field, {
+          key: 0,
+          name: 'field',
+          component: 'input',
+          value: '1',
+          type: 'checkbox',
+        }),
+        createElement(Field, {
+          key: 1,
+          name: 'field',
+          value: '2',
+          checked,
+          component: 'input',
+          type: 'checkbox',
+        }),
+      ]);
+    };
+
+    const component = mount(createElement(wrapper));
+    component.setProps({ checked: true });
+
+    expect(global.store.getState().form.fields.field.value).toEqual(['2']);
+  });
+
   it('set field value in list of custom checkbox components', done => {
     class Checkbox extends Component {
       onChange = event => {
