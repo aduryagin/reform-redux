@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.1] - 2018-10-31
+
+- Update value through props in list of checkbox or radio buttons.
+
 ## [1.6.0] - 2018-10-30
 
 - New action `setFormSubmitted`.
