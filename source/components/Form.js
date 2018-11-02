@@ -172,14 +172,12 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     unregisterField = (fieldName: FieldName, removeOnUnmount: boolean) => {
       if (!getIn(this.fieldsStack, [this.formName, fieldName])) return;
 
-      if (removeOnUnmount) {
-        this.decreaseFieldCount(fieldName, true);
+      this.decreaseFieldCount(fieldName, true);
 
+      if (removeOnUnmount) {
         this.context.store.dispatch(removeField(this.formName, fieldName));
         this.fieldsStack = deleteIn(this.fieldsStack, [this.formName, fieldName]);
         this.fieldsValidateStack = deleteIn(this.fieldsValidateStack, [this.formName, fieldName]);
-      } else {
-        this.decreaseFieldCount(fieldName);
       }
     };
 
