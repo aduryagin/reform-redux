@@ -164,18 +164,22 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       return (this.fieldsCount[this.formName][fieldName] = fieldsCount + 1);
     };
 
-    decreaseFieldCount = (fieldName: FieldName) => {
-      const fieldsCount: number = this.fieldsCount[this.formName][fieldName];
+    decreaseFieldCount = (fieldName: FieldName, reset: boolean) => {
+      const fieldsCount: number = reset ? 0 : this.fieldsCount[this.formName][fieldName];
       return (this.fieldsCount[this.formName][fieldName] = fieldsCount ? fieldsCount - 1 : 0);
     };
 
     unregisterField = (fieldName: FieldName, removeOnUnmount: boolean) => {
-      this.decreaseFieldCount(fieldName);
+      if (!getIn(this.fieldsStack, [this.formName, fieldName])) return;
 
       if (removeOnUnmount) {
+        this.decreaseFieldCount(fieldName, true);
+
         this.context.store.dispatch(removeField(this.formName, fieldName));
         this.fieldsStack = deleteIn(this.fieldsStack, [this.formName, fieldName]);
         this.fieldsValidateStack = deleteIn(this.fieldsValidateStack, [this.formName, fieldName]);
+      } else {
+        this.decreaseFieldCount(fieldName);
       }
     };
 

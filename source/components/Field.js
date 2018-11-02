@@ -159,6 +159,24 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         this.context._reformRedux.form.fieldsCount[this.props.name] > 1 &&
         this.props.checked !== prevProps.checked
       ) {
+        // Dont change field value if it's was changed (checkboxes)
+        if (
+          this.props.checked &&
+          this.props.type === 'checkbox' &&
+          listIncludes(getIn(this.state.field, ['value']), this.props.value)
+        ) {
+          return;
+        }
+
+        // Dont change field value if it's was changed (radio)
+        if (
+          this.props.checked &&
+          this.props.type === 'radio' &&
+          is(getIn(this.state.field, ['value']), this.props.value)
+        ) {
+          return;
+        }
+
         return this.changeFieldValue(this.getFieldValue(this.props.checked));
       }
 
@@ -201,6 +219,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
     getFieldValue = (data: any): any => {
       const isEvent = data && data.nativeEvent && data.nativeEvent instanceof Event;
+
       if (this.isRadio()) {
         const checked = isEvent ? data.target.checked : data;
         return checked ? this.props.value : '';
