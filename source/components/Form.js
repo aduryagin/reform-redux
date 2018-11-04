@@ -154,10 +154,11 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     }
 
     createFormUpdater = (store: Store<State, *, *>) =>
-      debounce(
-        (): Function => store.dispatch(updateForm(this.formName, this.fieldsStack[this.formName])),
-        250,
-      );
+      debounce((formInitialized): Function => {
+        if (formInitialized) {
+          store.dispatch(updateForm(this.formName, this.fieldsStack[this.formName]));
+        }
+      }, 250);
 
     increaseFieldCount = (fieldName: FieldName) => {
       const fieldsCount: number = this.fieldsCount[this.formName][fieldName] || 0;
@@ -193,10 +194,9 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       },
     ) => {
       this.increaseFieldCount(fieldName);
-
       if (fieldAdditionalData.type && this.fieldsCount[this.formName][fieldName] > 1) {
         if (fieldAdditionalData.type === 'radio' && !fieldAdditionalData.checked) {
-          return;
+          return this.updateForm(this.initialized);
         }
 
         if (fieldAdditionalData.type === 'checkbox' || fieldAdditionalData.type === 'radio') {
@@ -212,25 +212,31 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
                   ]);
                 }
 
-                return (this.fieldsStack[this.formName][fieldName] = setIn(
+                this.fieldsStack[this.formName][fieldName] = setIn(
                   this.fieldsStack[this.formName][fieldName],
                   ['value'],
                   fieldValue,
-                ));
+                );
+
+                return this.updateForm(this.initialized);
               }
 
-              return (this.fieldsStack[this.formName][fieldName] = setIn(
+              this.fieldsStack[this.formName][fieldName] = setIn(
                 this.fieldsStack[this.formName][fieldName],
                 ['value', listSize(getIn(this.fieldsStack[this.formName][fieldName], ['value']))],
                 getIn(fieldData, ['value']),
-              ));
+              );
+
+              return this.updateForm(this.initialized);
             }
 
-            return (this.fieldsStack[this.formName][fieldName] = setIn(
+            this.fieldsStack[this.formName][fieldName] = setIn(
               this.fieldsStack[this.formName][fieldName],
               ['value'],
               getIn(fieldData, ['value']),
-            ));
+            );
+
+            return this.updateForm(this.initialized);
           }
 
           if (
@@ -243,14 +249,14 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
               fieldValue = list([getIn(this.fieldsStack[this.formName][fieldName], ['value'])]);
             }
 
-            return (this.fieldsStack[this.formName][fieldName] = setIn(
+            this.fieldsStack[this.formName][fieldName] = setIn(
               this.fieldsStack[this.formName][fieldName],
               ['value'],
               fieldValue,
-            ));
+            );
           }
 
-          return;
+          return this.updateForm(this.initialized);
         }
       }
 
@@ -267,9 +273,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       this.fieldsStack[this.formName][fieldName] = fieldData;
       this.fieldsValidateStack[this.formName][fieldName] = fieldValidate;
 
-      if (this.initialized) {
-        this.updateForm();
-      }
+      this.updateForm(this.initialized);
     };
 
     componentDidMount() {

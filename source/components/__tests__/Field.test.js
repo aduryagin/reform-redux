@@ -1204,4 +1204,106 @@ describe('components / Field', () => {
     expect(Object.keys(radio.props())).toEqual(expect.arrayContaining(['checked', 'value']));
     expect(Object.keys(checkbox.props())).toEqual(expect.arrayContaining(['checked', 'value']));
   });
+
+  it('mount and unmount list of checkboxes with default value with removeOnUnmount props', () => {
+    expect.assertions(3);
+    jest.useFakeTimers();
+
+    const wrapper = ({ visible = true }) => {
+      return createElement(
+        global.Provider,
+        {},
+        visible
+          ? [
+              createElement(Field, {
+                key: 0,
+                name: 'field',
+                component: 'input',
+                value: 1,
+                removeOnUnmount: true,
+                checked: true,
+                type: 'checkbox',
+              }),
+              createElement(Field, {
+                key: 1,
+                name: 'field',
+                value: 2,
+                removeOnUnmount: true,
+                component: 'input',
+                type: 'checkbox',
+              }),
+            ]
+          : null,
+      );
+    };
+
+    const component = mount(createElement(wrapper));
+
+    expect(global.store.getState().form.fields.field.value).toEqual([1]);
+
+    component.setProps({ visible: false });
+
+    expect(global.store.getState().form.fields).toEqual({});
+
+    component.setProps({ visible: true });
+
+    jest.runAllTimers();
+
+    expect(global.store.getState().form.fields.field.value).toEqual([1]);
+  });
+
+  it('mount and unmount list of checkboxes with default value without removeOnUnmount props', () => {
+    expect.assertions(3);
+    jest.useFakeTimers();
+
+    const wrapper = ({ visible = true }) => {
+      return createElement(
+        global.Provider,
+        {},
+        visible
+          ? [
+              createElement(Field, {
+                key: 0,
+                name: 'field',
+                component: 'input',
+                value: 1,
+                checked: true,
+                type: 'checkbox',
+              }),
+              createElement(Field, {
+                key: 1,
+                name: 'field',
+                value: 2,
+                checked: true,
+                component: 'input',
+                type: 'checkbox',
+              }),
+            ]
+          : null,
+      );
+    };
+
+    const component = mount(createElement(wrapper));
+
+    expect(global.store.getState().form.fields.field.value).toEqual([1, 2]);
+
+    component.setProps({ visible: false });
+
+    expect(global.store.getState().form.fields).toEqual({
+      field: {
+        changed: false,
+        disabled: false,
+        errors: [],
+        touched: false,
+        valid: true,
+        value: [1, 2],
+      },
+    });
+
+    component.setProps({ visible: true });
+
+    jest.runAllTimers();
+
+    expect(global.store.getState().form.fields.field.value).toEqual([1, 2]);
+  });
 });
