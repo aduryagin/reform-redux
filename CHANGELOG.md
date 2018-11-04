@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.3] - 2018-11-4
+
+- Bugfix: Checkbox list after unmount & mount resets their value.
+
 ## [1.6.2] - 2018-11-2
 
 - Set 0 fields count on field unmount.
