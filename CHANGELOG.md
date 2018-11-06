@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.4] - 2018-11-6
+
+- Bugfixes for list components.
+- Register field after unregister.
+
 ## [1.6.3] - 2018-11-4
 
 - Bugfix: Checkbox list after unmount & mount resets their value.
