@@ -81,21 +81,25 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         this.initialFieldData = setIn(this.initialFieldData, ['value'], '');
       }
 
-      // Get default value from store if it exists
+      if (this.context._reformRedux.field.getFieldCount(this.props.name) === 0) {
+        // Get default value from store if it exists
 
-      const state: State = this.context.store.getState();
-      const currentFormData: State = getIn(state, this.context._reformRedux.form.path);
-      const initialFieldData: FieldData = getIn(currentFormData, ['fields', props.name]);
+        const state: State = this.context.store.getState();
+        const currentFormData: State = getIn(state, this.context._reformRedux.form.path);
+        const initialFieldData: FieldData = getIn(currentFormData, ['fields', props.name]);
 
-      if (initialFieldData) {
-        this.initialFieldData = initialFieldData;
+        if (initialFieldData) {
+          this.initialFieldData = initialFieldData;
+        }
       }
 
       // Write initial data to store
       this.state = {
         field: map(this.initialFieldData),
       };
+    }
 
+    componentDidMount() {
       this.registerField();
     }
 
@@ -156,7 +160,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (
         ['radio', 'checkbox'].indexOf(this.props.type) !== -1 &&
-        this.context._reformRedux.form.fieldsCount[this.props.name] > 1 &&
+        this.context._reformRedux.field.getFieldCount(this.props.name) > 1 &&
         this.props.checked !== prevProps.checked
       ) {
         // Dont change field value if it's was changed (checkboxes)
@@ -181,7 +185,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       }
 
       // Update value only for single fields
-      if (this.context._reformRedux.form.fieldsCount[this.props.name] > 1) {
+      if (this.context._reformRedux.field.getFieldCount(this.props.name) > 1) {
         return;
       }
 
@@ -227,7 +231,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (this.isCheckbox()) {
         const checked = isEvent ? data.target.checked : data;
-        if (this.context._reformRedux.form.fieldsCount[this.props.name] > 1) {
+        if (this.context._reformRedux.field.getFieldCount(this.props.name) > 1) {
           return list(
             checked
               ? [...toJS(getIn(this.state.field, ['value'])), toJS(this.props.value)]

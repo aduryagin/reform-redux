@@ -40,10 +40,10 @@ describe('components / Form', () => {
           expect.arrayContaining([
             'name',
             'path',
-            'fieldsCount',
             'registerField',
             'unregisterField',
             'resetForm',
+            'setFormSubmitted',
           ]),
         );
 

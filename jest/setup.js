@@ -80,6 +80,7 @@ beforeEach(() => {
         updateForm: () => {},
       },
       field: {
+        getFieldCount: () => 1,
         changeFieldValue: (fieldName, fieldValue) =>
           global.store.dispatch(changeFieldValue('form', fieldName, fieldValue)),
       },

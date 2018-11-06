@@ -41,10 +41,10 @@ describe('components / Form.immutable', () => {
           expect.arrayContaining([
             'name',
             'path',
-            'fieldsCount',
             'registerField',
             'unregisterField',
             'resetForm',
+            'setFormSubmitted',
           ]),
         );
 

@@ -72,7 +72,7 @@
     "fix": "npm run lint -- --fix",
     "build": "rollup -c && cp ./source/types/reform-redux.flow.js ./reform-redux.flow.js",
     "coverage": "npm run test -- --coverage",
-    "test": "jest --config ./jest/jest.config.js",
+    "test": "jest --verbose --config ./jest/jest.config.js",
     "test:dev": "npm run test -- --watch",
     "test:dev:inspect": "node --inspect-brk node_modules/.bin/jest --runInBand --config ./jest/jest.config.js --watch",
     "precommit": "npm run fix && git add .",
