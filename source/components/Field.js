@@ -118,6 +118,13 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
           this.context._reformRedux.field.setFieldTouched(this.props.name, true);
         }
 
+        if (!is(getIn(currentFieldData, ['value']), getIn(nextFieldData, ['value']))) {
+          this.context._reformRedux._core.updateStackFieldValue(
+            this.props.name,
+            getIn(nextFieldData, ['value']),
+          );
+        }
+
         if (!is(currentFieldData, nextFieldData)) {
           this.setState({
             field: map(nextFieldData),

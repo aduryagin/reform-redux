@@ -1306,4 +1306,71 @@ describe('components / Field', () => {
 
     expect(global.store.getState().form.fields.field.value).toEqual([1, 2]);
   });
+
+  it('dont reset values on form update', () => {
+    expect.assertions(4);
+    jest.useFakeTimers();
+
+    const wrapper = ({ visible = false, change = false }) => {
+      return createElement(global.Provider, {}, [
+        visible
+          ? createElement(Field, {
+              key: 0,
+              name: 'field',
+              component: 'input',
+              value: 1,
+              checked: true,
+              type: 'checkbox',
+            })
+          : null,
+        createElement(Field, {
+          key: 1,
+          name: 'field',
+          value: 2,
+          checked: true,
+          component: 'input',
+          type: 'checkbox',
+        }),
+        createElement(Field, {
+          key: 3,
+          name: 'field2',
+          value: change ? 'field2 value' : '',
+          component: 'input',
+          type: 'text',
+        }),
+      ]);
+    };
+
+    const component = mount(createElement(wrapper));
+
+    expect(global.store.getState().form.fields.field.value).toBe(2);
+    expect(global.store.getState().form.fields.field2.value).toBe('');
+
+    component.setProps({ change: true });
+
+    expect(global.store.getState().form.fields.field2.value).toBe('field2 value');
+
+    component.setProps({ visible: true });
+
+    jest.runAllTimers();
+
+    expect(global.store.getState().form.fields).toEqual({
+      field: {
+        changed: false,
+        disabled: false,
+        errors: [],
+        touched: false,
+        valid: true,
+        value: [2, 1],
+      },
+      field2: {
+        changed: false,
+        disabled: false,
+        errors: [],
+        touched: false,
+        valid: true,
+        value: 'field2 value',
+      },
+    });
+  });
 });

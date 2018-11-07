@@ -105,6 +105,14 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       this.updateForm = this.createFormUpdater(context.store);
     }
 
+    updateStackFieldValue(fieldName: string, fieldValue: any) {
+      this.fieldsStack[this.formName][fieldName] = setIn(
+        this.fieldsStack[this.formName][fieldName],
+        ['value'],
+        fieldValue,
+      );
+    }
+
     getChildContext(): ReFormRedux {
       const store: Store<State, *, *> = this.context.store;
 
@@ -150,6 +158,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
               store.dispatch(resetField(this.formName, fieldName, state)),
             resetFields: (fieldsNames: Array<FieldName>, state?: ResetState): Function =>
               store.dispatch(resetFields(this.formName, fieldsNames, state)),
+          },
+          _core: {
+            updateStackFieldValue: (fieldName: string, fieldValue: any) =>
+              this.updateStackFieldValue(fieldName, fieldValue),
           },
         },
       };
