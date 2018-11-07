@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.5] - 2018-11-7
+
+- Don't reset fields state on form update.
+
 ## [1.6.4] - 2018-11-6
 
 - Bugfixes for list components.
