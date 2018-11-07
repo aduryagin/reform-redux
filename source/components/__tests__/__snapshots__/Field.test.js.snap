@@ -133,6 +133,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -330,6 +333,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -636,6 +642,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -833,6 +842,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -973,6 +985,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -1010,6 +1025,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -1051,6 +1069,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -1254,6 +1275,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1291,6 +1315,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1332,6 +1359,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1513,6 +1543,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1550,6 +1583,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1591,6 +1627,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1770,6 +1809,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1807,6 +1849,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -1848,6 +1893,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -2133,6 +2181,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -2170,6 +2221,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -2211,6 +2265,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -2470,6 +2527,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -2507,6 +2567,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -2548,6 +2611,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -2934,6 +3000,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -2971,6 +3040,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -3012,6 +3084,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -3365,6 +3440,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -3402,6 +3480,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -3443,6 +3524,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -3562,6 +3646,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedMergedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -3919,6 +4006,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -4116,6 +4206,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -4422,6 +4515,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -4619,6 +4715,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -4759,6 +4858,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -4796,6 +4898,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -4837,6 +4942,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -5164,6 +5272,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5201,6 +5312,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5242,6 +5356,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5423,6 +5540,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5460,6 +5580,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5501,6 +5624,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5680,6 +5806,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5717,6 +5846,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -5758,6 +5890,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -6043,6 +6178,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -6080,6 +6218,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -6121,6 +6262,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -6380,6 +6524,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -6417,6 +6564,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -6458,6 +6608,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -6844,6 +6997,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -6881,6 +7037,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -6922,6 +7081,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -7275,6 +7437,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -7312,6 +7477,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -7353,6 +7521,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -7472,6 +7643,9 @@ ReactWrapper {
             },
             "__reactInternalMemoizedMergedChildContext": Object {
               "_reformRedux": Object {
+                "_core": Object {
+                  "updateStackFieldValue": [Function],
+                },
                 "field": Object {
                   "changeFieldValue": [Function],
                   "changeFieldsValues": [Function],
@@ -7677,6 +7851,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedMergedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -7874,6 +8051,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedMergedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -8180,6 +8360,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedMergedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -8377,6 +8560,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedMergedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -8517,6 +8703,9 @@ ReactWrapper {
           "stateNode": Field {
             "__reactInternalMemoizedMaskedChildContext": Object {
               "_reformRedux": Object {
+                "_core": Object {
+                  "updateStackFieldValue": [Function],
+                },
                 "field": Object {
                   "changeFieldValue": [Function],
                   "changeFieldsValues": [Function],
@@ -8554,6 +8743,9 @@ ReactWrapper {
             },
             "__reactInternalMemoizedUnmaskedChildContext": Object {
               "_reformRedux": Object {
+                "_core": Object {
+                  "updateStackFieldValue": [Function],
+                },
                 "field": Object {
                   "changeFieldValue": [Function],
                   "changeFieldsValues": [Function],
@@ -8595,6 +8787,9 @@ ReactWrapper {
             "changeFieldValueHandler": [Function],
             "context": Object {
               "_reformRedux": Object {
+                "_core": Object {
+                  "updateStackFieldValue": [Function],
+                },
                 "field": Object {
                   "changeFieldValue": [Function],
                   "changeFieldsValues": [Function],
@@ -8798,6 +8993,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -8835,6 +9033,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -8876,6 +9077,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9057,6 +9261,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9094,6 +9301,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9135,6 +9345,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9314,6 +9527,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9351,6 +9567,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9392,6 +9611,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -9677,6 +9899,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -9714,6 +9939,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -9755,6 +9983,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -10014,6 +10245,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -10051,6 +10285,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -10092,6 +10329,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -10478,6 +10718,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -10515,6 +10758,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -10556,6 +10802,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -10909,6 +11158,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -10946,6 +11198,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -10987,6 +11242,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -11106,6 +11364,9 @@ ReactWrapper {
             },
             "__reactInternalMemoizedMergedChildContext": Object {
               "_reformRedux": Object {
+                "_core": Object {
+                  "updateStackFieldValue": [Function],
+                },
                 "field": Object {
                   "changeFieldValue": [Function],
                   "changeFieldsValues": [Function],
@@ -11336,6 +11597,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -11533,6 +11797,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -11839,6 +12106,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12036,6 +12306,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12176,6 +12449,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -12213,6 +12489,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -12254,6 +12533,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -12457,6 +12739,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12494,6 +12779,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12535,6 +12823,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12716,6 +13007,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12753,6 +13047,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12794,6 +13091,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -12973,6 +13273,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -13010,6 +13313,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -13051,6 +13357,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -13336,6 +13645,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -13373,6 +13685,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -13414,6 +13729,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -13673,6 +13991,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -13710,6 +14031,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -13751,6 +14075,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -14137,6 +14464,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -14174,6 +14504,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -14215,6 +14548,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -14568,6 +14904,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -14605,6 +14944,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -14646,6 +14988,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -14765,6 +15110,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedMergedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -15122,6 +15470,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -15319,6 +15670,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -15625,6 +15979,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -15822,6 +16179,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -15962,6 +16322,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -15999,6 +16362,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -16040,6 +16406,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -16291,6 +16660,9 @@ ReactWrapper {
         },
         "__reactInternalMemoizedMergedChildContext": Object {
           "_reformRedux": Object {
+            "_core": Object {
+              "updateStackFieldValue": [Function],
+            },
             "field": Object {
               "changeFieldValue": [Function],
               "changeFieldsValues": [Function],
@@ -16623,6 +16995,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -16660,6 +17035,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -16701,6 +17079,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -17211,6 +17592,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -17248,6 +17632,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -17289,6 +17676,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -17771,6 +18161,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -17808,6 +18201,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -17849,6 +18245,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -18232,6 +18631,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -18269,6 +18671,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -18310,6 +18715,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -18820,6 +19228,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -18857,6 +19268,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -18898,6 +19312,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -19252,6 +19669,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19289,6 +19709,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19330,6 +19753,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19511,6 +19937,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19548,6 +19977,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19589,6 +20021,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19768,6 +20203,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19805,6 +20243,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -19846,6 +20287,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -20131,6 +20575,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -20168,6 +20615,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -20209,6 +20659,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -20468,6 +20921,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -20505,6 +20961,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -20546,6 +21005,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -20932,6 +21394,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -20969,6 +21434,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -21010,6 +21478,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -21363,6 +21834,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -21400,6 +21874,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -21441,6 +21918,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -21830,6 +22310,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -21867,6 +22350,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -21908,6 +22394,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -22418,6 +22907,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -22455,6 +22947,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -22496,6 +22991,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -22978,6 +23476,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -23015,6 +23516,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -23056,6 +23560,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -23439,6 +23946,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -23476,6 +23986,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -23517,6 +24030,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -24027,6 +24543,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -24064,6 +24583,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -24105,6 +24627,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -24456,6 +24981,9 @@ ReactWrapper {
               "instance": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -24493,6 +25021,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -25933,6 +26464,9 @@ ReactWrapper {
                           },
                           "__reactInternalMemoizedMergedChildContext": Object {
                             "_reformRedux": Object {
+                              "_core": Object {
+                                "updateStackFieldValue": [Function],
+                              },
                               "field": Object {
                                 "changeFieldValue": [Function],
                                 "changeFieldsValues": [Function],
@@ -27446,6 +27980,9 @@ ReactWrapper {
                           },
                           "__reactInternalMemoizedMergedChildContext": Object {
                             "_reformRedux": Object {
+                              "_core": Object {
+                                "updateStackFieldValue": [Function],
+                              },
                               "field": Object {
                                 "changeFieldValue": [Function],
                                 "changeFieldsValues": [Function],
@@ -29068,6 +29605,9 @@ ReactWrapper {
                           },
                           "__reactInternalMemoizedMergedChildContext": Object {
                             "_reformRedux": Object {
+                              "_core": Object {
+                                "updateStackFieldValue": [Function],
+                              },
                               "field": Object {
                                 "changeFieldValue": [Function],
                                 "changeFieldsValues": [Function],
@@ -30581,6 +31121,9 @@ ReactWrapper {
                           },
                           "__reactInternalMemoizedMergedChildContext": Object {
                             "_reformRedux": Object {
+                              "_core": Object {
+                                "updateStackFieldValue": [Function],
+                              },
                               "field": Object {
                                 "changeFieldValue": [Function],
                                 "changeFieldsValues": [Function],
@@ -30729,6 +31272,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -30966,6 +31512,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -31163,6 +31712,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -31469,6 +32021,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -31666,6 +32221,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -31806,6 +32364,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -31843,6 +32404,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -31884,6 +32448,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -32087,6 +32654,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32124,6 +32694,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32165,6 +32738,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32346,6 +32922,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32383,6 +32962,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32424,6 +33006,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32603,6 +33188,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32640,6 +33228,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32681,6 +33272,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -32966,6 +33560,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -33003,6 +33600,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -33044,6 +33644,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -33303,6 +33906,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -33340,6 +33946,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -33381,6 +33990,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -33767,6 +34379,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -33804,6 +34419,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -33845,6 +34463,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -34198,6 +34819,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -34235,6 +34859,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -34276,6 +34903,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -34395,6 +35025,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedMergedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -34752,6 +35385,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -34949,6 +35585,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -35255,6 +35894,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -35452,6 +36094,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -35592,6 +36237,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -35629,6 +36277,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -35670,6 +36321,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -35997,6 +36651,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36034,6 +36691,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36075,6 +36735,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36256,6 +36919,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36293,6 +36959,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36334,6 +37003,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36513,6 +37185,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36550,6 +37225,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36591,6 +37269,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -36876,6 +37557,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -36913,6 +37597,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -36954,6 +37641,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -37213,6 +37903,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -37250,6 +37943,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -37291,6 +37987,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -37677,6 +38376,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -37714,6 +38416,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -37755,6 +38460,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -38108,6 +38816,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -38145,6 +38856,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -38186,6 +38900,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -38305,6 +39022,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedMergedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -38510,6 +39230,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -38707,6 +39430,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39013,6 +39739,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39210,6 +39939,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedMergedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39350,6 +40082,9 @@ ReactWrapper {
             "stateNode": Field {
               "__reactInternalMemoizedMaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -39387,6 +40122,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedUnmaskedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -39428,6 +40166,9 @@ ReactWrapper {
               "changeFieldValueHandler": [Function],
               "context": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -39631,6 +40372,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39668,6 +40412,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39709,6 +40456,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39890,6 +40640,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39927,6 +40680,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -39968,6 +40724,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -40147,6 +40906,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -40184,6 +40946,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -40225,6 +40990,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -40510,6 +41278,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -40547,6 +41318,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -40588,6 +41362,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -40847,6 +41624,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -40884,6 +41664,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -40925,6 +41708,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -41311,6 +42097,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -41348,6 +42137,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -41389,6 +42181,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -41742,6 +42537,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -41779,6 +42577,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -41820,6 +42621,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -41939,6 +42743,9 @@ ReactWrapper {
               },
               "__reactInternalMemoizedMergedChildContext": Object {
                 "_reformRedux": Object {
+                  "_core": Object {
+                    "updateStackFieldValue": [Function],
+                  },
                   "field": Object {
                     "changeFieldValue": [Function],
                     "changeFieldsValues": [Function],
@@ -42169,6 +42976,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -42366,6 +43176,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -42672,6 +43485,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -42869,6 +43685,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedMergedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43009,6 +43828,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -43046,6 +43868,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -43087,6 +43912,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -43290,6 +44118,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43327,6 +44158,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43368,6 +44202,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43549,6 +44386,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43586,6 +44426,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43627,6 +44470,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43806,6 +44652,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43843,6 +44692,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -43884,6 +44736,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -44169,6 +45024,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -44206,6 +45064,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -44247,6 +45108,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -44506,6 +45370,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -44543,6 +45410,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -44584,6 +45454,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -44970,6 +45843,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -45007,6 +45883,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -45048,6 +45927,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -45401,6 +46283,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -45438,6 +46323,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -45479,6 +46367,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -45598,6 +46489,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedMergedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -45955,6 +46849,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -46152,6 +47049,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -46458,6 +47358,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -46655,6 +47558,9 @@ ReactWrapper {
                         },
                         "__reactInternalMemoizedMergedChildContext": Object {
                           "_reformRedux": Object {
+                            "_core": Object {
+                              "updateStackFieldValue": [Function],
+                            },
                             "field": Object {
                               "changeFieldValue": [Function],
                               "changeFieldsValues": [Function],
@@ -46795,6 +47701,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -46832,6 +47741,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -46873,6 +47785,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -47124,6 +48039,9 @@ ReactWrapper {
           },
           "__reactInternalMemoizedMergedChildContext": Object {
             "_reformRedux": Object {
+              "_core": Object {
+                "updateStackFieldValue": [Function],
+              },
               "field": Object {
                 "changeFieldValue": [Function],
                 "changeFieldsValues": [Function],
@@ -47456,6 +48374,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -47493,6 +48414,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -47534,6 +48458,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -48044,6 +48971,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -48081,6 +49011,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -48122,6 +49055,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -48604,6 +49540,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -48641,6 +49580,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -48682,6 +49624,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -49065,6 +50010,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -49102,6 +50050,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -49143,6 +50094,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -49653,6 +50607,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -49690,6 +50647,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -49731,6 +50691,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -50085,6 +51048,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50122,6 +51088,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50163,6 +51132,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50344,6 +51316,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50381,6 +51356,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50422,6 +51400,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50601,6 +51582,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50638,6 +51622,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50679,6 +51666,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -50964,6 +51954,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -51001,6 +51994,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -51042,6 +52038,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -51301,6 +52300,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -51338,6 +52340,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -51379,6 +52384,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -51765,6 +52773,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -51802,6 +52813,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -51843,6 +52857,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -52196,6 +53213,9 @@ ReactWrapper {
               "stateNode": Field {
                 "__reactInternalMemoizedMaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -52233,6 +53253,9 @@ ReactWrapper {
                 },
                 "__reactInternalMemoizedUnmaskedChildContext": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -52274,6 +53297,9 @@ ReactWrapper {
                 "changeFieldValueHandler": [Function],
                 "context": Object {
                   "_reformRedux": Object {
+                    "_core": Object {
+                      "updateStackFieldValue": [Function],
+                    },
                     "field": Object {
                       "changeFieldValue": [Function],
                       "changeFieldsValues": [Function],
@@ -52663,6 +53689,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -52700,6 +53729,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -52741,6 +53773,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -53251,6 +54286,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -53288,6 +54326,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -53329,6 +54370,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -53811,6 +54855,9 @@ ReactWrapper {
                 "stateNode": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -53848,6 +54895,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -53889,6 +54939,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -54272,6 +55325,9 @@ ReactWrapper {
                   "stateNode": Field {
                     "__reactInternalMemoizedMaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -54309,6 +55365,9 @@ ReactWrapper {
                     },
                     "__reactInternalMemoizedUnmaskedChildContext": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -54350,6 +55409,9 @@ ReactWrapper {
                     "changeFieldValueHandler": [Function],
                     "context": Object {
                       "_reformRedux": Object {
+                        "_core": Object {
+                          "updateStackFieldValue": [Function],
+                        },
                         "field": Object {
                           "changeFieldValue": [Function],
                           "changeFieldsValues": [Function],
@@ -54860,6 +55922,9 @@ ReactWrapper {
                     "stateNode": Field {
                       "__reactInternalMemoizedMaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -54897,6 +55962,9 @@ ReactWrapper {
                       },
                       "__reactInternalMemoizedUnmaskedChildContext": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -54938,6 +56006,9 @@ ReactWrapper {
                       "changeFieldValueHandler": [Function],
                       "context": Object {
                         "_reformRedux": Object {
+                          "_core": Object {
+                            "updateStackFieldValue": [Function],
+                          },
                           "field": Object {
                             "changeFieldValue": [Function],
                             "changeFieldsValues": [Function],
@@ -55289,6 +56360,9 @@ ReactWrapper {
                 "instance": Field {
                   "__reactInternalMemoizedMaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -55326,6 +56400,9 @@ ReactWrapper {
                   },
                   "__reactInternalMemoizedUnmaskedChildContext": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
@@ -56766,6 +57843,9 @@ ReactWrapper {
                             },
                             "__reactInternalMemoizedMergedChildContext": Object {
                               "_reformRedux": Object {
+                                "_core": Object {
+                                  "updateStackFieldValue": [Function],
+                                },
                                 "field": Object {
                                   "changeFieldValue": [Function],
                                   "changeFieldsValues": [Function],
@@ -58279,6 +59359,9 @@ ReactWrapper {
                             },
                             "__reactInternalMemoizedMergedChildContext": Object {
                               "_reformRedux": Object {
+                                "_core": Object {
+                                  "updateStackFieldValue": [Function],
+                                },
                                 "field": Object {
                                   "changeFieldValue": [Function],
                                   "changeFieldsValues": [Function],
@@ -59901,6 +60984,9 @@ ReactWrapper {
                             },
                             "__reactInternalMemoizedMergedChildContext": Object {
                               "_reformRedux": Object {
+                                "_core": Object {
+                                  "updateStackFieldValue": [Function],
+                                },
                                 "field": Object {
                                   "changeFieldValue": [Function],
                                   "changeFieldsValues": [Function],
@@ -61414,6 +62500,9 @@ ReactWrapper {
                             },
                             "__reactInternalMemoizedMergedChildContext": Object {
                               "_reformRedux": Object {
+                                "_core": Object {
+                                  "updateStackFieldValue": [Function],
+                                },
                                 "field": Object {
                                   "changeFieldValue": [Function],
                                   "changeFieldsValues": [Function],
@@ -61562,6 +62651,9 @@ ReactWrapper {
                   "changeFieldValueHandler": [Function],
                   "context": Object {
                     "_reformRedux": Object {
+                      "_core": Object {
+                        "updateStackFieldValue": [Function],
+                      },
                       "field": Object {
                         "changeFieldValue": [Function],
                         "changeFieldsValues": [Function],
