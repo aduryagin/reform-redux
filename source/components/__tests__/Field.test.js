@@ -680,7 +680,7 @@ describe('components / Field', () => {
 
     const onChange = (data, value) => {
       checked++;
-      expect(value).toBe('');
+      expect(value).toBe(checked < 3 ? true : '');
     };
     const onChangeSecond = (data, value) => {
       checked++;
