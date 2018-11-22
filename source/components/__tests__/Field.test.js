@@ -318,6 +318,30 @@ describe('components / Field', () => {
     expect(component.dive().state('field').value).toBe('');
   });
 
+  it('check value of checkbox without value props in validate function.', done => {
+    let component = mount(
+      createElement(
+        global.Provider,
+        {},
+        createElement(Field, {
+          name: 'test',
+          component: 'input',
+          type: 'checkbox',
+          touched: true,
+          validate: value => {
+            if (value) {
+              expect(value).toBeTruthy();
+              done();
+            }
+          },
+        }),
+      ),
+    );
+
+    const event = { nativeEvent: new Event('change'), target: { checked: true } };
+    component.find(Field).simulate('change', event);
+  });
+
   it('if in redux store exists field data then take it from redux store and write to field state.', () => {
     global.store.dispatch(
       formInitialisation('form', {

@@ -233,7 +233,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (this.isRadio()) {
         const checked = isEvent ? data.target.checked : data;
-        return checked ? this.props.value : '';
+        return checked ? this.props.value || checked : '';
       }
 
       if (this.isCheckbox()) {
@@ -248,7 +248,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
           );
         }
 
-        return checked ? this.props.value : '';
+        return checked ? this.props.value || checked : '';
       }
 
       if (this.props.component === 'select' && this.props.multiple) {
