@@ -626,7 +626,7 @@ describe('components / Field.immutable', () => {
     input.simulate('blur', event);
 
     expect(normalize).lastCalledWithImmutable(
-      'TEST',
+      'test',
       'TEST',
       Map({
         field: Map({

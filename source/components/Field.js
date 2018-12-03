@@ -68,6 +68,10 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         value = normalize(props.value, '', map({}), 'onInit');
       }
 
+      if (['radio', 'checkbox'].indexOf(props.type) > -1) {
+        value = props.value || props.checked || false;
+      }
+
       this.initialFieldData = map({
         value,
         errors: list([]),
@@ -78,7 +82,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       });
 
       if (['radio', 'checkbox'].indexOf(props.type) > -1 && !props.checked) {
-        this.initialFieldData = setIn(this.initialFieldData, ['value'], '');
+        this.initialFieldData = setIn(this.initialFieldData, ['value'], props.value ? '' : false);
       }
 
       if (this.context._reformRedux.field.getFieldCount(this.props.name) === 0) {
@@ -204,7 +208,9 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         ['radio', 'checkbox'].indexOf(this.props.type) !== -1 &&
         this.props.checked !== prevProps.checked
       ) {
-        return this.changeFieldValue(this.props.checked ? this.props.value : '');
+        return this.changeFieldValue(
+          this.props.checked ? this.props.value || this.props.checked : '',
+        );
       }
     }
 
@@ -288,10 +294,10 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         this.props.onBlur(event, fieldData);
       }
 
-      const fieldValue: any = getIn(this.state.field, ['value']);
+      const fieldValue: any = this.getFieldValue(event);
 
       if (this.props.normalize) {
-        this.changeFieldValueHandler(fieldValue, 'onBlur');
+        this.changeFieldValueHandler(event, 'onBlur');
       }
 
       // If the field was touched don't validate him.
@@ -358,7 +364,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       if (this.isRadioOrCheckbox()) {
         fieldProps = {
           ...fieldProps,
-          checked: is(restProps.value, fieldValue),
+          checked: restProps.value ? is(restProps.value, fieldValue) : fieldValue,
           value: restProps.value,
         };
       }

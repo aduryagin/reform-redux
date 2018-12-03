@@ -907,8 +907,8 @@ describe('components / Field', () => {
 
     input.simulate('blur', event);
 
-    expect(normalize).toBeCalledWith(
-      'TEST',
+    expect(normalize).lastCalledWith(
+      'test',
       'TEST',
       {
         field: {
@@ -1141,6 +1141,32 @@ describe('components / Field', () => {
     mountedComponent.setProps({ value1: 'test' });
 
     expect(global.store.getState().form.fields.field.value).toEqual([1, 2]);
+  });
+
+  it('checkbox value should be bool if prop does not exists', () => {
+    expect.assertions(4);
+
+    const component = mount(
+      createElement(global.Provider, {}, [
+        createElement(Field, {
+          name: 'field',
+          component: 'input',
+          type: 'checkbox',
+          key: 0,
+        }),
+      ]),
+    );
+
+    expect(global.store.getState().form.fields.field.value).toBeFalsy();
+
+    const event = { nativeEvent: new Event('change'), target: { checked: true } };
+    const input = component.find('input');
+    expect(component.find('input').props().checked).toBeFalsy();
+
+    input.simulate('change', event);
+
+    expect(component.find('input').props().checked).toBeTruthy();
+    expect(global.store.getState().form.fields.field.value).toBeTruthy();
   });
 
   it('checked prop in two checkboxes with same name', () => {
