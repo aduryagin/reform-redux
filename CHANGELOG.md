@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.7] - 2018-12-3
+
+- Set value as bool for checkboxes where value does not exists
+
 ## [1.6.6] - 2018-11-22
 
 - If checkbox hasn't value prop then pass checked state.
