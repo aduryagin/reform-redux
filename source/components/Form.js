@@ -129,7 +129,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
               store.dispatch(setFormSubmitted(this.formName, submitted)),
           },
           field: {
-            getFieldCount: (fieldName: string) => this.fieldsCount[this.formName][fieldName],
+            getFieldCount: (fieldName: string) => this.fieldsCount[this.formName][fieldName] || 0,
             setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
               store.dispatch(setFieldTouched(this.formName, fieldName, fieldTouched)),
             setFieldsTouched: (fieldsTouched: { [fieldName: FieldName]: boolean }): Function =>
@@ -294,10 +294,23 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     };
 
     componentDidMount() {
-      this.context.store.dispatch(
-        formInitialisation(this.formName, this.fieldsStack[this.formName]),
-      );
-      this.initialized = true;
+      const store: Store<State, *, *> = this.context.store;
+      let state: State = store.getState();
+      let fieldsLength: number = listSize(keys(getIn(state, [...this.path, 'fields'])));
+
+      if (fieldsLength) {
+        this.initialized = true;
+      }
+
+      if (this.initialized) {
+        this.updateForm(this.initialized);
+      } else {
+        this.context.store.dispatch(
+          formInitialisation(this.formName, this.fieldsStack[this.formName]),
+        );
+
+        this.initialized = true;
+      }
     }
 
     handleSubmit = async (event: Event) => {

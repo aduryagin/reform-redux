@@ -105,6 +105,66 @@ describe('components / Form', () => {
     });
   });
 
+  it('form data on components after component mount and unmount', () => {
+    expect.assertions(2);
+    jest.useFakeTimers();
+
+    const wrapper = ({ visible = true }) =>
+      visible &&
+      createElement(
+        global.Provider,
+        {},
+        createElement(Field, { name: 'test', component: 'input' }),
+      );
+
+    const component = mount(createElement(wrapper), global.formContext);
+
+    component
+      .find('input')
+      .simulate('change', { nativeEvent: new Event('change'), target: { value: 'test' } });
+
+    expect(global.store.getState().form).toEqual({
+      fields: {
+        test: {
+          changed: true,
+          disabled: false,
+          touched: false,
+          errors: [],
+          valid: true,
+          value: 'test',
+        },
+      },
+      submitted: false,
+      submitting: false,
+      touched: false,
+      changed: true,
+      valid: true,
+    });
+
+    component.setProps({ visible: false });
+    component.setProps({ visible: true });
+
+    jest.runAllTimers();
+
+    expect(global.store.getState().form).toEqual({
+      fields: {
+        test: {
+          changed: true,
+          disabled: false,
+          touched: false,
+          errors: [],
+          valid: true,
+          value: 'test',
+        },
+      },
+      submitted: false,
+      submitting: false,
+      touched: false,
+      changed: true,
+      valid: true,
+    });
+  });
+
   it('form component has default prop onSubmit', () => {
     const component = shallow(createElement(Form, { path: 'form' }), global.formContext);
 
