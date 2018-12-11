@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.8] - 2018-12-11
+
+- Get values from redux store if they exists
+
 ## [1.6.7] - 2018-12-3
 
 - Set value as bool for checkboxes where value does not exists
