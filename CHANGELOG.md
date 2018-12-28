@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2018-12-28
+
+- Support of new react context api.
+
 ## [1.6.8] - 2018-12-11
 
 - Get values from redux store if they exists
