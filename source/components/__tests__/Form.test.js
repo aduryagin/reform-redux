@@ -1,89 +1,35 @@
 import { shallow, mount } from 'enzyme';
-import { object } from 'prop-types';
+import { Provider } from 'react-redux';
 import { setImmediate } from 'timers';
-import { createElement, Component } from 'react';
+import { createElement } from 'react';
 import { Form, Field } from '../../index';
 
 describe('components / Form', () => {
-  beforeEach(() => {
-    global.formContext = {
-      context: { store: global.store },
-    };
-  });
-
   it('snapshot', () => {
-    const snapshot = shallow(createElement(Form, { path: 'form' }, ''), global.formContext);
+    const snapshot = shallow(
+      createElement(Provider, { store: global.store }, createElement(Form, { path: 'form' }, '')),
+    );
     expect(snapshot).toMatchSnapshot();
   });
 
   it('if component has not "path" prop then throw error', () => {
     console.error = jest.fn(); // eslint-disable-line
-    expect(() => shallow(createElement(Form, {}), global.formContext)).toThrow(
-      'The `path` prop is required.',
-    );
-  });
-
-  it('child component will get right context', () => {
-    expect.assertions(3);
-
-    class CustomInput extends Component {
-      static contextTypes = {
-        _reformRedux: object,
-      };
-
-      componentDidMount() {
-        expect(Object.keys(this.context._reformRedux)).toEqual(
-          expect.arrayContaining(['form', 'field']),
-        );
-
-        expect(Object.keys(this.context._reformRedux.form)).toEqual(
-          expect.arrayContaining([
-            'name',
-            'path',
-            'registerField',
-            'unregisterField',
-            'resetForm',
-            'setFormSubmitted',
-          ]),
-        );
-
-        expect(Object.keys(this.context._reformRedux.field)).toEqual(
-          expect.arrayContaining([
-            'changeFieldsValues',
-            'changeFieldValue',
-            'setFieldErrors',
-            'setFieldsErrors',
-            'setFieldDisabled',
-            'setFieldsDisabled',
-            'resetField',
-            'resetFields',
-          ]),
-        );
-      }
-
-      render() {
-        return '';
-      }
-    }
-
-    mount(
-      createElement(
-        Form,
-        { path: 'form' },
-        createElement(CustomInput, { name: 'test', component: 'input' }),
-      ),
-      global.formContext,
-    );
+    expect(() =>
+      mount(createElement(Provider, { store: global.store }, createElement(Form, {}))),
+    ).toThrow('The `path` prop is required.');
   });
 
   it('form initialisation in the store after component mount', () => {
     mount(
       createElement(
-        Form,
-        { path: 'form' },
-        createElement(Field, { name: 'test', component: 'input', changed: true, touched: true }),
+        Provider,
+        { store: global.store },
+        createElement(
+          Form,
+          { path: 'form' },
+          createElement(Field, { name: 'test', component: 'input', changed: true, touched: true }),
+        ),
       ),
-      global.formContext,
     );
 
     expect(global.store.getState().form).toEqual({
@@ -112,12 +58,16 @@ describe('components / Form', () => {
     const wrapper = ({ visible = true }) =>
       visible &&
       createElement(
-        global.Provider,
-        {},
-        createElement(Field, { name: 'test', component: 'input' }),
+        Provider,
+        { store: global.store },
+        createElement(
+          Form,
+          { path: 'form' },
+          createElement(Field, { name: 'test', component: 'input' }),
+        ),
       );
 
-    const component = mount(createElement(wrapper), global.formContext);
+    const component = mount(createElement(wrapper));
 
     component
       .find('input')
@@ -166,8 +116,9 @@ describe('components / Form', () => {
   });
 
   it('form component has default prop onSubmit', () => {
-    const component = shallow(createElement(Form, { path: 'form' }), global.formContext);
-
+    const component = mount(
+      createElement(Provider, { store: global.store }, createElement(Form, { path: 'form' })),
+    );
     expect(typeof component.find('form').prop('onSubmit')).toBe('function');
   });
 
@@ -184,11 +135,26 @@ describe('components / Form', () => {
     const onSubmit = jest.fn();
 
     const component = mount(
-      createElement(Form, { path: 'form', onSubmit }, [
-        createElement(Field, { key: 0, name: 'test1', value: '12', component: 'input', validate }),
-        createElement(Field, { key: 1, name: 'test2', value: '12', component: 'input', validate }),
-      ]),
-      global.formContext,
+      createElement(
+        Provider,
+        { store: global.store },
+        createElement(Form, { path: 'form', onSubmit }, [
+          createElement(Field, {
+            key: 0,
+            name: 'test1',
+            value: '12',
+            component: 'input',
+            validate,
+          }),
+          createElement(Field, {
+            key: 1,
+            name: 'test2',
+            value: '12',
+            component: 'input',
+            validate,
+          }),
+        ]),
+      ),
     );
 
     expect(global.store.getState().form.submitted).toBeFalsy();
@@ -232,11 +198,14 @@ describe('components / Form', () => {
     const onSubmitFailed = jest.fn();
 
     const component = mount(
-      createElement(Form, { path: 'form', onSubmitFailed }, [
-        createElement(Field, { key: 0, name: 'test1', value: '1', component: 'input', validate }),
-        createElement(Field, { key: 1, name: 'test2', value: '1', component: 'input', validate }),
-      ]),
-      global.formContext,
+      createElement(
+        Provider,
+        { store: global.store },
+        createElement(Form, { path: 'form', onSubmitFailed }, [
+          createElement(Field, { key: 0, name: 'test1', value: '1', component: 'input', validate }),
+          createElement(Field, { key: 1, name: 'test2', value: '1', component: 'input', validate }),
+        ]),
+      ),
     );
 
     component.find('form').simulate('submit');
