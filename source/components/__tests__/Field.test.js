@@ -145,6 +145,7 @@ describe('components / Field', () => {
         value: 'test',
         errors: [],
         changed: true,
+        hidden: false,
         touched: false,
         valid: true,
         disabled: false,
@@ -187,6 +188,7 @@ describe('components / Field', () => {
         errors: [],
         changed: false,
         touched: false,
+        hidden: false,
         valid: true,
         disabled: false,
       },
@@ -195,6 +197,7 @@ describe('components / Field', () => {
         errors: [],
         changed: false,
         touched: false,
+        hidden: false,
         valid: true,
         disabled: false,
       },
@@ -207,6 +210,7 @@ describe('components / Field', () => {
         value: '',
         errors: [],
         changed: false,
+        hidden: false,
         touched: false,
         valid: true,
         disabled: false,
@@ -279,7 +283,7 @@ describe('components / Field', () => {
   });
 
   it('if you pass disabled and value props then this props will in state.field.value and state.field.disabled.', () => {
-    expect.assertions(8);
+    expect.assertions(10);
 
     let component = mount(
       createElement(
@@ -295,6 +299,7 @@ describe('components / Field', () => {
             disabled: true,
             touched: true,
             changed: true,
+            hidden: true,
           }),
         ),
       ),
@@ -304,6 +309,7 @@ describe('components / Field', () => {
     expect(component.find('Field[name="test"]').state('field').disabled).toBeTruthy();
     expect(component.find('Field[name="test"]').state('field').touched).toBeTruthy();
     expect(component.find('Field[name="test"]').state('field').changed).toBeTruthy();
+    expect(component.find('Field[name="test"]').state('field').hidden).toBeTruthy();
 
     component = mount(
       createElement(
@@ -324,6 +330,7 @@ describe('components / Field', () => {
     expect(component.find('Field[name="test1"]').state('field').disabled).toBeFalsy();
     expect(component.find('Field[name="test1"]').state('field').touched).toBeFalsy();
     expect(component.find('Field[name="test1"]').state('field').changed).toBeFalsy();
+    expect(component.find('Field[name="test1"]').state('field').hidden).toBeFalsy();
   });
 
   it('if component type is checkbox or radio value must be an empty string.', () => {
@@ -590,6 +597,7 @@ describe('components / Field', () => {
           disabled: false,
           errors: [],
           touched: false,
+          hidden: false,
           valid: true,
           changed: false,
           value: 'TEST',
@@ -1043,6 +1051,7 @@ describe('components / Field', () => {
           errors: [],
           touched: false,
           valid: true,
+          hidden: false,
           changed: false,
           value: 'TEST',
         },
@@ -1077,6 +1086,7 @@ describe('components / Field', () => {
       errors: [],
       changed: false,
       touched: false,
+      hidden: false,
       valid: true,
       value: '',
     });
@@ -1107,6 +1117,7 @@ describe('components / Field', () => {
       disabled: false,
       errors: [],
       changed: false,
+      hidden: false,
       touched: false,
       valid: true,
       value: '',
@@ -1146,6 +1157,7 @@ describe('components / Field', () => {
           disabled: false,
           changed: false,
           touched: false,
+          hidden: false,
           errors: [],
           valid: true,
           value: 'TEST',
@@ -1181,6 +1193,7 @@ describe('components / Field', () => {
       'reactReduxContext',
       'reformReduxContext',
       'value',
+      'hidden',
       'onChange',
       'onBlur',
       'onFocus',
@@ -1216,6 +1229,7 @@ describe('components / Field', () => {
 
     expect(Object.keys(input.props())).toEqual([
       'value',
+      'hidden',
       'onChange',
       'onBlur',
       'onFocus',
@@ -1528,6 +1542,7 @@ describe('components / Field', () => {
       field: {
         changed: false,
         disabled: false,
+        hidden: false,
         errors: [],
         touched: false,
         valid: true,
@@ -1599,12 +1614,14 @@ describe('components / Field', () => {
         disabled: false,
         errors: [],
         touched: false,
+        hidden: false,
         valid: true,
         value: [2, 1],
       },
       field2: {
         changed: false,
         disabled: false,
+        hidden: false,
         errors: [],
         touched: false,
         valid: true,

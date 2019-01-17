@@ -19,6 +19,8 @@ import {
   SET_FIELDS_TOUCHED,
   SET_FIELD_CHANGED,
   SET_FIELDS_CHANGED,
+  SET_FIELDS_HIDDEN,
+  SET_FIELD_HIDDEN,
 } from '../constants/Field';
 import { getReduxConst } from '../utils/common';
 import type { State, Action } from '../types/formReducer';
@@ -28,6 +30,8 @@ import type {
   ChangeFieldValue,
   SetFieldsDisabled,
   SetFieldDisabled,
+  SetFieldHidden,
+  SetFieldsHidden,
   SetFieldErrors,
   SetFieldsErrors,
   ResetField,
@@ -171,6 +175,7 @@ export const createFormReducer: Function = ({
         );
       }, map({}));
 
+      // $FlowFixMe
       emptyFormState = merge(state, {
         fields: map(emptyFields),
         valid: true,
@@ -227,6 +232,13 @@ export const createFormReducer: Function = ({
 
       return state;
     },
+    [getReduxConst(SET_FIELD_HIDDEN)]: (state: State, action: SetFieldHidden): State => {
+      if (hasIn(state, ['fields', action.fieldName])) {
+        return setIn(state, ['fields', action.fieldName, 'hidden'], action.fieldHidden);
+      }
+
+      return state;
+    },
     [getReduxConst(SET_FIELD_TOUCHED)]: (state: State, action: SetFieldTouched): State => {
       let newState: State = map(state);
 
@@ -262,6 +274,19 @@ export const createFormReducer: Function = ({
         keys(fields).find((fieldKey: string) => getIn(fields, [fieldKey, 'touched'])),
       );
       newState = setIn(newState, ['touched'], touched);
+
+      return newState;
+    },
+    [getReduxConst(SET_FIELDS_HIDDEN)]: (state: State, action: SetFieldsHidden): State => {
+      let newState: State = map(state);
+
+      keys(action.hiddenFields).forEach((hiddenField: string) => {
+        newState = setIn(
+          newState,
+          ['fields', hiddenField, 'hidden'],
+          getIn(action.hiddenFields, [hiddenField]),
+        );
+      });
 
       return newState;
     },

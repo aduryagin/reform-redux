@@ -93,6 +93,7 @@ type FieldData = {
   valid: boolean,
   touched: boolean,
   disabled: boolean,
+  hidden: boolean,
   changed: boolean,
 };
 
@@ -115,6 +116,7 @@ The Field component creates new field in store and provide all data of this fiel
 | component       | ComponentType<*>                                                                                              | yes      | Function or Class or String which be passed to React.createElement.                              |
 | validate        | Array\<(value: any) => any\> \| (value: any) => any                                                           | no       | Validate functions.                                                                              |
 | disabled        | boolean                                                                                                       | no       | Field disabled or not.                                                                           |
+| hidden          | boolean                                                                                                       | no       | Field hidden or not.                                                                             |
 | changed         | boolean                                                                                                       | no       | Field changed or not.                                                                            |
 | touched         | boolean                                                                                                       | no       | Field touched or not.                                                                            |
 | value           | any                                                                                                           | no       | Value of your field.                                                                             |
@@ -196,6 +198,33 @@ store.dispatch(changeFieldValue(
   formName: string,
   fieldName: FieldName,
   fieldValue: any,
+));
+```
+
+### setFieldHidden
+
+Set field hidden.
+
+```javascript
+import { setFieldHidden } from 'reform-redux';
+
+store.dispatch(setFieldHidden(
+  formName: string,
+  fieldName: FieldName,
+  fieldHidden: bool,
+));
+```
+
+### setFieldsErrors
+
+Set fields hidden.
+
+```javascript
+import { setFieldsHidden } from 'reform-redux';
+
+store.dispatch(setFieldsHidden(
+  formName: string,
+  hiddenFields: { [fieldName: FieldName]: boolean },
 ));
 ```
 
@@ -385,6 +414,8 @@ _reformRedux: {
       setFieldsErrors: (fieldName: FieldName, fieldsErrors: { [fieldName: FieldName]: Array<string> }) => Function,
       setFieldDisabled: (fieldName: FieldName, disabled: boolean) => Function,
       setFieldsDisabled: (fieldName: FieldName, disabledFields: { [fieldName: FieldName]: boolean }) => Function,
+      setFieldHidden: (fieldName: FieldName, hidden: boolean) => Function,
+      setFieldsHidden: (fieldName: FieldName, hiddenFields: { [fieldName: FieldName]: boolean }) => Function,
       resetField: (fieldName: FieldName, state: ResetState) => Function,
       resetFields: (fieldsNames: Array<FieldName>, state: ResetState) => Function,
     },

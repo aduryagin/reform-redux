@@ -25,7 +25,6 @@ import {
 } from '../actions/Field';
 import { validateField, getValidateFunctionsArray } from '../utils/Field';
 import { debounce, asyncForEach, filterReactDomProps } from '../utils/common';
-import type { Element } from 'react';
 import type { ComponentProps, FieldsValidate } from '../types/Form';
 import type {
   FieldData,
@@ -39,6 +38,7 @@ import type { Store } from 'redux';
 import type { State, ResetState } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
 
+// $FlowFixMe
 export const ReformReduxContext = createContext(null);
 
 export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctions) => {
@@ -59,6 +59,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     formName: string;
     path: Array<string>;
     initialized: boolean = false;
+    _reformReduxContext: {} = {};
+    updateForm: Function;
 
     static propTypes = {
       path: PropTypes.string.isRequired,
@@ -384,7 +386,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       }
     };
 
-    render(): Element<'form'> {
+    render() {
       const { children, innerRef } = this.props;
 
       return createElement(

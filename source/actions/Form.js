@@ -8,7 +8,13 @@ import {
 import type { ResetState } from '../types/formReducer';
 import { getReduxConst } from '../utils/common';
 import type { FieldsData } from '../types/Field';
-import type { FormInitialisation, SetFormSubmitting, ResetForm, UpdateForm } from '../types/Form';
+import type {
+  FormInitialisation,
+  SetFormSubmitting,
+  ResetForm,
+  UpdateForm,
+  SetFormSubmitted,
+} from '../types/Form';
 
 export const formInitialisation: Function = (
   formName: string,
@@ -37,7 +43,7 @@ export const setFormSubmitting: Function = (
 export const setFormSubmitted: Function = (
   formName: string,
   submitted: boolean,
-): SetFormSubmitting => ({
+): SetFormSubmitted => ({
   type: getReduxConst(SET_FORM_SUBMITTED),
   formName,
   submitted,

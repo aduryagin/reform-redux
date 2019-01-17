@@ -10,8 +10,10 @@ import {
   REMOVE_FIELD,
   SET_FIELD_TOUCHED,
   SET_FIELDS_TOUCHED,
+  SET_FIELDS_HIDDEN,
   SET_FIELD_CHANGED,
   SET_FIELDS_CHANGED,
+  SET_FIELD_HIDDEN,
 } from '../constants/Field';
 import type {
   ChangeFieldValue,
@@ -29,11 +31,13 @@ import type {
   SetFieldsTouched,
   SetFieldChanged,
   SetFieldsChanged,
+  SetFieldHidden,
+  SetFieldsHidden,
 } from '../types/Field';
 import type { ResetState } from '../types/formReducer';
 import { getReduxConst } from '../utils/common';
 
-export const setFieldTouched: Function = (
+export const setFieldTouched = (
   formName: string,
   fieldName: FieldName,
   fieldTouched: boolean,
@@ -44,7 +48,27 @@ export const setFieldTouched: Function = (
   fieldTouched,
 });
 
-export const setFieldsTouched: Function = (
+export const setFieldsHidden = (
+  formName: string,
+  hiddenFields: { [fieldName: FieldName]: boolean },
+): SetFieldsHidden => ({
+  type: getReduxConst(SET_FIELDS_HIDDEN),
+  formName,
+  hiddenFields,
+});
+
+export const setFieldHidden = (
+  formName: string,
+  fieldName: FieldName,
+  fieldHidden: boolean,
+): SetFieldHidden => ({
+  type: getReduxConst(SET_FIELD_HIDDEN),
+  formName,
+  fieldName,
+  fieldHidden,
+});
+
+export const setFieldsTouched = (
   formName: string,
   touchedFields: { [fieldName: FieldName]: boolean },
 ): SetFieldsTouched => ({
@@ -53,7 +77,7 @@ export const setFieldsTouched: Function = (
   touchedFields,
 });
 
-export const setFieldChanged: Function = (
+export const setFieldChanged = (
   formName: string,
   fieldName: FieldName,
   fieldChanged: boolean,
@@ -64,7 +88,7 @@ export const setFieldChanged: Function = (
   fieldChanged,
 });
 
-export const setFieldsChanged: Function = (
+export const setFieldsChanged = (
   formName: string,
   changedFields: { [fieldName: FieldName]: boolean },
 ): SetFieldsChanged => ({
@@ -73,13 +97,13 @@ export const setFieldsChanged: Function = (
   changedFields,
 });
 
-export const removeField: Function = (formName: string, fieldName: FieldName): RemoveField => ({
+export const removeField = (formName: string, fieldName: FieldName): RemoveField => ({
   type: getReduxConst(REMOVE_FIELD),
   formName,
   fieldName,
 });
 
-export const resetField: Function = (
+export const resetField = (
   formName: string,
   fieldName: FieldName,
   state?: ResetState,
@@ -87,10 +111,11 @@ export const resetField: Function = (
   type: getReduxConst(RESET_FIELD),
   formName,
   fieldName,
+  // $FlowFixMe
   state,
 });
 
-export const resetFields: Function = (
+export const resetFields = (
   formName: string,
   fieldsNames: Array<FieldName>,
   state?: ResetState,
@@ -98,10 +123,11 @@ export const resetFields: Function = (
   type: getReduxConst(RESET_FIELDS),
   formName,
   fieldsNames,
+  // $FlowFixMe
   state,
 });
 
-export const setFieldDisabled: Function = (
+export const setFieldDisabled = (
   formName: string,
   fieldName: FieldName,
   disabled: boolean = true,
@@ -112,7 +138,7 @@ export const setFieldDisabled: Function = (
   disabled,
 });
 
-export const setFieldsDisabled: Function = (
+export const setFieldsDisabled = (
   formName: string,
   disabledFields: { [fieldName: FieldName]: boolean },
 ): SetFieldsDisabled => ({
@@ -121,7 +147,7 @@ export const setFieldsDisabled: Function = (
   disabledFields,
 });
 
-export const changeFieldValue: Function = (
+export const changeFieldValue = (
   formName: string,
   fieldName: FieldName,
   fieldValue: FieldValue,
@@ -132,7 +158,7 @@ export const changeFieldValue: Function = (
   fieldValue,
 });
 
-export const changeFieldsValues: Function = (
+export const changeFieldsValues = (
   formName: string,
   fieldsValues: { [fieldName: FieldName]: FieldValue },
 ): ChangeFieldsValues => ({
@@ -141,7 +167,7 @@ export const changeFieldsValues: Function = (
   fieldsValues,
 });
 
-export const setFieldErrors: Function = (
+export const setFieldErrors = (
   formName: string,
   fieldName: FieldName,
   errors: Array<string>,
@@ -152,7 +178,7 @@ export const setFieldErrors: Function = (
   errors,
 });
 
-export const setFieldsErrors: Function = (
+export const setFieldsErrors = (
   formName: string,
   fieldsErrors: { [fieldName: FieldName]: Array<string> },
 ): SetFieldsErrors => ({

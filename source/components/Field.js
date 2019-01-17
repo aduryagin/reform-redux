@@ -30,15 +30,29 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       name: PropTypes.string.isRequired,
       component: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func])
         .isRequired,
-      removeOnUnmount: PropTypes.bool,
       normalize: PropTypes.func,
+      type: PropTypes.string,
+      multiple: PropTypes.bool,
+      checked: PropTypes.bool,
+      value: PropTypes.string,
+      validate: PropTypes.func,
+      disabled: PropTypes.bool,
+      changed: PropTypes.bool,
+      touched: PropTypes.bool,
+      onChange: PropTypes.func,
+      onBlur: PropTypes.func,
+      onFocus: PropTypes.func,
+      removeOnUnmount: PropTypes.bool,
+      hidden: PropTypes.bool,
     };
 
     static defaultProps: {
       disabled: $PropertyType<ComponentProps, 'disabled'>,
       value: $PropertyType<ComponentProps, 'value'>,
+      hidden: $PropertyType<ComponentProps, 'hidden'>,
     } = {
       value: '',
+      hidden: false,
       disabled: false,
     };
 
@@ -71,6 +85,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       this.initialFieldData = map({
         value,
         errors: list([]),
+        hidden: props.hidden,
         valid: true,
         touched: props.touched || false,
         changed: props.changed || false,
@@ -346,8 +361,15 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     };
 
     render() {
-      // eslint-disable-next-line no-unused-vars
-      const { normalize, component, name, validate, disabled, innerRef, ...restProps } = this.props;
+      const {
+        normalize, // eslint-disable-line no-unused-vars
+        component,
+        name, // eslint-disable-line no-unused-vars
+        validate, // eslint-disable-line no-unused-vars
+        disabled, // eslint-disable-line no-unused-vars
+        innerRef,
+        ...restProps
+      } = this.props;
       let fieldProps: {
         onChange: Function,
         onBlur: Function,
@@ -364,6 +386,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       };
 
       const fieldValue: any = getIn(this.state.field, ['value']);
+      const fieldHidden: boolean = getIn(this.state.field, ['hidden']);
 
       if (this.isRadioOrCheckbox()) {
         fieldProps = {
@@ -404,7 +427,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         };
       }
 
-      return createElement(this.props.component, fieldProps);
+      return !fieldHidden && createElement(this.props.component, fieldProps);
     }
   }
 

@@ -41,6 +41,8 @@ export type ReFormRedux = {
 export type ComponentProps = {
   children: Element<*>,
   path: string,
+  reactReduxContext: any,
+  innerRef: any,
   name?: string,
   onSubmitFailed?: (errorFields: FieldsData, fields: FieldsData, event: Event) => any,
   onSubmit?: (fields: FieldsData, event: Event) => any,
@@ -68,6 +70,12 @@ export type SetFormSubmitting = {
   type: string,
   formName: string,
   submitting: boolean,
+};
+
+export type SetFormSubmitted = {
+  type: string,
+  formName: string,
+  submitted: boolean,
 };
 
 export type ResetForm = {
