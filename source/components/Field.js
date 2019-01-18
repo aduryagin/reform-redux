@@ -303,7 +303,8 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       this.changeFieldValue(value);
 
       if (this.props.onChange) {
-        this.props.onChange(data, value);
+        const { onChange } = this.props;
+        onChange(data, value, getIn(this.state.field, ['value']));
       }
     };
 

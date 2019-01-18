@@ -464,6 +464,8 @@ describe('components / Field', () => {
   });
 
   it('component with custom onChange', () => {
+    expect.assertions(2);
+
     const onChange = jest.fn();
     const component = mount(
       createElement(
@@ -480,12 +482,15 @@ describe('components / Field', () => {
         ),
       ),
     );
-    const value = 'test';
-    const event = { nativeEvent: new Event('change'), target: { value } };
+    const newEvent = value => ({ nativeEvent: new Event('change'), target: { value } });
 
-    component.find('input').simulate('change', event);
+    component.find('input').simulate('change', newEvent('value'));
 
-    expect(onChange).toBeCalledWith(expect.anything(), value);
+    expect(onChange).toBeCalledWith(expect.anything(), 'value', '');
+
+    component.find('input').simulate('change', newEvent('value1'));
+
+    expect(onChange).toBeCalledWith(expect.anything(), 'value1', 'value');
   });
 
   it('validate on onChange after onBlur', done => {
