@@ -374,6 +374,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         onChange: Function,
         onBlur: Function,
         onFocus: Function,
+        hidden: boolean,
         value: any,
         disabled: boolean,
       } = {
@@ -381,6 +382,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         onChange: this.changeFieldValueHandler,
         onBlur: this.onBlurFieldHandler,
         onFocus: this.onFocusFieldHandler,
+        hidden: getIn(this.state.field, ['hidden']),
         value: getIn(this.state.field, ['value']),
         disabled: getIn(this.state.field, ['disabled']),
       };

@@ -1,7 +1,7 @@
 import { Component, createElement } from 'react';
 import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
-import { Field, changeFieldValue, Form } from '../../index';
+import { Field, changeFieldValue, Form, setFieldHidden } from '../../index';
 import { formInitialisation } from '../../actions/Form';
 
 describe('components / Field', () => {
@@ -1381,6 +1381,38 @@ describe('components / Field', () => {
     global.store.dispatch(changeFieldValue('form', 'field', ['field2']));
 
     expect(component.find('Field.field2').instance().state.field.value).toEqual(['field2']);
+  });
+
+  it('hidden state works correctly', done => {
+    expect.assertions(2);
+
+    const component = mount(
+      createElement(
+        Provider,
+        { store: global.store },
+        createElement(Form, { path: 'form' }, [
+          createElement(Field, {
+            name: 'field',
+            component: 'input',
+            type: 'checkbox',
+            checked: true,
+            value: 'field1',
+            key: 0,
+          }),
+        ]),
+      ),
+    );
+
+    expect(component.find('input').length).toBe(1);
+
+    global.store.dispatch(setFieldHidden('form', 'field', true));
+    component.update();
+
+    setImmediate(() => {
+      expect(component.find('input').length).toBe(0);
+
+      done();
+    });
   });
 
   it('value in few checkboxes with same name', () => {

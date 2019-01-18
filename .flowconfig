@@ -1,5 +1,5 @@
 [include]
-<PROJECT_ROOT>/source/.*
+./source/.*
 
 [ignore]
 <PROJECT_ROOT>/node_modules/.*
