@@ -141,12 +141,13 @@ describe('components / Form', () => {
       createElement(
         Provider,
         { store: global.store },
-        createElement(Form, { path: 'form', onSubmit }, [
+        createElement(Form, { path: 'form', onSubmit, submitHiddenFields: false }, [
           createElement(Field, {
             key: 0,
             name: 'test1',
             value: '12',
             component: 'input',
+            hidden: true,
             validate,
           }),
           createElement(Field, {
@@ -169,15 +170,6 @@ describe('components / Form', () => {
       expect(global.store.getState().form.submitting).toBeFalsy();
       expect(onSubmit).toBeCalledWith(
         {
-          test1: {
-            disabled: false,
-            errors: [],
-            valid: true,
-            hidden: false,
-            touched: false,
-            changed: false,
-            value: '12',
-          },
           test2: {
             disabled: false,
             errors: [],

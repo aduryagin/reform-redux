@@ -22,6 +22,8 @@ import {
   setFieldTouched,
   setFieldChanged,
   setFieldsChanged,
+  setFieldHidden,
+  setFieldsHidden,
 } from '../actions/Field';
 import { validateField, getValidateFunctionsArray } from '../utils/Field';
 import { debounce, asyncForEach, filterReactDomProps } from '../utils/common';
@@ -48,8 +50,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     listSize,
     list,
     setIn,
+    toJS,
     map,
     isList,
+    fromJS,
     is,
     deleteIn,
     listIncludes,
@@ -112,6 +116,12 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
         },
         field: {
           getFieldCount: (fieldName: string) => this.fieldsCount[this.formName][fieldName] || 0,
+          setFieldHidden: (fieldName: FieldName, fieldHidden: boolean): Function =>
+            props.reactReduxContext.store.dispatch(
+              setFieldHidden(this.formName, fieldName, fieldHidden),
+            ),
+          setFieldsHidden: (hiddenFields: { [fieldName: FieldName]: boolean }): Function =>
+            props.reactReduxContext.store.dispatch(setFieldsHidden(this.formName, hiddenFields)),
           setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
             props.reactReduxContext.store.dispatch(
               setFieldTouched(this.formName, fieldName, fieldTouched),
@@ -378,6 +388,17 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       } else if (onSubmit) {
         state = store.getState();
         fields = getIn(state, [...this.path, 'fields']);
+
+        if (!this.props.submitHiddenFields) {
+          const jsFields = toJS(fields);
+          const jsFilteredFields = {};
+          Object.keys(jsFields).forEach(jsFieldKey => {
+            if (!jsFields[jsFieldKey].hidden) {
+              jsFilteredFields[jsFieldKey] = jsFields[jsFieldKey];
+            }
+          });
+          fields = fromJS(jsFilteredFields);
+        }
 
         Promise.resolve(onSubmit(fields, event)).then(() => {
           store.dispatch(setFormSubmitting(this.formName, false));

@@ -71,12 +71,13 @@ The Form component is a simple wrapper for the React `<form>`.
 
 ### Props
 
-| Prop name      | Flow type                                                          | Required | Description                                                              |
-| -------------- | ------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------ |
-| path           | string                                                             | yes      | Path to reducer in the redux store. Example: 'some.reducers.myFormName'. |
-| name           | string                                                             | no       | Form name.                                                               |
-| onSubmitFailed | (errorFields: FieldsData, fields: FieldsData, event: Event) => any | no       | Function which will trigger after unsuccessfull submit the form.         |
-| onSubmit       | (fields: FieldsData, event: Event) => any                          | no       | Function which will trigger after successfull submit the form.           |
+| Prop name          | Flow type                                                          | Required | Description                                                              |
+| ------------------ | ------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------ |
+| path               | string                                                             | yes      | Path to reducer in the redux store. Example: 'some.reducers.myFormName'. |
+| name               | string                                                             | no       | Form name.                                                               |
+| onSubmitFailed     | (errorFields: FieldsData, fields: FieldsData, event: Event) => any | no       | Function which will trigger after unsuccessfull submit the form.         |
+| onSubmit           | (fields: FieldsData, event: Event) => any                          | no       | Function which will trigger after successfull submit the form.           |
+| submitHiddenFields | boolean                                                            | no       | Submit hidden fields or not. False by default.                           |
 
 ## Flow types
 
@@ -413,6 +414,8 @@ _reformRedux: {
       setFormSubmitted: Function,
     },
     field: {
+      setFieldHidden: (fieldName: FieldName, fieldHidden: boolean): Function,
+      setFieldsHidden: (fieldName: FieldName, hiddenFields: { [fieldName: FieldName]: boolean }): Function,
       setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function,
       setFieldsTouched: (fieldName: FieldName, fieldsTouched: { [fieldName: FieldName]: boolean }): Function,
       changeFieldValue: (fieldName: FieldName, fieldValue: string) => Function,

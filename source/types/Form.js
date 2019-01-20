@@ -44,6 +44,7 @@ export type ComponentProps = {
   reactReduxContext: any,
   innerRef: any,
   name?: string,
+  submitHiddenFields?: boolean,
   onSubmitFailed?: (errorFields: FieldsData, fields: FieldsData, event: Event) => any,
   onSubmit?: (fields: FieldsData, event: Event) => any,
 };
