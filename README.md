@@ -153,7 +153,14 @@ If you need to disable your submit button when form is submitting or reset form 
 | Prop name | Flow type       | Required | Description      |
 | --------- | --------------- | -------- | ---------------- |
 | type      | submit \| reset | yes      | Button type.     |
+| component | component       | no       | component        |
 | onClick   | Function        | no       | onClick handler. |
+
+Button custom component can take the following props
+
+| Prop name | Flow type       | Description          |
+| --------- | --------------- | -------------------- |
+| isLoading | boolean         | When form submitting |
 
 ## Containers
 

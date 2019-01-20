@@ -52,13 +52,25 @@ export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunct
       if (onClick) onClick(event);
     };
 
-    render(): Element<'button'> {
-      return createElement('button', {
-        ...filterReactDomProps(this.props),
+    render(): Element<*> {
+      const component = this.props.component || 'button';
+      const commonProps = {
         disabled: this.props.disabled || this.state.submitting,
         onClick: this.onClickHandler,
         children: this.props.children,
-      });
+      };
+      const componentProps =
+        typeof component === 'string'
+          ? {
+              ...filterReactDomProps(this.props),
+              ...commonProps,
+            }
+          : {
+              isLoading: this.state.submitting,
+              ...commonProps,
+            };
+
+      return createElement(component, componentProps);
     }
   }
 
