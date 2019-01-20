@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.0] - 2019-1-20
+
+- Form component submitHiddenFields property
+- Button component new component property
+
 ## [1.8.0] - 2019-1-18
 
 - New actions setFieldsHidden, setFieldHidden & hidden param for components
