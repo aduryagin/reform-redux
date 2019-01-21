@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.8.0] - 2019-1-20
+## [1.8.3] - 2019-1-21
+
+- Pass custom props to Button component
+
+## [1.8.2] - 2019-1-20
 
 - Form component submitHiddenFields property
 - Button component new component property
