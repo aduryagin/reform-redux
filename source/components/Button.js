@@ -66,8 +66,9 @@ export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunct
               ...commonProps,
             }
           : {
-              isLoading: this.state.submitting,
+              ...this.props,
               ...commonProps,
+              isLoading: this.state.submitting,
             };
 
       return createElement(component, componentProps);
