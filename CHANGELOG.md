@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.4] - 2019-1-25
+
+- Documentation.js
+
 ## [1.8.3] - 2019-1-21
 
 - Pass custom props to Button component
