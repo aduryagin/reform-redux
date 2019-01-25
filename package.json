@@ -48,6 +48,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^7.0.0-beta.3",
+    "documentation": "^9.1.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^4.19.1",
@@ -70,6 +71,7 @@
   "scripts": {
     "flow": "flow",
     "flow-typed": "flow-typed install -l ./source/types/flow-typed",
+    "documentation:build": "documentation build --config documentation.yml source/index.js -f md -o docs.md",
     "lint": "eslint source",
     "fix": "npm run lint -- --fix",
     "build": "rollup -c && cp ./source/types/reform-redux.flow.js ./reform-redux.flow.js",
@@ -78,7 +80,7 @@
     "test:dev": "npm run test -- --watch",
     "test:dev:inspect": "node --inspect-brk node_modules/.bin/jest --runInBand --config ./jest/jest.config.js --watch",
     "precommit": "npm run fix && git add .",
-    "prepush": "npm run lint && npm run test && npm run flow",
-    "prepublish": "npm run lint && npm run flow && npm run test && npm run build"
+    "prepush": "npm run lint && npm run test && npm run flow && npm run documentation:build",
+    "prepublish": "npm run lint && npm run flow && npm run test && npm run documentation:build && npm run build"
   }
 }

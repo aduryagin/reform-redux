@@ -48,6 +48,11 @@ import type {
 import type { FormInitialisation, SetFormSubmitting, UpdateForm, ResetForm } from '../types/Form';
 import type { DataFunctions } from '../types/dataFunctions';
 
+/**
+ * initial | empty
+ * @typedef {string} ResetState
+ */
+
 export const createFormReducer: Function = ({
   fromJS,
   map,
@@ -388,7 +393,12 @@ export const createFormReducer: Function = ({
     },
   };
 
-  return (formName: string): Function => {
+  /**
+   * Create form reducer.
+   * @callback formReducerCreator
+   * @param {string} formName
+   */
+  return (formName: string) => {
     return (state: State = initialState, action: Action): State => {
       if (action.formName !== formName) return state;
 

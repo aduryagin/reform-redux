@@ -59,6 +59,36 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     listIncludes,
   }: DataFunctions = dataFunctions;
 
+  /**
+   * @callback onSubmitFailed
+   * @param {FieldsData} errorFields
+   * @param {FieldsData} fields
+   * @param {Event} event
+   */
+
+  /**
+   * @callback onSubmit
+   * @param {FieldsData} fields
+   * @param {Event} event
+   */
+
+  /**
+   * The Form component is a simple wrapper for the React `<form>`.
+   *
+   * @class Form
+   * @example
+   * import { Form } from 'reform-redux';
+   *
+   * const FormWrapper = () => (
+   *  <Form path="path.to.form" />
+   * );
+   *
+   * @param {string} path Path to reducer in the redux store. Example: 'some.reducers.myFormName'. (Required)
+   * @param {string} [name] Form name.
+   * @param {onSubmitFailed} [onSubmitFailed] Function which will trigger after unsuccessfull submit the form.
+   * @param {onSubmit} [onSubmit] Function which will trigger after successfull submit the form.
+   * @param {boolean} [submitHiddenFields] Submit hidden fields or not. False by default.
+   */
   class Form extends Component<ComponentProps> {
     formName: string;
     path: Array<string>;
@@ -69,6 +99,9 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     static propTypes = {
       path: PropTypes.string.isRequired,
       name: PropTypes.string,
+      submitHiddenFields: PropTypes.bool,
+      onSubmitFailed: PropTypes.func,
+      onSubmit: PropTypes.func,
     };
 
     static defaultProps: {
