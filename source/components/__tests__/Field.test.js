@@ -609,6 +609,7 @@ describe('components / Field', () => {
         },
       },
       'onChange',
+      'field',
     );
   });
 
@@ -1017,7 +1018,7 @@ describe('components / Field', () => {
       ),
     );
 
-    expect(normalize).toBeCalledWith('test', '', {}, 'onInit');
+    expect(normalize).toBeCalledWith('test', '', {}, 'onInit', 'field');
     expect(global.store.getState().form.fields.field.value).toBe('TEST');
     expect(component.find('input').prop('value')).toBe('TEST');
   });
@@ -1062,6 +1063,7 @@ describe('components / Field', () => {
         },
       },
       'onBlur',
+      'field',
     );
   });
 
@@ -1169,6 +1171,7 @@ describe('components / Field', () => {
         },
       },
       'onFocus',
+      'field',
     );
   });
 

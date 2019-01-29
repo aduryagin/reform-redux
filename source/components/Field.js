@@ -64,6 +64,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
    * @param {*} previousValue
    * @param {FieldsData} allFields
    * @param {NormalizeWhen} when
+   * @param {FieldName} name
    * @returns {*} normalized value
    */
 
@@ -181,7 +182,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (props.normalize) {
         const { normalize } = props;
-        value = normalize(props.value, '', map({}), 'onInit');
+        value = normalize(props.value, '', map({}), 'onInit', props.name);
       }
 
       if (['radio', 'checkbox'].indexOf(props.type) > -1) {
@@ -396,14 +397,20 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
     changeFieldValueHandler = (data: any, normalizeWhen: string = 'onChange') => {
       let value: any = this.getFieldValue(data);
-      const { normalize } = this.props;
+      const { normalize, name } = this.props;
 
       if (normalize) {
         const state: State = this.props.reactReduxContext.store.getState();
         const currentFormData: State = getIn(state, this.props.reformReduxContext.form.path);
         const fields: FieldsData = getIn(currentFormData, ['fields']);
 
-        value = normalize(value, getIn(this.state.field, ['value']), map(fields), normalizeWhen);
+        value = normalize(
+          value,
+          getIn(this.state.field, ['value']),
+          map(fields),
+          normalizeWhen,
+          name,
+        );
       }
 
       this.changeFieldValue(value);
