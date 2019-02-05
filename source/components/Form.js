@@ -36,7 +36,6 @@ import type {
   FieldName,
 } from '../types/Field';
 import type { ComponentCreator } from '../types/common';
-import type { Store } from 'redux';
 import type { State, ResetState } from '../types/formReducer';
 import type { DataFunctions } from '../types/dataFunctions';
 
@@ -143,59 +142,49 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
           registerField: this.registerField,
           unregisterField: this.unregisterField,
           resetForm: (state?: ResetState): Function =>
-            props.reactReduxContext.store.dispatch(resetForm(this.formName, state)),
+            props.reactReduxContextDispatch(resetForm(this.formName, state)),
           setFormSubmitted: (submitted: boolean): Function =>
-            props.reactReduxContext.store.dispatch(setFormSubmitted(this.formName, submitted)),
+            props.reactReduxContextDispatch(setFormSubmitted(this.formName, submitted)),
         },
         field: {
           getFieldCount: (fieldName: string) => this.fieldsCount[this.formName][fieldName] || 0,
           setFieldHidden: (fieldName: FieldName, fieldHidden: boolean): Function =>
-            props.reactReduxContext.store.dispatch(
-              setFieldHidden(this.formName, fieldName, fieldHidden),
-            ),
+            props.reactReduxContextDispatch(setFieldHidden(this.formName, fieldName, fieldHidden)),
           setFieldsHidden: (hiddenFields: { [fieldName: FieldName]: boolean }): Function =>
-            props.reactReduxContext.store.dispatch(setFieldsHidden(this.formName, hiddenFields)),
+            props.reactReduxContextDispatch(setFieldsHidden(this.formName, hiddenFields)),
           setFieldTouched: (fieldName: FieldName, fieldTouched: boolean): Function =>
-            props.reactReduxContext.store.dispatch(
+            props.reactReduxContextDispatch(
               setFieldTouched(this.formName, fieldName, fieldTouched),
             ),
           setFieldsTouched: (fieldsTouched: { [fieldName: FieldName]: boolean }): Function =>
-            props.reactReduxContext.store.dispatch(setFieldsTouched(this.formName, fieldsTouched)),
+            props.reactReduxContextDispatch(setFieldsTouched(this.formName, fieldsTouched)),
           setFieldChanged: (fieldName: FieldName, fieldChanged: boolean): Function =>
-            props.reactReduxContext.store.dispatch(
+            props.reactReduxContextDispatch(
               setFieldChanged(this.formName, fieldName, fieldChanged),
             ),
           setFieldsChanged: (fieldsChanged: { [fieldName: FieldName]: boolean }): Function =>
-            props.reactReduxContext.store.dispatch(setFieldsChanged(this.formName, fieldsChanged)),
+            props.reactReduxContextDispatch(setFieldsChanged(this.formName, fieldsChanged)),
           removeField: (fieldName: FieldName): Function =>
-            props.reactReduxContext.store.dispatch(removeField(this.formName, fieldName)),
+            props.reactReduxContextDispatch(removeField(this.formName, fieldName)),
           changeFieldsValues: (fieldsValues: { [fieldName: FieldName]: any }): Function =>
-            props.reactReduxContext.store.dispatch(changeFieldsValues(this.formName, fieldsValues)),
+            props.reactReduxContextDispatch(changeFieldsValues(this.formName, fieldsValues)),
           changeFieldValue: (fieldName: FieldName, fieldValue: any): Function =>
-            props.reactReduxContext.store.dispatch(
-              changeFieldValue(this.formName, fieldName, fieldValue),
-            ),
+            props.reactReduxContextDispatch(changeFieldValue(this.formName, fieldName, fieldValue)),
           setFieldErrors: (fieldName: FieldName, errors: Array<string>): Function =>
-            props.reactReduxContext.store.dispatch(
-              setFieldErrors(this.formName, fieldName, errors),
-            ),
+            props.reactReduxContextDispatch(setFieldErrors(this.formName, fieldName, errors)),
           setFieldsErrors: (
             fieldName: FieldName,
             fieldsErrors: { [fieldName: FieldName]: Array<string> },
           ): Function =>
-            props.reactReduxContext.store.dispatch(setFieldsErrors(this.formName, fieldsErrors)),
+            props.reactReduxContextDispatch(setFieldsErrors(this.formName, fieldsErrors)),
           setFieldDisabled: (fieldName: FieldName, disabled: boolean = true): Function =>
-            props.reactReduxContext.store.dispatch(
-              setFieldDisabled(this.formName, fieldName, disabled),
-            ),
+            props.reactReduxContextDispatch(setFieldDisabled(this.formName, fieldName, disabled)),
           setFieldsDisabled: (disabledFields: { [fieldName: FieldName]: boolean }): Function =>
-            props.reactReduxContext.store.dispatch(
-              setFieldsDisabled(this.formName, disabledFields),
-            ),
+            props.reactReduxContextDispatch(setFieldsDisabled(this.formName, disabledFields)),
           resetField: (fieldName: FieldName, state?: ResetState): Function =>
-            props.reactReduxContext.store.dispatch(resetField(this.formName, fieldName, state)),
+            props.reactReduxContextDispatch(resetField(this.formName, fieldName, state)),
           resetFields: (fieldsNames: Array<FieldName>, state?: ResetState): Function =>
-            props.reactReduxContext.store.dispatch(resetFields(this.formName, fieldsNames, state)),
+            props.reactReduxContextDispatch(resetFields(this.formName, fieldsNames, state)),
         },
         _core: {
           updateStackFieldValue: (fieldName: string, fieldValue: any) =>
@@ -203,7 +192,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
         },
       };
 
-      this.updateForm = this.createFormUpdater(props.reactReduxContext.store);
+      this.updateForm = this.createFormUpdater(props.reactReduxContextDispatch);
     }
 
     updateStackFieldValue(fieldName: string, fieldValue: any) {
@@ -214,10 +203,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       );
     }
 
-    createFormUpdater = (store: Store<State, *, *>) =>
+    createFormUpdater = reactReduxContextDispatch =>
       debounce((formInitialized): Function => {
         if (formInitialized) {
-          store.dispatch(updateForm(this.formName, this.fieldsStack[this.formName]));
+          reactReduxContextDispatch(updateForm(this.formName, this.fieldsStack[this.formName]));
         }
       }, 250);
 
@@ -237,7 +226,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       this.decreaseFieldCount(fieldName, removeOnUnmount);
 
       if (removeOnUnmount) {
-        this.props.reactReduxContext.store.dispatch(removeField(this.formName, fieldName));
+        this.props.reactReduxContextDispatch(removeField(this.formName, fieldName));
         this.fieldsStack = deleteIn(this.fieldsStack, [this.formName, fieldName]);
         this.fieldsValidateStack = deleteIn(this.fieldsValidateStack, [this.formName, fieldName]);
       }
@@ -340,24 +329,8 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       this.updateForm(this.initialized);
     };
 
-    shouldComponentUpdate({
-      reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
-      children: nextChildren, // eslint-disable-line no-unused-vars
-      ...nextProps
-    }) {
-      // eslint-disable-next-line no-unused-vars
-      const {
-        reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
-        children: currentChildren, // eslint-disable-line no-unused-vars
-        ...currentProps
-      } = this.props;
-
-      return !is(currentProps, nextProps);
-    }
-
     componentDidMount() {
-      const store: Store<State, *, *> = this.props.reactReduxContext.store;
-      let state: State = store.getState();
+      let state: State = this.props.reactReduxContextGetState();
       let fieldsLength: number = listSize(keys(getIn(state, [...this.path, 'fields'])));
 
       if (fieldsLength) {
@@ -367,7 +340,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       if (this.initialized) {
         this.updateForm(this.initialized);
       } else {
-        this.props.reactReduxContext.store.dispatch(
+        this.props.reactReduxContextDispatch(
           formInitialisation(this.formName, this.fieldsStack[this.formName]),
         );
 
@@ -378,14 +351,13 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     handleSubmit = async (event: Event) => {
       event.preventDefault();
 
-      const store: Store<State, *, *> = this.props.reactReduxContext.store;
-      store.dispatch(setFormSubmitting(this.formName, true));
+      this.props.reactReduxContextDispatch(setFormSubmitting(this.formName, true));
 
       const { onSubmit, onSubmitFailed } = this.props;
 
       // Validate all fields
 
-      let state: State = store.getState();
+      let state: State = this.props.reactReduxContextGetState();
       let fields: FieldsData = getIn(state, [...this.path, 'fields']);
       let fieldsErrors: { [fieldName: FieldName]: Array<string> } = map({});
       let errorsExists: boolean = false;
@@ -427,9 +399,9 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       );
 
       if (errorsExists) {
-        store.dispatch(setFieldsErrors(this.formName, fieldsErrors));
+        this.props.reactReduxContextDispatch(setFieldsErrors(this.formName, fieldsErrors));
 
-        state = store.getState();
+        state = this.props.reactReduxContextGetState();
         fields = getIn(state, [...this.path, 'fields']);
 
         let fieldsWithErrors: { [fieldName: FieldName]: FieldData } = map({});
@@ -442,14 +414,14 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
         if (onSubmitFailed) {
           onSubmitFailed(fieldsWithErrors, fields, event);
-          store.dispatch(setFormSubmitting(this.formName, false));
+          this.props.reactReduxContextDispatch(setFormSubmitting(this.formName, false));
         }
       } else if (onSubmit) {
-        state = store.getState();
+        state = this.props.reactReduxContextGetState();
 
         await Promise.resolve(onSubmit(fields, event)).then(() => {
-          store.dispatch(setFormSubmitting(this.formName, false));
-          store.dispatch(setFormSubmitted(this.formName, true));
+          this.props.reactReduxContextDispatch(setFormSubmitting(this.formName, false));
+          this.props.reactReduxContextDispatch(setFormSubmitted(this.formName, true));
         });
       }
 
@@ -481,7 +453,12 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
   return forwardRef((props, ref) =>
     createElement(ReactReduxContext.Consumer, {}, reactReduxContextValue =>
-      createElement(Form, { ...props, reactReduxContext: reactReduxContextValue, innerRef: ref }),
+      createElement(Form, {
+        ...props,
+        reactReduxContextDispatch: reactReduxContextValue.store.dispatch,
+        reactReduxContextGetState: reactReduxContextValue.store.getState,
+        innerRef: ref,
+      }),
     ),
   );
 };
