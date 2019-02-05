@@ -126,7 +126,7 @@ describe('components / Form', () => {
   });
 
   it('form component onSubmit behavior', done => {
-    expect.assertions(6);
+    expect.assertions(5);
 
     const validate = value => {
       expect(global.store.getState().form.submitting).toBeTruthy();

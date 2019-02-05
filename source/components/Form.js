@@ -93,7 +93,7 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
     formName: string;
     path: Array<string>;
     initialized: boolean = false;
-    _reformReduxContext: {} = {};
+    _reformReduxContext: any = {};
     updateForm: Function;
 
     static propTypes = {
@@ -340,6 +340,19 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       this.updateForm(this.initialized);
     };
 
+    shouldComponentUpdate({
+      reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
+      ...nextProps
+    }) {
+      // eslint-disable-next-line no-unused-vars
+      const {
+        reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
+        ...currentProps
+      } = this.props;
+
+      return !is(currentProps, nextProps);
+    }
+
     componentDidMount() {
       const store: Store<State, *, *> = this.props.reactReduxContext.store;
       let state: State = store.getState();
@@ -374,6 +387,17 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
       let fields: FieldsData = getIn(state, [...this.path, 'fields']);
       let fieldsErrors: { [fieldName: FieldName]: Array<string> } = map({});
       let errorsExists: boolean = false;
+
+      if (!this.props.submitHiddenFields) {
+        const jsFields = toJS(fields);
+        const jsFilteredFields = {};
+        Object.keys(jsFields).forEach(jsFieldKey => {
+          if (!jsFields[jsFieldKey].hidden) {
+            jsFilteredFields[jsFieldKey] = jsFields[jsFieldKey];
+          }
+        });
+        fields = fromJS(jsFilteredFields);
+      }
 
       await asyncForEach(
         keys(fields),
@@ -420,24 +444,21 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
         }
       } else if (onSubmit) {
         state = store.getState();
-        fields = getIn(state, [...this.path, 'fields']);
 
-        if (!this.props.submitHiddenFields) {
-          const jsFields = toJS(fields);
-          const jsFilteredFields = {};
-          Object.keys(jsFields).forEach(jsFieldKey => {
-            if (!jsFields[jsFieldKey].hidden) {
-              jsFilteredFields[jsFieldKey] = jsFields[jsFieldKey];
-            }
-          });
-          fields = fromJS(jsFilteredFields);
-        }
-
-        Promise.resolve(onSubmit(fields, event)).then(() => {
+        await Promise.resolve(onSubmit(fields, event)).then(() => {
           store.dispatch(setFormSubmitting(this.formName, false));
           store.dispatch(setFormSubmitted(this.formName, true));
         });
       }
+
+      const jsFields = toJS(fields);
+      const jsFilteredFields = {};
+      Object.keys(jsFields).forEach(jsFieldKey => {
+        jsFilteredFields[jsFieldKey] = true;
+      });
+      fields = fromJS(jsFilteredFields);
+
+      if (this._reformReduxContext.field) this._reformReduxContext.field.setFieldsTouched(fields);
     };
 
     render() {

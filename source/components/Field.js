@@ -228,17 +228,12 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     registerField = () => {
       this.unsubscribeFromStore = this.props.reactReduxContext.store.subscribe(() => {
         const state: State = this.props.reactReduxContext.store.getState();
-        const currentFormData: State = getIn(state, this.props.reformReduxContext.form.path);
         const currentFieldData: FieldData = this.state.field;
         const nextFieldData: FieldData = getIn(
           state,
           [...this.props.reformReduxContext.form.path, 'fields', this.props.name],
           this.state.field,
         );
-
-        if (currentFormData.submitted && !getIn(nextFieldData, ['touched'])) {
-          this.props.reformReduxContext.field.setFieldTouched(this.props.name, true);
-        }
 
         if (!is(getIn(currentFieldData, ['value']), getIn(nextFieldData, ['value']))) {
           this.props.reformReduxContext._core.updateStackFieldValue(
@@ -282,6 +277,23 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         this.props.name,
         this.props.removeOnUnmount,
       );
+    }
+
+    shouldComponentUpdate(
+      {
+        reformReduxContext: nextReformReduxContext, // eslint-disable-line no-unused-vars
+        reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
+        ...nextProps
+      },
+      nextState,
+    ) {
+      // eslint-disable-next-line no-unused-vars
+      const {
+        reformReduxContext: currentReformReduxContext, // eslint-disable-line no-unused-vars
+        reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
+        ...currentProps
+      } = this.props;
+      return !is(currentProps, nextProps) || !is(this.state, nextState);
     }
 
     componentDidUpdate(prevProps: ComponentProps) {
