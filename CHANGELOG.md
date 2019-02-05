@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.8] - 2019-2-6
+
+- Call stack error bugfix
+
 ## [1.8.7] - 2019-2-5
 
 - Code improvements
