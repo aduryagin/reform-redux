@@ -47,6 +47,7 @@ export type ComponentProps = {
   reactReduxContext: any,
   hidden: boolean,
   removeOnUnmount?: boolean,
+  children?: any,
   normalize?: (
     value: any,
     previousValue: any,

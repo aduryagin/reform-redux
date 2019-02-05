@@ -73,6 +73,7 @@ export const createSelectFormData: Function = (dataFunctions: DataFunctions) => 
           {
             reformReduxContext: nextReformReduxContext, // eslint-disable-line no-unused-vars
             reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
+            children: nextChildren, // eslint-disable-line no-unused-vars
             ...nextProps
           },
           nextState,
@@ -81,6 +82,7 @@ export const createSelectFormData: Function = (dataFunctions: DataFunctions) => 
           const {
             reformReduxContext: currentReformReduxContext, // eslint-disable-line no-unused-vars
             reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
+            children: currentChildren, // eslint-disable-line no-unused-vars
             ...currentProps
           } = this.props;
           return (

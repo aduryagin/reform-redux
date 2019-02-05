@@ -342,11 +342,13 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
     shouldComponentUpdate({
       reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
+      children: nextChildren, // eslint-disable-line no-unused-vars
       ...nextProps
     }) {
       // eslint-disable-next-line no-unused-vars
       const {
         reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
+        children: currentChildren, // eslint-disable-line no-unused-vars
         ...currentProps
       } = this.props;
 

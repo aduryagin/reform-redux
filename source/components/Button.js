@@ -71,6 +71,7 @@ export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunct
       {
         reformReduxContext: nextReformReduxContext, // eslint-disable-line no-unused-vars
         reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
+        children: nextChildren, // eslint-disable-line no-unused-vars
         ...nextProps
       },
       nextState,
@@ -79,6 +80,7 @@ export const createButtonComponent: ComponentCreator = (dataFunctions: DataFunct
       const {
         reformReduxContext: currentReformReduxContext, // eslint-disable-line no-unused-vars
         reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
+        children: currentChildren, // eslint-disable-line no-unused-vars
         ...currentProps
       } = this.props;
       return !is(currentProps, nextProps) || !is(this.state, nextState);
