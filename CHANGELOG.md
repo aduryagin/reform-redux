@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.7] - 2019-2-5
+
+- Code improvements
+- Send hidden fields bugfix
+
 ## [1.8.5] - 2019-1-29
 
 - Pass name prop to normalize function
