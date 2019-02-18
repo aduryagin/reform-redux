@@ -18,22 +18,18 @@
     "form",
     "asynchronous",
     "validation",
-    "perfomance",
-    "immutable"
+    "perfomance"
   ],
   "main": "./reform-redux.js",
   "module": "./reform-redux.es.js",
   "files": [
     "reform-redux.flow.js",
     "reform-redux.js",
-    "reform-redux.es.js",
-    "immutable.es.js",
-    "immutable.js"
+    "reform-redux.es.js"
   ],
   "types": "./reform-redux.flow.js",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "immutable": "^4.0.0-rc.9",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-redux": "^6.0.0",

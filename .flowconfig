@@ -9,7 +9,6 @@
 <PROJECT_ROOT>/jest/.*
 <PROJECT_ROOT>/package*
 <PROJECT_ROOT>/rollup*
-<PROJECT_ROOT>/immutable*
 <PROJECT_ROOT>/reform-redux*
 
 [libs]
