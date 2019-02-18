@@ -67,6 +67,22 @@ export type ComponentProps = {
   onBlur?: (event: Event, fieldData: FieldData) => any,
   onFocus?: (event: Event, fieldData: FieldData) => any,
   innerRef?: (element: any) => void,
+
+  reformReduxContextFieldGetFieldCount: Function,
+  reactReduxContextGetState: Function,
+  reactReduxContextSubscribe: Function,
+
+  reformReduxContextGetFieldCount: Function,
+  reformReduxContextSetFieldTouched: Function,
+  reformReduxContextSetFieldChanged: Function,
+  reformReduxContextChangeFieldValue: Function,
+  reformReduxContextSetFieldErrors: Function,
+
+  reformReduxContextFormUnregisterField: Function,
+  reformReduxContextFormName: string,
+  reformReduxContextFormPath: Array<string>,
+  reformReduxContextFormRegisterField: Function,
+  reformReduxContextCoreUpdateStackFieldValue: Function,
 };
 
 export type ComponentState = {

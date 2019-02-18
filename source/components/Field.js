@@ -166,10 +166,6 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     constructor(props: ComponentProps) {
       super(props);
 
-      if (!props.reformReduxContext) {
-        throw new Error('Component `Field` must be in `Form` component.');
-      }
-
       if (props.multiple && props.component === 'select' && props.value && !isList(props.value)) {
         throw new Error(
           'The `value` prop supplied to Field with type "select" must be an array if `multiple` is true.',
@@ -203,11 +199,11 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         this.initialFieldData = setIn(this.initialFieldData, ['value'], props.value ? '' : false);
       }
 
-      if (props.reformReduxContext.field.getFieldCount(this.props.name) === 0) {
+      if (props.reformReduxContextGetFieldCount(this.props.name) === 0) {
         // Get default value from store if it exists
 
-        const state: State = props.reactReduxContext.store.getState();
-        const currentFormData: State = getIn(state, props.reformReduxContext.form.path);
+        const state: State = props.reactReduxContextGetState();
+        const currentFormData: State = getIn(state, props.reformReduxContextFormPath);
         const initialFieldData: FieldData = getIn(currentFormData, ['fields', props.name]);
 
         if (initialFieldData) {
@@ -226,17 +222,17 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
     }
 
     registerField = () => {
-      this.unsubscribeFromStore = this.props.reactReduxContext.store.subscribe(() => {
-        const state: State = this.props.reactReduxContext.store.getState();
+      this.unsubscribeFromStore = this.props.reactReduxContextSubscribe(() => {
+        const state: State = this.props.reactReduxContextGetState();
         const currentFieldData: FieldData = this.state.field;
         const nextFieldData: FieldData = getIn(
           state,
-          [...this.props.reformReduxContext.form.path, 'fields', this.props.name],
+          [...this.props.reformReduxContextFormPath, 'fields', this.props.name],
           this.state.field,
         );
 
         if (!is(getIn(currentFieldData, ['value']), getIn(nextFieldData, ['value']))) {
-          this.props.reformReduxContext._core.updateStackFieldValue(
+          this.props.reformReduxContextCoreUpdateStackFieldValue(
             this.props.name,
             getIn(nextFieldData, ['value']),
           );
@@ -258,60 +254,33 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         this.props.validate,
       );
 
-      this.props.reformReduxContext.form.registerField(
-        this.props.name,
-        initialFieldData,
-        validate,
-        {
-          type,
-          checked,
-          multiple,
-          component,
-        },
-      );
+      this.props.reformReduxContextFormRegisterField(this.props.name, initialFieldData, validate, {
+        type,
+        checked,
+        multiple,
+        component,
+      });
     };
 
     componentWillUnmount() {
       this.unsubscribeFromStore();
-      this.props.reformReduxContext.form.unregisterField(
-        this.props.name,
-        this.props.removeOnUnmount,
-      );
-    }
-
-    shouldComponentUpdate(
-      {
-        reformReduxContext: nextReformReduxContext, // eslint-disable-line no-unused-vars
-        reactReduxContext: nextReactReduxContext, // eslint-disable-line no-unused-vars
-        children: nextChildren, // eslint-disable-line no-unused-vars
-        ...nextProps
-      },
-      nextState,
-    ) {
-      // eslint-disable-next-line no-unused-vars
-      const {
-        reformReduxContext: currentReformReduxContext, // eslint-disable-line no-unused-vars
-        reactReduxContext: currentReactReduxContext, // eslint-disable-line no-unused-vars
-        children: currentChildren, // eslint-disable-line no-unused-vars
-        ...currentProps
-      } = this.props;
-      return !is(currentProps, nextProps) || !is(this.state, nextState);
+      this.props.reformReduxContextFormUnregisterField(this.props.name, this.props.removeOnUnmount);
     }
 
     componentDidUpdate(prevProps: ComponentProps) {
       // Update touched property
       if (this.props.touched !== prevProps.touched) {
-        this.props.reformReduxContext.field.setFieldTouched(this.props.name, this.props.touched);
+        this.props.reformReduxContextSetFieldTouched(this.props.name, this.props.touched);
       }
 
       // Update changed property
       if (this.props.changed !== prevProps.changed) {
-        this.props.reformReduxContext.field.setFieldChanged(this.props.name, this.props.changed);
+        this.props.reformReduxContextSetFieldChanged(this.props.name, this.props.changed);
       }
 
       if (
         ['radio', 'checkbox'].indexOf(this.props.type) !== -1 &&
-        this.props.reformReduxContext.field.getFieldCount(this.props.name) > 1 &&
+        this.props.reformReduxContextGetFieldCount(this.props.name) > 1 &&
         this.props.checked !== prevProps.checked
       ) {
         // Dont change field value if it's was changed (checkboxes)
@@ -336,7 +305,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       }
 
       // Update value only for single fields
-      if (this.props.reformReduxContext.field.getFieldCount(this.props.name) > 1) {
+      if (this.props.reformReduxContextGetFieldCount(this.props.name) > 1) {
         return;
       }
 
@@ -356,12 +325,12 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
     setFieldErrors = (errors: Array<string>) => {
       if (!is(getIn(this.state.field, ['errors']), errors)) {
-        this.props.reformReduxContext.field.setFieldErrors(this.props.name, errors);
+        this.props.reformReduxContextSetFieldErrors(this.props.name, errors);
       }
     };
 
     changeFieldValue = async (value: any) => {
-      this.props.reformReduxContext.field.changeFieldValue(this.props.name, value);
+      this.props.reformReduxContextChangeFieldValue(this.props.name, value);
 
       if (getIn(this.state.field, ['touched']) && this.props.validate) {
         const validate: Array<Function> = getValidateFunctionsArray(dataFunctions)(
@@ -384,7 +353,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
       if (this.isCheckbox()) {
         const checked = isEvent ? data.target.checked : data;
-        if (this.props.reformReduxContext.field.getFieldCount(this.props.name) > 1) {
+        if (this.props.reformReduxContextGetFieldCount(this.props.name) > 1) {
           return list(
             checked
               ? [...toJS(getIn(this.state.field, ['value'])), toJS(this.props.value)]
@@ -414,8 +383,8 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       const { normalize, name } = this.props;
 
       if (normalize) {
-        const state: State = this.props.reactReduxContext.store.getState();
-        const currentFormData: State = getIn(state, this.props.reformReduxContext.form.path);
+        const state: State = this.props.reactReduxContextGetState();
+        const currentFormData: State = getIn(state, this.props.reformReduxContextFormPath);
         const fields: FieldsData = getIn(currentFormData, ['fields']);
 
         value = normalize(
@@ -450,7 +419,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
       // If the field was touched don't validate him.
 
       if (getIn(this.state.field, ['touched'])) return;
-      this.props.reformReduxContext.field.setFieldTouched(this.props.name, true);
+      this.props.reformReduxContextSetFieldTouched(this.props.name, true);
 
       if (this.props.validate) {
         const validate: Array<Function> = getValidateFunctionsArray(dataFunctions)(
@@ -537,7 +506,7 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
         fieldProps = {
           ...fieldProps,
           innerRef,
-          formName: this.props.reformReduxContext.form.name,
+          formName: this.props.reformReduxContextFormName,
           errors: getIn(this.state.field, ['errors']),
           changed: getIn(this.state.field, ['changed']),
           touched: getIn(this.state.field, ['touched']),
@@ -563,14 +532,33 @@ export const createFieldComponent: ComponentCreator = (dataFunctions: DataFuncti
 
   return forwardRef((props, ref) =>
     createElement(ReactReduxContext.Consumer, {}, reactReduxContextValue =>
-      createElement(ReformReduxContext.Consumer, {}, reformReduxContextValue =>
-        createElement(Field, {
+      createElement(ReformReduxContext.Consumer, {}, reformReduxContextValue => {
+        if (!reformReduxContextValue) {
+          throw new Error('Component `Field` must be in `Form` component.');
+        }
+
+        return createElement(Field, {
           ...props,
-          reactReduxContext: reactReduxContextValue,
-          reformReduxContext: reformReduxContextValue,
+
+          reactReduxContextGetState: reactReduxContextValue.store.getState,
+          reactReduxContextSubscribe: reactReduxContextValue.store.subscribe,
+
+          reformReduxContextGetFieldCount: reformReduxContextValue.field.getFieldCount,
+          reformReduxContextSetFieldTouched: reformReduxContextValue.field.setFieldTouched,
+          reformReduxContextSetFieldChanged: reformReduxContextValue.field.setFieldChanged,
+          reformReduxContextChangeFieldValue: reformReduxContextValue.field.changeFieldValue,
+          reformReduxContextSetFieldErrors: reformReduxContextValue.field.setFieldErrors,
+
+          reformReduxContextFormName: reformReduxContextValue.form.name,
+          reformReduxContextFormPath: reformReduxContextValue.form.path,
+          reformReduxContextFormUnregisterField: reformReduxContextValue.form.unregisterField,
+          reformReduxContextFormRegisterField: reformReduxContextValue.form.registerField,
+          reformReduxContextCoreUpdateStackFieldValue:
+            reformReduxContextValue._core.updateStackFieldValue,
+
           innerRef: ref,
-        }),
-      ),
+        });
+      }),
     ),
   );
 };

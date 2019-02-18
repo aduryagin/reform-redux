@@ -54,7 +54,6 @@ import type { DataFunctions } from '../types/dataFunctions';
  */
 
 export const createFormReducer: Function = ({
-  fromJS,
   map,
   hasIn,
   setIn,
@@ -66,16 +65,16 @@ export const createFormReducer: Function = ({
   list,
   isList,
 }: DataFunctions) => {
-  const initialState: State = fromJS({
+  const initialState: State = {
     valid: true,
     submitted: false,
     submitting: false,
     changed: false,
     touched: false,
-    fields: map({}),
-  });
-  let initialFormState: State = map(initialState);
-  let emptyFormState: State = map(initialState);
+    fields: {},
+  };
+  let initialFormState: State = initialState;
+  let emptyFormState: State = initialState;
 
   const reducers: {
     [reducerName: string]: (state: State, action?: Action) => State,

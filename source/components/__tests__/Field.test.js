@@ -1,5 +1,6 @@
 import { Component, createElement } from 'react';
 import { Provider } from 'react-redux';
+import { Provider as ReactReduxProvider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
 import { Field, changeFieldValue, Form, setFieldHidden } from '../../index';
 import { formInitialisation } from '../../actions/Form';
@@ -220,9 +221,15 @@ describe('components / Field', () => {
 
   it('if component is not in Form component then throw error', () => {
     console.error = jest.fn(); // eslint-disable-line
-    expect(() => mount(createElement(Field, { name: 'name', component: 'input' }))).toThrow(
-      'Component `Field` must be in `Form` component.',
-    );
+    expect(() =>
+      mount(
+        createElement(
+          ReactReduxProvider,
+          { store: global.store },
+          createElement(Field, { name: 'name', component: 'input' }),
+        ),
+      ),
+    ).toThrow('Component `Field` must be in `Form` component.');
   });
 
   it('check component prop types', () => {
@@ -236,7 +243,7 @@ describe('components / Field', () => {
     ];
 
     try {
-      mount(createElement(Field));
+      mount(createElement(global.Provider, {}, createElement(Field)));
     } catch (e) {
       expect(errors[0]).toEqual(expect.stringContaining(expectedErrors[0]));
       expect(errors[1]).toEqual(expect.stringContaining(expectedErrors[1]));
@@ -249,10 +256,14 @@ describe('components / Field', () => {
 
     try {
       mount(
-        createElement(Field, {
-          name: 'test',
-          normalize: 'test',
-        }),
+        createElement(
+          global.Provider,
+          {},
+          createElement(Field, {
+            name: 'test',
+            normalize: 'test',
+          }),
+        ),
       );
     } catch {
       expect(errors[0]).toEqual(expect.stringContaining(expectedErrors[0]));
@@ -1198,8 +1209,18 @@ describe('components / Field', () => {
     const input = component.find(customComponent);
 
     expect(Object.keys(input.props())).toEqual([
-      'reactReduxContext',
-      'reformReduxContext',
+      'reactReduxContextGetState',
+      'reactReduxContextSubscribe',
+      'reformReduxContextGetFieldCount',
+      'reformReduxContextSetFieldTouched',
+      'reformReduxContextSetFieldChanged',
+      'reformReduxContextChangeFieldValue',
+      'reformReduxContextSetFieldErrors',
+      'reformReduxContextFormName',
+      'reformReduxContextFormPath',
+      'reformReduxContextFormUnregisterField',
+      'reformReduxContextFormRegisterField',
+      'reformReduxContextCoreUpdateStackFieldValue',
       'value',
       'hidden',
       'onChange',
