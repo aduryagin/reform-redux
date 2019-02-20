@@ -26,7 +26,7 @@ import {
   setFieldsHidden,
 } from '../actions/Field';
 import { validateField, getValidateFunctionsArray } from '../utils/Field';
-import { debounce, asyncForEach, filterReactDomProps } from '../utils/common';
+import { debounce, asyncForEach, filterReactDomProps, getFormNameKey } from '../utils/common';
 import type { ComponentProps, FieldsValidate } from '../types/Form';
 import type {
   FieldData,
@@ -130,6 +130,11 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
       this.path = props.path.split('.');
       this.formName = props.name || this.path.slice(-1)[0];
+
+      if (props.name) {
+        const formKey: string = getFormNameKey(props.name);
+        this.path = this.path.concat(formKey);
+      }
 
       if (!this.fieldsStack[this.formName]) this.fieldsStack[this.formName] = {};
       if (!this.fieldsCount[this.formName]) this.fieldsCount[this.formName] = {};
