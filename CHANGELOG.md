@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.9.0] - 2019-2-20
+
+- Remove support of immutable.js
+- Audit fixes
+- Simplify Field props
+- Support multiple forms with same name
+
 ## [1.8.9] - 2019-2-6
 
 - Form update bugfixes
