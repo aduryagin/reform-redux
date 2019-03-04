@@ -133,7 +133,10 @@ export const createFormComponent: ComponentCreator = (dataFunctions: DataFunctio
 
       if (props.name) {
         const formKey: string = getFormNameKey(props.name);
-        this.path = this.path.concat(formKey);
+
+        if (formKey) {
+          this.path = this.path.concat(formKey);
+        }
       }
 
       if (!this.fieldsStack[this.formName]) this.fieldsStack[this.formName] = {};
