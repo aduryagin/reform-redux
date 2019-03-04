@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.9.1] - 2019-3-4
+
+- If form key doesnt exists, dont concat him to form path
+
 ## [1.9.0] - 2019-2-20
 
 - Remove support of immutable.js
