@@ -76,7 +76,7 @@
     "test:dev": "npm run test -- --watch",
     "test:dev:inspect": "node --inspect-brk node_modules/.bin/jest --runInBand --config ./jest/jest.config.js --watch",
     "precommit": "npm run fix && npm run documentation:build && git add .",
-    "prepush": "npm run lint && npm run test && npm run flow && npm run documentation:build",
-    "prepublish": "npm run lint && npm run flow && npm run test && npm run documentation:build && npm run build"
+    "prepush": "npm run lint && npm run test && npm run documentation:build",
+    "prepublish": "npm run lint && npm run test && npm run documentation:build && npm run build"
   }
 }

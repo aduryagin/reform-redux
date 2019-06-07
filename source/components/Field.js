@@ -246,6 +246,29 @@ const useHandlers = (contexts, { fieldState, setFieldState }, props) => {
     [fieldState, props.name, props.validate, reformReduxContext.field, setFieldErrors],
   );
 
+  const isCheckbox = useCallback(
+    () => {
+      const { type } = props;
+      return type && type === 'checkbox';
+    },
+    [props],
+  );
+
+  const isRadio = useCallback(
+    () => {
+      const { type } = props;
+      return type && type === 'radio';
+    },
+    [props],
+  );
+
+  const isRadioOrCheckbox = useCallback(
+    () => {
+      return isRadio() || isCheckbox();
+    },
+    [isCheckbox, isRadio],
+  );
+
   const getFieldValue = useCallback(
     data => {
       const isEvent = data && data.nativeEvent && data.nativeEvent instanceof Event;
@@ -357,29 +380,6 @@ const useHandlers = (contexts, { fieldState, setFieldState }, props) => {
       }
     },
     [changeFieldValueHandler, fieldState, props],
-  );
-
-  const isRadioOrCheckbox = useCallback(
-    () => {
-      return isRadio() || isCheckbox();
-    },
-    [isCheckbox, isRadio],
-  );
-
-  const isCheckbox = useCallback(
-    () => {
-      const { type } = props;
-      return type && type === 'checkbox';
-    },
-    [props],
-  );
-
-  const isRadio = useCallback(
-    () => {
-      const { type } = props;
-      return type && type === 'radio';
-    },
-    [props],
   );
 
   return {

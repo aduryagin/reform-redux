@@ -1,0 +1,19 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": "last 1 Chrome version"
+        }],
+        "@babel/preset-react",
+      ],
+      "plugins": [
+        ["transform-es2015-modules-commonjs", {
+          "loose": false
+        }],
+        "@babel/plugin-proposal-class-properties",
+        "@babel/proposal-optional-chaining"
+      ]
+    }
+  }
+}
