@@ -9,7 +9,7 @@ import {
   useState,
   useMemo,
 } from 'react';
-import { ReactReduxContext } from 'react-redux';
+import { useStore } from 'react-redux';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
@@ -101,7 +101,7 @@ const useFieldState = (contexts, props) => {
   let initialFieldData = useRef({});
   useMemo(
     () => {
-      const { reformReduxContext, reactReduxContext } = contexts;
+      const { reformReduxContext, reactReduxStore } = contexts;
       const formPath = reformReduxContext.form.path;
 
       if (
@@ -145,7 +145,7 @@ const useFieldState = (contexts, props) => {
       if (reformReduxContext.field.getFieldCount(props.name) === 0) {
         // Get default value from store if it exists
 
-        const state = reactReduxContext.store.getState();
+        const state = reactReduxStore.getState();
         const currentFormData = get(state, formPath);
         const initialFieldDataFromStore = get(currentFormData, ['fields', props.name]);
 
@@ -160,44 +160,56 @@ const useFieldState = (contexts, props) => {
 
   // field state
   const [fieldState, setFieldState] = useState(initialFieldData.current);
-
   return { fieldState, setFieldState };
 };
 
 const useContexts = () => {
-  const reactReduxContext = useContext(ReactReduxContext);
+  const reactReduxStore = useStore();
   const reformReduxContext = useContext(ReformReduxContext);
 
   if (!reformReduxContext) {
     throw new Error('Component `Field` must be in `Form` component.');
   }
 
-  return { reactReduxContext, reformReduxContext };
+  return { reactReduxStore, reformReduxContext };
 };
 
 const useHandlers = (contexts, { fieldState, setFieldState }, props) => {
-  const { reformReduxContext, reactReduxContext } = contexts;
+  const { reformReduxContext, reactReduxStore } = contexts;
   const formPath = reformReduxContext.form.path;
   const unsubscribeFromStore = useRef(null);
+  const fieldStateRef = useRef(fieldState);
+
+  // magic for react state https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+  useEffect(
+    () => {
+      fieldStateRef.current = fieldState;
+    },
+    [fieldState],
+  );
 
   const registerField = useCallback(
     () => {
-      unsubscribeFromStore.current = reactReduxContext.store.subscribe(() => {
-        const state = reactReduxContext.store.getState();
-        const nextFieldData = get(state, [...formPath, 'fields', props.name], fieldState);
+      unsubscribeFromStore.current = reactReduxStore.subscribe(() => {
+        const state = reactReduxStore.getState();
+        const nextFieldData = get(
+          state,
+          [...formPath, 'fields', props.name],
+          fieldStateRef.current,
+        );
 
-        if (!isEqual(get(fieldState, ['value']), get(nextFieldData, ['value']))) {
+        if (!isEqual(get(fieldStateRef.current, ['value']), get(nextFieldData, ['value']))) {
           reformReduxContext._core.updateStackFieldValue(props.name, get(nextFieldData, ['value']));
         }
 
-        if (!isEqual(fieldState, nextFieldData)) {
+        if (!isEqual(fieldStateRef.current, nextFieldData)) {
           setFieldState({ ...nextFieldData });
         }
       });
 
       // Register
 
-      const initialFieldData = { ...fieldState };
+      const initialFieldData = { ...fieldStateRef.current };
       const { type, checked, multiple, component } = props;
 
       const validate = getValidateFunctionsArray(props.validate);
@@ -210,10 +222,9 @@ const useHandlers = (contexts, { fieldState, setFieldState }, props) => {
       });
     },
     [
-      fieldState,
       formPath,
       props,
-      reactReduxContext.store,
+      reactReduxStore,
       reformReduxContext._core,
       reformReduxContext.form,
       setFieldState,
@@ -316,7 +327,7 @@ const useHandlers = (contexts, { fieldState, setFieldState }, props) => {
       const { normalize, name } = props;
 
       if (normalize) {
-        const state = reactReduxContext.store.getState();
+        const state = reactReduxStore.getState();
         const currentFormData = get(state, formPath);
         const fields = get(currentFormData, ['fields']);
 
@@ -330,7 +341,7 @@ const useHandlers = (contexts, { fieldState, setFieldState }, props) => {
         onChange(data, value, get(fieldState, ['value']));
       }
     },
-    [changeFieldValue, fieldState, formPath, getFieldValue, props, reactReduxContext.store],
+    [changeFieldValue, fieldState, formPath, getFieldValue, props, reactReduxStore],
   );
 
   const onBlurFieldHandler = useCallback(
@@ -528,9 +539,9 @@ const useDataUpdater = (contexts, { changeFieldValue, getFieldValue }, { fieldSt
  * @param {boolean} [removeOnUnmount] Remove field data from store on unmount
  */
 const Field = props => {
-  const { reactReduxContext, reformReduxContext } = useContexts();
+  const { reactReduxStore, reformReduxContext } = useContexts();
   const { fieldState, setFieldState } = useFieldState(
-    { reactReduxContext, reformReduxContext },
+    { reactReduxStore, reformReduxContext },
     props,
   );
   const {
@@ -543,16 +554,16 @@ const Field = props => {
     onFocusFieldHandler,
     isRadioOrCheckbox,
     isCheckbox,
-  } = useHandlers({ reactReduxContext, reformReduxContext }, { fieldState, setFieldState }, props);
+  } = useHandlers({ reactReduxStore, reformReduxContext }, { fieldState, setFieldState }, props);
 
   useRegistration(
-    { reactReduxContext, reformReduxContext },
+    { reactReduxStore, reformReduxContext },
     { registerField, unsubscribeFromStore },
     props,
   );
 
   useDataUpdater(
-    { reactReduxContext, reformReduxContext },
+    { reactReduxStore, reformReduxContext },
     {
       changeFieldValue,
       getFieldValue,

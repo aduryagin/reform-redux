@@ -1,6 +1,14 @@
 import { ReactReduxContext } from 'react-redux';
 import get from 'lodash/get';
-import { createElement, forwardRef, useEffect, useState, useContext, useCallback } from 'react';
+import {
+  createElement,
+  forwardRef,
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+  memo,
+} from 'react';
 import { resetForm } from '../actions/Form';
 import { filterReactDomProps } from '../utils/common';
 import { ReformReduxContext } from './Form';
@@ -88,4 +96,4 @@ const Button = props => {
   return createElement(customComponent, componentProps);
 };
 
-export default forwardRef((props, ref) => createElement(Button, { ...props, innerRef: ref }));
+export default memo(forwardRef((props, ref) => createElement(Button, { ...props, innerRef: ref })));

@@ -166,6 +166,7 @@ const DOMProps = [
   'challenge',
   'charset',
   'checked',
+  'children',
   'cite',
   'class',
   'className',
