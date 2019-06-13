@@ -1617,7 +1617,7 @@ describe('components / Field', () => {
             value: [2, 1],
           },
           field2: {
-            changed: false,
+            changed: true,
             disabled: false,
             hidden: false,
             errors: [],
