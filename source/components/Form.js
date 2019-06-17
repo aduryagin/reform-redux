@@ -117,46 +117,63 @@ const useReformContext = (
         field: {
           getFieldCount: fieldName => fieldsCount.current[formName][fieldName] || 0,
           setFieldHidden: (fieldName, fieldHidden) => {
-            fieldsStack.current[formName][fieldName].hidden = fieldHidden;
+            if (fieldsStack.current[formName][fieldName]) {
+              fieldsStack.current[formName][fieldName].hidden = fieldHidden;
+            }
             reactReduxStore.dispatch(setFieldHidden(formName, fieldName, fieldHidden));
           },
           setFieldsHidden: hiddenFields => {
             Object.keys(hiddenFields).forEach(hiddenField => {
-              fieldsStack.current[formName][hiddenField].hidden = hiddenFields[hiddenField].hidden;
+              if (fieldsStack.current[formName][hiddenField]) {
+                fieldsStack.current[formName][hiddenField].hidden =
+                  hiddenFields[hiddenField].hidden;
+              }
             });
             reactReduxStore.dispatch(setFieldsHidden(formName, hiddenFields));
           },
           setFieldTouched: (fieldName, fieldTouched) => {
-            fieldsStack.current[formName][fieldName].touched = fieldTouched;
+            if (fieldsStack.current[formName][fieldName]) {
+              fieldsStack.current[formName][fieldName].touched = fieldTouched;
+            }
             reactReduxStore.dispatch(setFieldTouched(formName, fieldName, fieldTouched));
           },
           setFieldsTouched: fieldsTouched => {
             Object.keys(fieldsTouched).forEach(touchedField => {
-              fieldsStack.current[formName][touchedField].touched =
-                fieldsTouched[touchedField].touched;
+              if (fieldsStack.current[formName][touchedField]) {
+                fieldsStack.current[formName][touchedField].touched =
+                  fieldsTouched[touchedField].touched;
+              }
             });
             reactReduxStore.dispatch(setFieldsTouched(formName, fieldsTouched));
           },
           setFieldChanged: (fieldName, fieldChanged) => {
-            fieldsStack.current[formName][fieldName].changed = fieldChanged;
+            if (fieldsStack.current[formName][fieldName]) {
+              fieldsStack.current[formName][fieldName].changed = fieldChanged;
+            }
             reactReduxStore.dispatch(setFieldChanged(formName, fieldName, fieldChanged));
           },
           setFieldsChanged: fieldsChanged => {
             Object.keys(fieldsChanged).forEach(changedField => {
-              fieldsStack.current[formName][changedField].changed =
-                fieldsChanged[changedField].changed;
+              if (fieldsStack.current[formName][changedField]) {
+                fieldsStack.current[formName][changedField].changed =
+                  fieldsChanged[changedField].changed;
+              }
             });
             reactReduxStore.dispatch(setFieldsChanged(formName, fieldsChanged));
           },
           removeField: fieldName => reactReduxStore.dispatch(removeField(formName, fieldName)),
           changeFieldsValues: fieldsValues => {
             Object.keys(fieldsValues).forEach(field => {
-              fieldsStack.current[formName][field].changed = true;
+              if (fieldsStack.current[formName][field]) {
+                fieldsStack.current[formName][field].changed = true;
+              }
             });
             reactReduxStore.dispatch(changeFieldsValues(formName, fieldsValues));
           },
           changeFieldValue: (fieldName, fieldValue) => {
-            fieldsStack.current[formName][fieldName].changed = true;
+            if (fieldsStack.current[formName][fieldName]) {
+              fieldsStack.current[formName][fieldName].changed = true;
+            }
             reactReduxStore.dispatch(changeFieldValue(formName, fieldName, fieldValue));
           },
           setFieldErrors: (fieldName, errors) =>
@@ -174,7 +191,9 @@ const useReformContext = (
         },
         _core: {
           updateStackFieldValue: (fieldName, fieldValue) => {
-            fieldsStack.current[formName][fieldName].value = fieldValue;
+            if (fieldsStack.current[formName][fieldName]) {
+              fieldsStack.current[formName][fieldName].value = fieldValue;
+            }
           },
         },
       };
