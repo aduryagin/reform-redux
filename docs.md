@@ -68,9 +68,9 @@
 -   [ResetState][64]
 -   [formReducerCreator][65]
     -   [Parameters][66]
--   [onSubmitFailed][67]
+-   [onSubmit][67]
     -   [Parameters][68]
--   [onSubmit][69]
+-   [onSubmitFailed][69]
     -   [Parameters][70]
 -   [FieldName][71]
 -   [FieldData][72]
@@ -91,9 +91,9 @@
     -   [Parameters][87]
 -   [FieldComponent][88]
     -   [Parameters][89]
--   [ButtonType][90]
--   [ButtonComponent][91]
-    -   [Parameters][92]
+-   [ButtonComponent][90]
+    -   [Parameters][91]
+-   [ButtonType][92]
 
 ## Components
 
@@ -629,6 +629,15 @@ Type: [Function][104]
 
 -   `formName` **[string][93]** 
 
+## onSubmit
+
+Type: [Function][104]
+
+### Parameters
+
+-   `fields` **[FieldsData][109]** 
+-   `event` **[Event][110]** 
+
 ## onSubmitFailed
 
 Type: [Function][104]
@@ -636,15 +645,6 @@ Type: [Function][104]
 ### Parameters
 
 -   `errorFields` **[FieldsData][109]** 
--   `fields` **[FieldsData][109]** 
--   `event` **[Event][110]** 
-
-## onSubmit
-
-Type: [Function][104]
-
-### Parameters
-
 -   `fields` **[FieldsData][109]** 
 -   `event` **[Event][110]** 
 
@@ -753,17 +753,17 @@ Returns **any** new value
 -   `checked` **[boolean][96]** This prop will avaible in the component if your component is checkbox or radio button.
 -   `errors` **[Array][107]&lt;[string][93]>** Array of errors.
 
-## ButtonType
-
-submit | reset
-
-Type: [string][93]
-
 ## ButtonComponent
 
 ### Parameters
 
 -   `isLoading` **[boolean][96]** When form submitting
+
+## ButtonType
+
+submit | reset
+
+Type: [string][93]
 
 [1]: #components
 
@@ -897,11 +897,11 @@ Type: [string][93]
 
 [66]: #parameters-20
 
-[67]: #onsubmitfailed
+[67]: #onsubmit
 
 [68]: #parameters-21
 
-[69]: #onsubmit
+[69]: #onsubmitfailed
 
 [70]: #parameters-22
 
@@ -943,11 +943,11 @@ Type: [string][93]
 
 [89]: #parameters-29
 
-[90]: #buttontype
+[90]: #buttoncomponent
 
-[91]: #buttoncomponent
+[91]: #parameters-30
 
-[92]: #parameters-30
+[92]: #buttontype
 
 [93]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 

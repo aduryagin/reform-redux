@@ -403,19 +403,21 @@ const useHandlers = (
         }
 
         await asyncForEach(Object.keys(fields), async fieldKey => {
-          const validateFunctions = getValidateFunctionsArray(
-            dataStacks.fieldsValidateStack.current[formName][fieldKey],
-          );
-          let errors = get(fields, [fieldKey, 'errors']);
+          if (!fields[fieldKey].disabled) {
+            const validateFunctions = getValidateFunctionsArray(
+              dataStacks.fieldsValidateStack.current[formName][fieldKey],
+            );
+            let errors = get(fields, [fieldKey, 'errors']);
 
-          if (!errors.length) {
-            errors = await validateField(get(fields, [fieldKey, 'value']), validateFunctions);
-          }
+            if (!errors.length) {
+              errors = await validateField(get(fields, [fieldKey, 'value']), validateFunctions);
+            }
 
-          fieldsErrors[fieldKey] = errors;
+            fieldsErrors[fieldKey] = errors;
 
-          if (errors.length) {
-            errorsExists = true;
+            if (errors.length) {
+              errorsExists = true;
+            }
           }
         });
 
