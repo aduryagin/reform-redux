@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.4] - 2019-8-6
+
+- Fix: dont validate disabled fields
+
 ## [2.0.3] - 2019-6-17
 
 - Fix: field isset issue on form update
