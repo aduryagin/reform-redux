@@ -68,28 +68,28 @@
 -   [ResetState][64]
 -   [formReducerCreator][65]
     -   [Parameters][66]
--   [onSubmit][67]
+-   [onSubmitFailed][67]
     -   [Parameters][68]
--   [onSubmitFailed][69]
+-   [onSubmit][69]
     -   [Parameters][70]
--   [FieldName][71]
--   [FieldData][72]
-    -   [Properties][73]
--   [FieldsData][74]
--   [Validate][75]
-    -   [Parameters][76]
--   [ValidateFunctions][77]
+-   [FieldsData][71]
+-   [FieldComponent][72]
+    -   [Parameters][73]
+-   [FieldName][74]
+-   [FieldData][75]
+    -   [Properties][76]
+-   [FieldOnChange][77]
     -   [Parameters][78]
--   [NormalizeWhen][79]
--   [Normalize][80]
-    -   [Parameters][81]
--   [OnEvent][82]
-    -   [Parameters][83]
--   [OnChange][84]
+-   [Validate][79]
+    -   [Parameters][80]
+-   [ValidateFunctions][81]
+    -   [Parameters][82]
+-   [NormalizeWhen][83]
+-   [Normalize][84]
     -   [Parameters][85]
--   [FieldOnChange][86]
+-   [OnEvent][86]
     -   [Parameters][87]
--   [FieldComponent][88]
+-   [OnChange][88]
     -   [Parameters][89]
 -   [ButtonComponent][90]
     -   [Parameters][91]
@@ -629,15 +629,6 @@ Type: [Function][104]
 
 -   `formName` **[string][93]** 
 
-## onSubmit
-
-Type: [Function][104]
-
-### Parameters
-
--   `fields` **[FieldsData][109]** 
--   `event` **[Event][110]** 
-
 ## onSubmitFailed
 
 Type: [Function][104]
@@ -647,6 +638,34 @@ Type: [Function][104]
 -   `errorFields` **[FieldsData][109]** 
 -   `fields` **[FieldsData][109]** 
 -   `event` **[Event][110]** 
+
+## onSubmit
+
+Type: [Function][104]
+
+### Parameters
+
+-   `fields` **[FieldsData][109]** 
+-   `event` **[Event][110]** 
+
+## FieldsData
+
+Type: [object][106]&lt;[FieldName][105], [FieldData][111]>
+
+## FieldComponent
+
+### Parameters
+
+-   `onChange` **[FieldOnChange][112]** Execute this function when you need to change value in the store.
+-   `onBlur` **[OnEvent][100]** This function will trigger function or functions which validate your field.
+-   `onFocus` **[OnEvent][100]** This function will trigger normalize function.
+-   `value` **any** Field value.
+-   `disabled` **[boolean][96]** Field disabled or not.
+-   `changed` **[boolean][96]** Field changed or not.
+-   `formName` **[string][93]** Form name.
+-   `touched` **[boolean][96]** Field touched or not.
+-   `checked` **[boolean][96]** This prop will avaible in the component if your component is checkbox or radio button.
+-   `errors` **[Array][107]&lt;[string][93]>** Array of errors.
 
 ## FieldName
 
@@ -666,9 +685,16 @@ Type: [object][106]
     -   `FieldData.touched` **[boolean][96]** 
     -   `FieldData.disabled` **[boolean][96]** 
 
-## FieldsData
+## FieldOnChange
 
-Type: [object][106]&lt;[FieldName][105], [FieldData][111]>
+Type: [Function][104]
+
+### Parameters
+
+-   `data` **any** 
+-   `normalizeWhen` **[string][93]**  (optional, default `onChange`)
+
+Returns **any** new value
 
 ## Validate
 
@@ -678,11 +704,11 @@ Type: [Function][104]
 
 -   `value` **any** 
 
-Returns **([undefined][112] \| [string][93])** error or nothing
+Returns **([undefined][113] \| [string][93])** error or nothing
 
 ## ValidateFunctions
 
-Type: ([Validate][113] \| [Array][107]&lt;[Validate][113]>)
+Type: ([Validate][114] \| [Array][107]&lt;[Validate][114]>)
 
 ### Parameters
 
@@ -704,7 +730,7 @@ Type: [Function][104]
 -   `value` **any** 
 -   `previousValue` **any** 
 -   `allFields` **[FieldsData][109]** 
--   `when` **[NormalizeWhen][114]** 
+-   `when` **[NormalizeWhen][115]** 
 -   `name` **[FieldName][105]** 
 
 Returns **any** normalized value
@@ -726,32 +752,6 @@ Type: [Function][104]
 
 -   `data` **any** 
 -   `value` **any** 
-
-## FieldOnChange
-
-Type: [Function][104]
-
-### Parameters
-
--   `data` **any** 
--   `normalizeWhen` **[string][93]**  (optional, default `onChange`)
-
-Returns **any** new value
-
-## FieldComponent
-
-### Parameters
-
--   `onChange` **[FieldOnChange][115]** Execute this function when you need to change value in the store.
--   `onBlur` **[OnEvent][100]** This function will trigger function or functions which validate your field.
--   `onFocus` **[OnEvent][100]** This function will trigger normalize function.
--   `value` **any** Field value.
--   `disabled` **[boolean][96]** Field disabled or not.
--   `changed` **[boolean][96]** Field changed or not.
--   `formName` **[string][93]** Form name.
--   `touched` **[boolean][96]** Field touched or not.
--   `checked` **[boolean][96]** This prop will avaible in the component if your component is checkbox or radio button.
--   `errors` **[Array][107]&lt;[string][93]>** Array of errors.
 
 ## ButtonComponent
 
@@ -897,49 +897,49 @@ Type: [string][93]
 
 [66]: #parameters-20
 
-[67]: #onsubmit
+[67]: #onsubmitfailed
 
 [68]: #parameters-21
 
-[69]: #onsubmitfailed
+[69]: #onsubmit
 
 [70]: #parameters-22
 
-[71]: #fieldname
+[71]: #fieldsdata
 
-[72]: #fielddata
+[72]: #fieldcomponent
 
-[73]: #properties
+[73]: #parameters-23
 
-[74]: #fieldsdata
+[74]: #fieldname
 
-[75]: #validate
+[75]: #fielddata
 
-[76]: #parameters-23
+[76]: #properties
 
-[77]: #validatefunctions
+[77]: #fieldonchange
 
 [78]: #parameters-24
 
-[79]: #normalizewhen
+[79]: #validate
 
-[80]: #normalize
+[80]: #parameters-25
 
-[81]: #parameters-25
+[81]: #validatefunctions
 
-[82]: #onevent
+[82]: #parameters-26
 
-[83]: #parameters-26
+[83]: #normalizewhen
 
-[84]: #onchange
+[84]: #normalize
 
 [85]: #parameters-27
 
-[86]: #fieldonchange
+[86]: #onevent
 
 [87]: #parameters-28
 
-[88]: #fieldcomponent
+[88]: #onchange
 
 [89]: #parameters-29
 
@@ -987,10 +987,10 @@ Type: [string][93]
 
 [111]: #fielddata
 
-[112]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[112]: #fieldonchange
 
-[113]: #validate
+[113]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
 
-[114]: #normalizewhen
+[114]: #validate
 
-[115]: #fieldonchange
+[115]: #normalizewhen
